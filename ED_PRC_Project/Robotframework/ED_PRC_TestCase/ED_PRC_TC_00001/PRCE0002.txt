@@ -1,54 +1,128 @@
 *** Settings ***
 Documentation     *** ทดสอบการบันทึกรหัสเครื่องหมายการค้าหลักในกรณี Happy Flow ***
-Suite Setup       Open Browser    http://13.250.227.94:7001/ED-WEB/#/    gc
+Suite Setup
 Suite Teardown    Close Browser
 Library           Selenium2Library
 Library           String
 Library           BuiltIn
 
+*** Variables ***
+
 *** Test Cases ***
 ED_00001_Step_1
-    [Documentation]    * ตรวจสอบหน้าจอ บันทึกรหัส เครื่องหมายการค้าหลัก (PRCE0002) *
-    ...    ระบบแสดงหน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก ประกอบด้วย :
+    [Documentation]    * ตรวจสอบหน้าจอ บันทึกรหัส เครื่องหมายการค้าหลัก (PRCE0002) *    ##### หาlocator บางอันไม่เจอครับ แล้วก็ไม่รู้จะใช้คำสั่งไหนให้ถูกต้อง เช่นบางอย่างใช้ text หรือ element ดี หรือว่า buttomดี \ มีคำสั่งcomment รายละเอียดข้างๆไหมครับจะได้เขียนว่าติดอะไร และคำสั่งนี้ทำอะไร
+    ...    ระบบแสดงหน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก ประกอบด้วย
     ...    1. เครื่องหมายการค้าหลัก
     ...    - ชื่อกลุ่มสินค้า
-    ...    - ปุ่มตกลง - ยังไม่ได้
-    ...    - ปุ่มล้าง \ \ \ - ยังไม่ได้
+    ...    - ปุ่มตกลง
+    ...    - ปุ่มล้าง
     ...    2. บันทึกรายการ
     ...    - รหัสเครื่องหมายการค้า
     ...    - ชื่อเครื่องหมายการค้า (ไทย)
     ...    - ชื่อเครื่องหมายการค้า (อังกฤษ)
     ...    - วันที่เริ่มใช้รหัสเครื่องหมายการค้า
     ...    - วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
-    ...    - ปุ่มบันทึก \ \ -ยังไม่ได้
-    ...    - ปุ่มลบ \ \ \ \ \ \ \ -ยังไม่ได้
-    ...    - ปุ่มค้นหา \ \ \ -ยังไม่ได้
-    ...    - ปุ่มล้างข้อมูล \ \ \ -ยังไม่ได้
+    ...    - ปุ่มบันทึก
+    ...    - ปุ่มลบ
+    ...    - ปุ่มค้นหา
+    ...    - ปุ่มล้างข้อมูล
     ...    3. ตารางแสดงผลข้อมูล
     ...    - รหัสเครื่องหมายการค้าหลัก
     ...    - ชื่อเครื่องหมายการค้าหลัก (ไทย)
     ...    - ชื่อเครื่องหมายการค้า (อังกฤษ)
     ...    - วันที่เริ่มใช้รหัสเครื่องหมายการค้า
     ...    - วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
-    ...    4. Items per page \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -ยังไม่ได้
+    ...    4. Items per page \ \ \ \ -ยังไม่ได้
     ...    - dropdown list เลือกจำนวนหน้า
     ...    - รายการแสดงจำนวนหน้าที่เลือก
-    ...    5. ปุ่มก่อน...ถัดไป \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -ยังไม่ได้
-    ...
-    ...    ##### หาlocator บางอันไม่เจอครับ แล้วก็ไม่รู้จะใช้คำสั่งไหนให้ถูกต้อง เช่นบางอย่างใช้ text หรือ element ดี หรือว่า buttomดี \ มีคำสั่งcomment รายละเอียดข้างๆไหมครับจะได้เขียนว่าติดอะไร และคำสั่งนี้ทำอะไร
-    Sleep    2.5
-    Click Element    //*[@id="bs-example-navbar-collapse-1"]/ul/li[1]/a/span
-    Sleep    2.5
-    Title Should Be    บันทึกรหัสเครื่องหมายการค้าหลัก
+    ...    5. ปุ่มก่อน...ถัดไป \ \ \ \ -ยังไม่ได้
+    Open Website trademark(Main)
     Page Should Contain    เครื่องหมายการค้าหลัก
     Page Should Contain    ชื่อกลุ่มสินค้า
-    Page Should Contain Element    //*[@id="select2-dutyCodeString-container"]
+    #Check ปุ่ม buttom " ตกลง "
+    Page Should Contain Button    xpath=/html/body/app-root/div[1]/app-trademark/div[1]/div[2]/div[2]/div/div/button[1]
+    Log To Console    Buttom ตกลง Pass
+    # Check ปุ่ม buttom " ล้าง "
+    Page Should Contain Button    xpath=/html/body/app-root/div[1]/app-trademark/div[1]/div[2]/div[2]/div/div/button[2]
     Page Should Contain    บันทึกรายการ
     Page Should Contain    รหัสเครื่องหมายการค้า
     Page Should Contain    ชื่อเครื่องหมายการค้า (ไทย)
     Page Should Contain    ชื่อเครื่องหมายการค้า (อังกฤษ)
     Page Should Contain    วันที่เริ่มใช้รหัสเครื่องหมายการค้า
     Page Should Contain    วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
-    Page Should Contain    Items per page:
-    Page Should Contain Element    //*[@id="mat-select-12"]/div/div[1]/span/span
-    Page Should Contain Element    //*[@id="mat-select-12"]/div/div[1]
+    # Check Buttom บันทึก
+    Page Should Contain Button    xpath=/html/body/app-root/div[1]/app-trademark/div[2]/div[2]/div[5]/div/div/button[1]
+    # Check Buttom ลบ
+    Page Should Contain Button    xpath=/html/body/app-root/div[1]/app-trademark/div[2]/div[2]/div[5]/div/div/button[2]
+    # Check Buttom ค้นหา
+    Page Should Contain Button    xpath=/html/body/app-root/div[1]/app-trademark/div[2]/div[2]/div[5]/div/div/button[3]
+    # Check Buttom ล้างข้อมูล
+    Page Should Contain Button    xpath=/html/body/app-root/div[1]/app-trademark/div[2]/div[2]/div[5]/div/div/button[4]
+    # - Check dropdown list เลือกจำนวนหน้า    หา locator ไม่เจอขอcopy elementมาให้ดูนะครับ แล้วก็ไม่รู้จะใช้คำสั่งไหน Check ด้วยครับ
+    Page Should Contain Element    //*[@id="mat-select-0"]/div/div[1]/span/span
+    # - Check รายการแสดงจำนวนหน้าที่เลือก    หา locator ไม่เจอขอcopy elementมาให้ดูนะครับ แล้วก็ไม่รู้จะใช้คำสั่งไหน Check ด้วยครับ
+    Page Should Contain Element    xpath=body/app-root[1]/div[1]/app-trademark[1]/div[3]/div[1]/mat-paginator[1]/div[1]/div[2]/div[1]
+    #check ปุ่ม l<    หา locator ไม่เจอขอcopy elementมาให้ดูนะครับ แล้วก็ไม่รู้จะใช้คำสั่งไหน Check ด้วยครับ
+    Page Should Contain Element    xpath=/html/body/app-root/div[1]/app-trademark/div[3]/div/mat-paginator/div/div[2]/button[1]/span/svg
+    #check ปุ่ม <    หา locator ไม่เจอขอcopy elementมาให้ดูนะครับ แล้วก็ไม่รู้จะใช้คำสั่งไหน Check ด้วยครับ
+    Page Should Contain Element    <svg class="mat-paginator-icon" focusable="false" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+    #check ปุ่ม >    หา locator ไม่เจอขอcopy elementมาให้ดูนะครับ แล้วก็ไม่รู้จะใช้คำสั่งไหน Check ด้วยครับ
+    Page Should Contain Element    <svg class="mat-paginator-icon" focusable="false" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg>
+    #check ปุ่ม >l    หา locator ไม่เจอขอcopy elementมาให้ดูนะครับ แล้วก็ไม่รู้จะใช้คำสั่งไหน Check ด้วยครับ
+    Page Should Contain Element    <svg class="mat-paginator-icon" focusable="false" viewBox="0 0 24 24"><path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"></path></svg>
+
+ED_00001_Step_2
+    [Documentation]    * ทดสอบเลือกกลุ่มสินค้าหลัก (PRCE0002) *
+    ...
+    ...    สามารถเลือก ชื่อกลุ่มสินค้าได้
+    ...    สามารถกรอก รายละเอียด Field บันทึกรายการได้
+    ...    สามารถล้าง ข้อมูลให้สามารถทำรายการใหม่ได้
+    ...
+    ...    ติดหลังใส่ Input 7003 ครับ
+    [Timeout]
+    Open Website trademark(Main)
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    Sleep    2.5
+    Click Element    class:select2-selection--single
+    Sleep    2.5
+    #ใส่ Text 7003
+    Input Text    xpath=/html/body/span/span/span[1]/input    7003
+    #หลังใส่ต้องทำยังไงต่อหรอครับให้มันกด enter หรืออะไรบางอย่างให้มันยืนยันว่าเลือกอันนี้
+    #คลิกปุ่มล้าง เพื่อเคลียร์ข้อมูล
+    Click Button    xpath=/html/body/app-root/div[1]/app-trademark/div[1]/div[2]/div[2]/div/div/button[2]
+
+ED_00001_Step_3
+    [Documentation]    * ทดสอบกรอกข้อมูลเงื่อนไขบันทึกรายการ (PRCE0002) *
+    ...    สามารถกรอก ข้อมูลเป็นภาษาไทยได้
+    ...    สามารถกรอก ข้อมูลเป็นภาษาอังกฤษได้
+    ...    สามารถกรอกหรือเลือกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าได้
+    ...    สามารถกรอกหรือเลือกข้อมูล วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้าได้
+    ...
+    ...    หน้านี้วางแปลนไว้เฉยๆครับยังไม่ได้ทำอะไร ติดอยู่ที่ 2 case แรก
+    Open Website trademark(Main)
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    Sleep    2.5
+    #คลิก combo box ไม่ได้ครับ หา locator ไม่เจอ    class:select2-container--default
+    Click Element    xpath=/html/body/app-root/div[1]/app-trademark/div[1]/div[2]/div[1]/div[2]/span/span[1]/span
+    #พิมพ์ข้อความใส่ฟิล ชื่อกลุ่มสินค้า    หาlocatorไม่เจอครับ
+    Input Text    <input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="textbox">    7003 - เบียร์ คราฟ
+    #กดปุ่มตกลง    หาlocatorไม่เจอครับ
+    Click Button    <button _ngcontent-c2="" class="btn btn-outline-info my-2" type="button">ตกลง</button>
+    #ใส่ ข้อความที่ ชื่อเครื่องหมายการค้า (ไทย)
+    Input Text    <input _ngcontent-c2="" class="form-control col-sm-10 col-xs-10 ng-pristine ng-touched ng-valid" maxlength="40" name="brandMainThai" type="text">    เบียร์ ลีออน
+    #ใส่ ข้อความที่ชื่อเครื่องหมายการค้า (อังกฤษ)
+    Input Text    Class    Leon Beer
+    Click Element    class:select2-container--default
+
+*** Keywords ***
+Open Website trademark(Main)
+    Open Browser    http://13.250.227.94:7001/ED-WEB/#/    gc
+    Maximize Browser Window
+    Sleep    2.5
+    # คลิก tab บันทึกรหัสเครื่องหมายการค้าหลัก ด้านบน เพื่อเข้าหน้า บันทึกรหัสเครื่องหมายการค้าหลัก
+    Click Element    //*[@id="bs-example-navbar-collapse-1"]/ul/li[1]/a/span
+    Sleep    2.5
+    Location Should Be    http://13.250.227.94:7001/ED-WEB/#/trademark
+    Title Should Be    บันทึกรหัสเครื่องหมายการค้าหลัก
