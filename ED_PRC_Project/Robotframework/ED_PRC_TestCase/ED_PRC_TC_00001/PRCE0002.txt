@@ -1,10 +1,10 @@
 *** Settings ***
 Documentation     *** ทดสอบการบันทึกรหัสเครื่องหมายการค้าหลักในกรณี Happy Flow ***
-Suite Setup
+Suite Setup       Log To Console    Start Test
 Suite Teardown    Close Browser
-Library           Selenium2Library
 Library           String
 Library           BuiltIn
+Library           Selenium2Library
 
 *** Variables ***
 
@@ -43,10 +43,10 @@ ED_00001_Step_1
     Page Should Contain    ชื่อกลุ่มสินค้า
     #Check ปุ่ม buttom " ตกลง "
     Page Should Contain Button    xpath=/html/body/app-root/div[1]/app-trademark/div[1]/div[2]/div[2]/div/div/button[1]
-    Log To Console    Check Buttom "Submit" \ Pass
+    Log To Console    Check Buttom "Submit" \ - \ PASS
     # Check ปุ่ม buttom " ล้าง "
     Page Should Contain Button    xpath=/html/body/app-root/div[1]/app-trademark/div[1]/div[2]/div[2]/div/div/button[2]
-    Log To Console    Check Buttom " Clear " Pass
+    Log To Console    Check Buttom " Clear " - PASS
     Page Should Contain    บันทึกรายการ
     Page Should Contain    รหัสเครื่องหมายการค้า
     Page Should Contain    ชื่อเครื่องหมายการค้า (ไทย)
@@ -55,38 +55,39 @@ ED_00001_Step_1
     Page Should Contain    วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
     # Check Buttom บันทึก
     Page Should Contain Button    xpath=/html/body/app-root/div[1]/app-trademark/div[2]/div[2]/div[5]/div/div/button[1]
-    Log To Console    Check Buttom " Save " Pass
+    Log To Console    Check Buttom " Save " \ - \ PASS
     # Check Buttom ลบ
     Page Should Contain Button    xpath=/html/body/app-root/div[1]/app-trademark/div[2]/div[2]/div[5]/div/div/button[2]
-    Log To Console    Check Buttom " Delete " Pass
+    Log To Console    Check Buttom " Delete " - PASS
     # Check Buttom ค้นหา
     Page Should Contain Button    xpath=/html/body/app-root/div[1]/app-trademark/div[2]/div[2]/div[5]/div/div/button[3]
-    Log To Console    Check Buttom " Search " Pass
+    Log To Console    Check Buttom " Search " - PASS
     # Check Buttom ล้างข้อมูล
     Page Should Contain Button    xpath=/html/body/app-root/div[1]/app-trademark/div[2]/div[2]/div[5]/div/div/button[4]
-    Log To Console    Check Buttom " Clear Data " Pass
+    Log To Console    Check Buttom " Clear Data " - PASS
     # - Check dropdown list เลือกจำนวนหน้า
     Page Should Contain Element    xpath=/html/body/app-root/div[1]/app-trademark/div[3]/div/mat-paginator/div/div[1]/mat-form-field
-    Log To Console    Check Drop Down List Pass
+    Log To Console    Check Drop Down List \ - \ PASS
     # - Check รายการแสดงจำนวนหน้าที่เลือก
     Page Should Contain Element    xpath=/html/body/app-root/div[1]/app-trademark/div[3]/div/mat-paginator/div/div[2]/div
-    Log To Console    Check Show Number Page Pass
+    Log To Console    Check Show Number Page - \ PASS
     #check ปุ่ม l<
     Page Should Contain Element    xpath=/html/body/app-root/div[1]/app-trademark/div[3]/div/mat-paginator/div/div[2]/button[1]
-    Log To Console    Check Buttom l< Pass
+    Log To Console    Check Buttom l< \ \ \ - \ PASS
     #check ปุ่ม <
     Page Should Contain Element    xpath=/html/body/app-root/div[1]/app-trademark/div[3]/div/mat-paginator/div/div[2]/button[2]
-    Log To Console    Check Buttom < Pass
+    Log To Console    Check Buttom < \ \ - PASS
     #check ปุ่ม >
     Page Should Contain Element    xpath=/html/body/app-root/div[1]/app-trademark/div[3]/div/mat-paginator/div/div[2]/button[3]
-    Log To Console    Check Buttom > Pass
+    Log To Console    Check Buttom > \ - \ PASS
     #check ปุ่ม >l
-    Log To Console    Check Buttom >l Pass
+    Log To Console    Check Buttom >l \ - \ PASS
     Page Should Contain Element    xpath=/html/body/app-root/div[1]/app-trademark/div[3]/div/mat-paginator/div/div[2]/button[4]
-    Log To Console    Namchai.S user RunCheck This Test On %{os}
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
 
 ED_00001_Step_2
-    [Documentation]    * ทดสอบเลือกกลุ่มสินค้าหลัก (PRCE0002) *
+    [Documentation]    * Test Choose Group Product *
+    ...    * ทดสอบเลือกกลุ่มสินค้าหลัก (PRCE0002) *
     ...
     ...    สามารถเลือก ชื่อกลุ่มสินค้าได้
     ...    สามารถกรอก รายละเอียด Field บันทึกรายการได้
@@ -97,22 +98,24 @@ ED_00001_Step_2
     Page Should Contain    เครื่องหมายการค้าหลัก
     Page Should Contain    ชื่อกลุ่มสินค้า
     Sleep    2.5
-    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
-    Click Element    class:select2-selection--single
-    Log To Console    Can Click Search Box
+    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้    class:select2-selection--single
+    Click Element    xpath=/html/body/app-root/div[1]/app-trademark/div[1]/div[2]/div[1]/div[2]/span/span[1]/span
+    Log To Console    Can Click Search Box - PASS
     Sleep    2.5
-    #ใส่ Text 7003 เข้าไปในฟิล
+    #พิมพ์ข้อความ 7003 ใส่ฟิล ชื่อกลุ่มสินค้า
     Input Text    xpath=/html/body/span/span/span[1]/input    7003
-    Log To Console    Can Type 7003 in Search Box
+    Log To Console    Can Type 7003 in Search Box - PASS
     #กด Enter
     Press Key    xpath=/html/body/span/span/span[1]/input    \\13
-    Log To Console    Press Enter
+    Log To Console    Press Enter - PASS
     Sleep    2.5
     #คลิกปุ่มล้าง เพื่อเคลียร์ข้อมูล
     Click Button    xpath=/html/body/app-root/div[1]/app-trademark/div[1]/div[2]/div[2]/div/div/button[2]
-    Log To Console    Can Click " Clear " Buttom For Clear Data Field
+    Log To Console    Can Click " Clear " Buttom For Clear Data Field \ - \ PASS
+    #เช็คให้ช่อง ชื่อกลุ่มสินค้าไม่มี ตัวอักษรและปิดไว้เหมือนเดิม
+    Page Should Not Contain Textfield    xpath=/html/body/app-root/div[1]/app-trademark/div[1]/div[2]/div[1]/div[2]/span/span[1]/span    ${EMPTY}
     Sleep    2.5
-    Log To Console    End Test
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
 
 ED_00001_Step_3
     [Documentation]    * ทดสอบกรอกข้อมูลเงื่อนไขบันทึกรายการ (PRCE0002) *
@@ -120,23 +123,79 @@ ED_00001_Step_3
     ...    สามารถกรอก ข้อมูลเป็นภาษาอังกฤษได้
     ...    สามารถกรอกหรือเลือกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าได้
     ...    สามารถกรอกหรือเลือกข้อมูล วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้าได้
-    ...
-    ...    หน้านี้วางแปลนไว้เฉยๆครับยังไม่ได้ทำอะไร ติดอยู่ที่ 2 case แรก
     Open Website trademark(Main)
-    Page Should Contain    เครื่องหมายการค้าหลัก
-    Page Should Contain    ชื่อกลุ่มสินค้า
-    Sleep    2.5
-    #คลิก combo box ไม่ได้ครับ หา locator ไม่เจอ    class:select2-container--default
-    Click Element    xpath=/html/body/app-root/div[1]/app-trademark/div[1]/div[2]/div[1]/div[2]/span/span[1]/span
-    #พิมพ์ข้อความใส่ฟิล ชื่อกลุ่มสินค้า    หาlocatorไม่เจอครับ
-    Input Text    <input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="textbox">    7003 - เบียร์ คราฟ
-    #กดปุ่มตกลง    หาlocatorไม่เจอครับ
-    Click Button    <button _ngcontent-c2="" class="btn btn-outline-info my-2" type="button">ตกลง</button>
-    #ใส่ ข้อความที่ ชื่อเครื่องหมายการค้า (ไทย)
-    Input Text    <input _ngcontent-c2="" class="form-control col-sm-10 col-xs-10 ng-pristine ng-touched ng-valid" maxlength="40" name="brandMainThai" type="text">    เบียร์ ลีออน
-    #ใส่ ข้อความที่ชื่อเครื่องหมายการค้า (อังกฤษ)
-    Input Text    Class    Leon Beer
-    Click Element    class:select2-container--default
+    Choose Name Of Product
+    Input Information list
+    Sleep    5
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+
+ED_00001_Step_4
+    [Documentation]    * Save Information list *
+    ...    ทดสอบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+    ...    แสดง popup สามารถข้อความ 'บันทึกข้อมูลเรียบร้อยแล้ว'
+    ...    สามารถบันทึก รหัสเครื่องหมายการค้าหลักได้
+    Open Website trademark(Main)
+    Choose Name Of Product
+    Input Information list
+    #กดปุ่ม บันทึก
+    Click Element    xpath=/html/body/app-root/div[1]/app-trademark/div[2]/div[2]/div[5]/div/div/button[1]
+    #Pop Up ควรจะโชว์ข้อความว่า " บันทึกข้อมูลเรียบร้อยแล้ว "
+    Alert Should Be Present    บันทึกข้อมูลเรียบร้อยแล้ว    ACCEPT    10
+    Sleep    10
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+
+ED_00001_Step_5 ยังไม่เสร็จ
+    [Documentation]    * Test For Search *
+    ...    ทดสอบค้นหารหัสเครื่องหมายการค้าหลัก (PRCE0002)
+    ...    "หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002) \ กรณี ค้นหาชื่อเครื่องหมายการค้าหลักทั้งหมด
+    ...    - เลือก ชื่อกลุ่มสินค้า ที่ต้องการค้นหา
+    ...    - กดปุ่ม ตกลง
+    ...    - กดปุ่ม ค้นหา
+    ...
+    ...    "หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002) \ กรณี ค้นหาข้อมูล (แบบเจาะจง)
+    ...    - เลือก ชื่อกลุ่มสินค้า ที่ต้องการค้นหา
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อ หรือวันที่ ของเครื่องหมายการค้าหลักที่ต้องการค้นหา
+    ...    - กดปุ่ม ค้นหา
+    Open Website trademark(Main)
+    Choose Name Of Product
+    #กดปุ่มค้นหา
+    Click Button    xpath=/html/body/app-root/div[1]/app-trademark/div[2]/div[2]/div[5]/div/div/button[3]
+    #Check ว่าขึ้นครบไหม
+    Element Should Contain
+    Element Should Contain
+    Element Should Contain
+    Element Should Contain
+    Element Should Contain
+    Open Website trademark(Main)
+    Choose Name Of Product
+    Input Information list
+
+ED_00001_Step_8
+    [Documentation]    * Test Clear Information List *
+    ...    ทดสอบล้างข้อมูลรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+    ...    กรณี ค้นหาชื่อเครื่องหมายการค้าหลักทั้งหมด
+    ...    - เลือก ชื่อกลุ่มสินค้า ที่ต้องการค้นหา
+    ...    - กดปุ่ม ตกลง
+    ...    - กดปุ่ม ค้นหา
+    ...
+    ...    กรณี ค้นหาข้อมูล (แบบเจาะจง)
+    ...    - เลือก ชื่อกลุ่มสินค้า ที่ต้องการค้นหา
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อ หรือวันที่ ของเครื่องหมายการค้าหลักที่ต้องการค้นหา
+    ...    - กดปุ่ม ค้นหา
+    Open Website trademark(Main)
+    Choose Name Of Product
+    Input Information list
+    #Click ปุ่มล้างข้อมูล
+    Click Element    xpath=/html/body/app-root/div[1]/app-trademark/div[2]/div[2]/div[5]/div/div/button[4]
+    # ช่อง รหัสเครื่องหมายการค้า ต้องไม่มีตัวอักษร (ไทย)
+    Textfield Value Should Be    xpath=/html/body/app-root/div[1]/app-trademark/div[2]/div[2]/div[2]/div[2]/input    ${EMPTY}
+    # ช่อง รหัสเครื่องหมายการค้า (อังกฤษ)
+    Textfield Value Should Be    xpath=/html/body/app-root/div[1]/app-trademark/div[2]/div[2]/div[3]/div[2]/input    ${EMPTY}
+    # ช่อง วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า ต้องไม่มีตัวอักษร
+    Textfield Value Should Be    //*[@id="enddate"]    ${EMPTY}
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
 
 *** Keywords ***
 Open Website trademark(Main)
@@ -148,3 +207,38 @@ Open Website trademark(Main)
     Sleep    2.5
     Location Should Be    http://13.250.227.94:7001/ED-WEB/#/trademark
     Title Should Be    บันทึกรหัสเครื่องหมายการค้าหลัก
+
+Choose Name Of Product
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    Sleep    2.5
+    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
+    Click Element    xpath=/html/body/app-root/div[1]/app-trademark/div[1]/div[2]/div[1]/div[2]/span/span[1]/span
+    Log To Console    Can Click Search Product \ - PASS
+    #พิมพ์ข้อความ 7003 - เบียร์ คราฟ ใส่ฟิล ชื่อกลุ่มสินค้า
+    Input Text    xpath=/html/body/span/span/span[1]/input    0101
+    #กดปุ่ม Enter
+    Press Key    xpath=/html/body/span/span/span[1]/input    \\13
+    #กดปุ่มตกลง
+    Click Button    xpath=/html/body/app-root/div[1]/app-trademark/div[1]/div[2]/div[2]/div/div/button[1]
+
+Input Information list
+    #ใส่ ข้อความที่ ชื่อเครื่องหมายการค้า (ไทย)
+    Input Text    xpath=/html/body/app-root/div[1]/app-trademark/div[2]/div[2]/div[2]/div[2]/input    กก
+    #ใส่ ข้อความที่ชื่อเครื่องหมายการค้า (อังกฤษ)
+    Input Text    xpath=/html/body/app-root/div[1]/app-trademark/div[2]/div[2]/div[3]/div[2]/input    aaa
+    #ใช้คลิก
+    #คลิกช่อง วันที่เริ่มใช้รหัสเครื่องหมายการค้าเพื่อเลือกวันที่ เริ่มใช้เครื่องหมายการค้า
+    #Click Element    //*[@id="startdate"]
+    #พิมพ์ เลือกวันที่ ไว้สลับพิมพ์กับคลิก
+    #Click Element    xpath=/html/body/div[2]/div[1]/table/tbody/tr[1]/td[4]
+    #คลิกช่อง วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้าเพื่อเลือกวันที่ เริ่มใช้เครื่องหมายการค้า
+    #Click Element    //*[@id="enddate"]
+    #เลือกวันที่ 31/8/61
+    #Click Element    xpath=/html/body/div[2]/div[1]/table/tbody/tr[5]/td[6]
+    #Sleep    2.5
+    #ใช้พิมพ์
+    #พิมพ์วันที่ 01/08/2561 ใส่ วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    Input Text    //*[@id="startdate"]    01/08/2561
+    #พิมพ์วันที่ 28/08/2561 ใส่ วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    Input Text    //*[@id="enddate"]    28/08/2561
