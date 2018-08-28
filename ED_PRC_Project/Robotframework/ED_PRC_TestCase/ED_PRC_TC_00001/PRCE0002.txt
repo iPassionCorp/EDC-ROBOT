@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation     *** ทดสอบการบันทึกรหัสเครื่องหมายการค้าหลักในกรณี Happy Flow ***
 Suite Setup       Log To Console    Start Test
-Suite Teardown    Close Browser
+Suite Teardown    Log To Console    End Test
 Library           String
 Library           BuiltIn
 Library           Selenium2Library
@@ -85,6 +85,7 @@ ED_00001_Step_1
     Page Should Contain Element    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/button[4]
     Log To Console    Check Buttom >l \ - \ PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
 
 ED_00001_Step_2 webupdate ไม่มีปุ่ม ล้าง ให้ล้างข้อมูลแล้ว
     [Documentation]    * Test Choose Group Product *
@@ -115,6 +116,7 @@ ED_00001_Step_2 webupdate ไม่มีปุ่ม ล้าง ให้ล�
     Page Should Not Contain Textfield    xpath=/html/body/span/span/span[1]/input    ${EMPTY}
     Sleep    2.5
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
 
 ED_00001_Step_3
     [Documentation]    * ทดสอบกรอกข้อมูลเงื่อนไขบันทึกรายการ (PRCE0002) *
@@ -127,6 +129,7 @@ ED_00001_Step_3
     Input Information list
     Sleep    5
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
 
 ED_00001_Step_4
     [Documentation]    * Save Information list *
@@ -142,6 +145,7 @@ ED_00001_Step_4
     Alert Should Be Present    บันทึกข้อมูลเรียบร้อยแล้ว    ACCEPT    10
     Sleep    10
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
 
 ED_00001_Step_5 ยังไม่เสร็จ ติดCheckข้อความที่จะขึ้นหลังเซิทข้อมูล
     [Documentation]    * Test For Search *
@@ -193,6 +197,7 @@ ED_00001_Step_5 ยังไม่เสร็จ ติดCheckข้อคว�
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
     Get Text
     Element Should Not Contain    ${EMPTY}
+    Close Browser
 
 ED_00001_Step_6
     [Documentation]    * Test Edit Information list in trademark *
@@ -215,6 +220,7 @@ ED_00001_Step_6
     Sleep    4
     Input For Edit Information List In Trademark
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
 
 ED_00001_Step_7
     [Documentation]    * Test Delete Information List Of (Main) Trademark *
@@ -232,6 +238,7 @@ ED_00001_Step_7
     Choose Name Of Product
     Delete Information List In Trademark(Main)
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
 
 ED_00001_Step_8
     [Documentation]    * Test Clear All Fieid in information list*
@@ -253,6 +260,21 @@ ED_00001_Step_8
     # ช่อง วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า ต้องไม่มีตัวอักษร
     Textfield Value Should Be    //*[@id="enddate"]    ${EMPTY}
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+ED_00001_Step_9 ยังไม่เสร็จ
+    [Documentation]    * Test Table Information List *
+    ...    ทดสอบตารางแสดงข้อมูลรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+    ...    1. แสดงรายการข้อมูลที่ค้นหา
+    ...    2. \ - แสดงรายการข้อมูล Items per page
+    ...    - เลือกจำนวนหน้าที่ต้องการแสดงผล
+    ...
+    ...    3. \ รายการแสดงจำนวนหน้าที่เลือก
+    ...    4. \ สามารถกดปุ่มก่อน .... \ ถัดไป และแสดงข้อมูลได้
+    Open Website trademark(Main)
+    Choose Name Of Product
+    Input Information list
+    Close Browser
 
 *** Keywords ***
 Open Website trademark(Main)
@@ -262,8 +284,12 @@ Open Website trademark(Main)
     # Click tab กำหนดมูลค่าเพื่อเปิด tab ไปยังบันทึกข้อมูลหลัก
     Click Element    //*[@id="sidebar"]/ul/li[5]/a
     # Click Tab บันทึกข้อมูลหลัก
+    Wait Until Page Contains    บันทึกข้อมูลหลัก
+    Sleep    3.5
     Click Element    //*[@id="CostSubmenu"]/li[1]/a
     # Click Tab บันทึกรหัสเครื่องหมายการค้าหลัก
+    Wait Until Page Contains    บันทึกรหัสเครื่องหมายการค้าหลัก
+    Sleep    3.5
     Click Element    //*[@id="CostSubmenuV2_main"]/li[1]/a
     Sleep    2.5
     Location Should Be    http://13.250.227.94:7001/ED-WEB/#/trademark
