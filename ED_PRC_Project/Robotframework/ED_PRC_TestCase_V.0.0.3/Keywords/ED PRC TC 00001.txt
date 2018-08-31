@@ -1,0 +1,178 @@
+*** Settings ***
+Library           Selenium2Library
+Library           BuiltIn
+Library           String
+Resource          ../Variable/Resource_Variable.txt
+
+*** Keywords ***
+Open Website trademark(Main)
+    [Arguments]    ${titlename}    ${urltrademarkmain}
+    Open Browser    ${urlmain}    ${browser}
+    Maximize Browser Window
+    Sleep    2.5
+    # Click tab กำหนดมูลค่าเพื่อเปิด tab ไปยังบันทึกข้อมูลหลัก
+    Click Element    @{Tabsidebar1}[0]
+    # Click Tab บันทึกข้อมูลหลัก
+    Wait Until Page Contains    บันทึกข้อมูลหลัก
+    Sleep    3.5
+    Click Element    @{Tabsidebar1}[1]
+    # Click Tab บันทึกรหัสเครื่องหมายการค้าหลัก
+    Wait Until Page Contains    บันทึกรหัสเครื่องหมายการค้าหลัก
+    Sleep    3.5
+    Click Element    @{Tabsidebar1}[2]
+    Sleep    2.5
+    Title Should Be    ${titlename}
+    Location Should Be    ${urltrademarkmain}
+
+Choose Name Of Product
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    Sleep    2.5
+    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
+    Click Element    ${nameproductmain}
+    Log To Console    Can Click Search Product \ - PASS
+    #พิมพ์ข้อความ 0101 ใส่ฟิล ชื่อกลุ่มสินค้า
+    Input Text    ${inputproduct}    0101
+    #กดปุ่ม Enter
+    Press Key    ${inputproduct}    \\13
+    #กดปุ่มตกลง
+    Click Element    ${submitbuttom}
+
+Input Information list
+    #ใส่ ข้อความที่ ชื่อเครื่องหมายการค้า (ไทย)
+    Input Text    ${namethaiproduct}    ไทยออย2
+    #ใส่ ข้อความที่ชื่อเครื่องหมายการค้า (อังกฤษ)
+    Input Text    ${nameengproduct}    ThaiOil2
+    #พิมพ์วันที่ 30/08/2561 ใส่ วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    Input Text    //*[@id="startdate"]    30/08/2561
+    #กดปุ่ม Enter
+    Press Key    //*[@id="startdate"]    \\13
+    #พิมพ์วันที่ 30/09/2561 ใส่ วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+    Input Text    //*[@id="enddate"]    30/09/2561
+    #กดปุ่ม Enter
+    Press Key    //*[@id="enddate"]    \\13
+
+Input For Edit Information List In Trademark
+    [Timeout]
+    #Clear ข้อความเพื่อใส่ข้อมูลใหม่
+    Input Text    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[2]/div[2]/input    ${EMPTY}
+    Sleep    2.5
+    #ใส่ ข้อความที่ ชื่อเครื่องหมายการค้า (ไทย)
+    Input Text    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[2]/div[2]/input    ไทยออย3
+    #Clear ข้อความเพื่อใส่ข้อมูลใหม่
+    Input Text    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[3]/div[2]/input    ${EMPTY}
+    Sleep    2.5
+    #ใส่ ข้อความที่ชื่อเครื่องหมายการค้า (อังกฤษ)
+    Input Text    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[3]/div[2]/input    ThaiOil3
+    #ใช้คลิก
+    #คลิกช่อง วันที่เริ่มใช้รหัสเครื่องหมายการค้าเพื่อเลือกวันที่ เริ่มใช้เครื่องหมายการค้า
+    #Click Element    //*[@id="startdate"]
+    #พิมพ์ เลือกวันที่ ไว้สลับพิมพ์กับคลิก
+    #Click Element    xpath=/html/body/div[2]/div[1]/table/tbody/tr[1]/td[4]
+    #คลิกช่อง วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้าเพื่อเลือกวันที่ เริ่มใช้เครื่องหมายการค้า
+    #Click Element    //*[@id="enddate"]
+    #เลือกวันที่ 31/8/61
+    #Click Element    xpath=/html/body/div[2]/div[1]/table/tbody/tr[5]/td[6]
+    #Sleep    2.5
+    #ใช้พิมพ์
+    #Clear ข้อความเพื่อใส่ข้อมูลใหม่
+    Input Text    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[3]/div[2]/input    ${EMPTY}
+    #พิมพ์วันที่ 29/08/2561 ใส่ วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    Input Text    //*[@id="startdate"]    29/08/2561
+    #กดปุ่ม Enter
+    Press Key    //*[@id="startdate"]    \\13
+    #Clear ข้อความเพื่อใส่ข้อมูลใหม่
+    Input Text    //*[@id="enddate"]    ${EMPTY}
+    #พิมพ์วันที่ 29/09/2561 ใส่ วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+    Input Text    //*[@id="enddate"]    29/09/2561
+    #กดปุ่ม Enter
+    Press Key    //*[@id="enddate"]    \\13
+    #กดปุ่มบันทึก
+    Click Element    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[2]
+    #Pop up จะขึ้นว่า " บันทึกข้อมูลเรียบร้อยแล้ว "
+    Alert Should Be Present    บันทึกข้อมูลเรียบร้อยแล้ว    ACCEPT    10
+
+Delete Information List In Trademark(Main)
+    #Clear ข้อความเพื่อใส่ข้อมูลใหม่
+    Input Text    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[2]/div[2]/input    ${EMPTY}
+    #ใส่ ข้อความที่ ชื่อเครื่องหมายการค้า (ไทย)
+    Input Text    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[2]/div[2]/input    ไทยออย3
+    Log To Console    Input 1 // PASS
+    #Clear ข้อความเพื่อใส่ข้อมูลใหม่
+    Input Text    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[3]/div[2]/input    ${EMPTY}
+    #ใส่ ข้อความที่ชื่อเครื่องหมายการค้า (อังกฤษ)
+    Input Text    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[3]/div[2]/input    ThaiOil3
+    Log To Console    Input 2 // PASS
+    #ใช้คลิก
+    #คลิกช่อง วันที่เริ่มใช้รหัสเครื่องหมายการค้าเพื่อเลือกวันที่ เริ่มใช้เครื่องหมายการค้า
+    #Click Element    //*[@id="startdate"]
+    #พิมพ์ เลือกวันที่ ไว้สลับพิมพ์กับคลิก
+    #Click Element    xpath=/html/body/div[2]/div[1]/table/tbody/tr[1]/td[4]
+    #คลิกช่อง วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้าเพื่อเลือกวันที่ เริ่มใช้เครื่องหมายการค้า
+    #Click Element    //*[@id="enddate"]
+    #เลือกวันที่ 31/8/61
+    #Click Element    xpath=/html/body/div[2]/div[1]/table/tbody/tr[5]/td[6]
+    #Sleep    2.5
+    #ใช้พิมพ์
+    #Clear ข้อความเพื่อใส่ข้อมูลใหม่
+    Input Text    //*[@id="startdate"]    ${EMPTY}
+    #พิมพ์วันที่ 29/08/2561 ใส่ วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    Input Text    //*[@id="startdate"]    29/08/2561
+    #กดปุ่ม Enter
+    Press Key    //*[@id="startdate"]    \\13
+    Log To Console    Input 3 // PASS
+    #Clear ข้อความเพื่อใส่ข้อมูลใหม่
+    Input Text    //*[@id="enddate"]    ${EMPTY}
+    #พิมพ์วันที่ 29/09/2561 ใส่ วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+    Input Text    //*[@id="enddate"]    29/09/2561
+    #กดปุ่ม Enter
+    Press Key    //*[@id="enddate"]    \\13
+    Log To Console    Input 4 // PASS
+    #กดปุ่ม Search
+    Click Element    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[1]
+    Log To Console    Can Click Search Buttom // \ PASS
+    Sleep    4
+    #Click เลือกเพื่อแสดงข้อมูล
+    Click Element    xpath=//*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/tbody/tr/td[2]
+    Log To Console    Can Click For Search Info PASS
+    #Click ปุ่ม ลบ เพื่อลบข้อมูล
+    Click Element    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[3]
+    #Pop Up จะขึ้นว่า " ต้องการลบข้อมูลหรือไม่? "
+    Alert Should Be Present    ต้องการลบข้อมูลหรือไม่?    ACCEPT    10
+    Sleep    4
+    Log To Console    Delete Step 1 // PASS
+    #Pop up จะขึ้นว่า " ลบข้อมูลเรียบร้อยแล้ว "
+    Alert Should Be Present    ลบข้อมูลเรียบร้อยแล้ว    ACCEPT    10
+    Sleep    4
+    Log To Console    Delete Step 2 // PASS
+    #Pop up จะขึ้นว่า " ไม่พบข้อมูล โปรดลองใหม่อีกครั้ง "
+    Alert Should Be Present    ไม่พบข้อมูล โปรดลองใหม่อีกครั้ง    ACCEPT    10
+    Sleep    4
+    Log To Console    Delete Step 3 // PASS
+
+Input For Check Table Information list
+    #เว้นช่องข้อความที่ ชื่อเครื่องหมายการค้า (ไทย)
+    Input Text    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[2]/div[2]/input    กก
+    #เว้นช่องข้อความที่ชื่อเครื่องหมายการค้า (อังกฤษ)
+    Input Text    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[3]/div[2]/input    กกก
+    #ใช้คลิก
+    #คลิกช่อง วันที่เริ่มใช้รหัสเครื่องหมายการค้าเพื่อเลือกวันที่ เริ่มใช้เครื่องหมายการค้า
+    #Click Element    //*[@id="startdate"]
+    #พิมพ์ เลือกวันที่ ไว้สลับพิมพ์กับคลิก
+    #Click Element    xpath=/html/body/div[2]/div[1]/table/tbody/tr[1]/td[4]
+    #คลิกช่อง วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้าเพื่อเลือกวันที่ เริ่มใช้เครื่องหมายการค้า
+    #Click Element    //*[@id="enddate"]
+    #เลือกวันที่ 31/8/61
+    #Click Element    xpath=/html/body/div[2]/div[1]/table/tbody/tr[5]/td[6]
+    #Sleep    2.5
+    #ใช้พิมพ์
+    #ใส่ข้อความ 08/08/2561 วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    Input Text    //*[@id="startdate"]    08/08/2561
+    #กดปุ่ม Enter
+    Press Key    //*[@id="startdate"]    \\13
+    #ใส่ข้อความ 28/08/2561 วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+    Input Text    //*[@id="enddate"]    28/08/2561
+    #กดปุ่ม Enter
+    Press Key    //*[@id="enddate"]    \\13
+
+Check Next / Back / First / Last Page Buttom
