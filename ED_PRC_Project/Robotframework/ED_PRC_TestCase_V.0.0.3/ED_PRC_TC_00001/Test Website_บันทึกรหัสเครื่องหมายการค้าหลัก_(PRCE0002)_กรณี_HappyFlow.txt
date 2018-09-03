@@ -5,7 +5,7 @@ Suite Teardown    Log To Console    End Test
 Library           String
 Library           BuiltIn
 Library           Selenium2Library
-Resource          ../Keywords/ED PRC TC 00001.txt
+Resource          ../Keywords/ED PRC TestCase.txt
 Resource          ../Variable/Resource_Variable.txt
 
 *** Variables ***
@@ -61,9 +61,11 @@ ED_00001_Step_1_ตรวจสอบหน้าจอ_บันทึกรห
     ...    - รายการแสดงจำนวนหน้าที่เลือก
     ...    - ปุ่มก่อน...ถัดไป
     ...    - ปุ่มจบการทำงาน
-    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB/#/trademark
+    [Template]
+    [Timeout]
+    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB-DEV/#/trademark
     #Check element ตรงระบบงานวิชาการกำหนดมูลค่า v0.0.30-27AUG18
-    Page Should Contain Element    //*[@id="content"]/app-trademark/app-navbar/nav/div/div[1]/span[1]
+    Page Should Contain Element    ${version}
     Page Should Contain    บันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002)
     Page Should Contain    หน้าหลัก
     Page Should Contain    กำหนดมูลค่า
@@ -76,7 +78,7 @@ ED_00001_Step_1_ตรวจสอบหน้าจอ_บันทึกรห
     Page Should Contain    เครื่องหมายการค้าหลัก
     Page Should Contain    ชื่อกลุ่มสินค้า
     #Check ปุ่ม buttom " ตกลง "
-    Page Should Contain Button    //*[@id="content"]/app-trademark/div/div/div[1]/div[2]/div/div[3]/button
+    Page Should Contain Button    ${submitbuttom}
     Log To Console    Check " 2.Trademark(Main) \ // \ PASS
     Page Should Contain    บันทึกรายการ
     Page Should Contain    กลุ่มสินค้า
@@ -86,52 +88,54 @@ ED_00001_Step_1_ตรวจสอบหน้าจอ_บันทึกรห
     Page Should Contain    วันที่เริ่มใช้รหัสเครื่องหมายการค้า
     Page Should Contain    วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
     # Check Buttom บันทึก
-    Page Should Contain Button    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[2]
+    Page Should Contain Button    ${savebuttom}
     Log To Console    Check Buttom " Save " \ - \ PASS
     # Check Buttom ลบ
-    Page Should Contain Button    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[3]
+    Page Should Contain Button    ${deletebuttom}
     Log To Console    Check Buttom " Delete " - PASS
     # Check Buttom ค้นหา
-    Page Should Contain Button    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[1]
+    Page Should Contain Button    ${searchbuttom}
     Log To Console    Check Buttom " Search " - PASS
     # Check Buttom ล้างข้อมูล
-    Page Should Contain Button    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[4]
+    Page Should Contain Button    ${cleardatabuttom}
     Log To Console    Check Buttom " Clear Data " - PASS
     Log To Console    Check 3. Save List // PASS
     Page Should Contain    แสดงรายการ
     #Check ปุ่ม รหัสเครื่องหมายการค้าหลัก ด้านล่าง
-    Page Should Contain Button    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/thead/tr/th[1]/div/button
+    Page Should Contain Element    ${maintable1}
     #Check ปุ่ม รหัสเครื่องหมายการค้าหลัก (ไทย) ด้านล่าง
-    Page Should Contain Button    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/thead/tr/th[2]/div/button
+    Page Should Contain Element    ${maintable2}
     #Check ปุ่ม รหัสเครื่องหมายการค้าหลัก (อังกฤษ) ด้านล่าง
-    Page Should Contain Button    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/thead/tr/th[3]/div/button
+    Page Should Contain Element    ${maintable3}
     #Check ปุ่ม วันที่เริ่มใช้รหัสเรื่องหมายการค้า ด้านล่าง
-    Page Should Contain Button    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/thead/tr/th[4]/div/button
+    Page Should Contain Element    ${maintable4}
     #Check ปุ่ม วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า ด้านล่าง
-    Page Should Contain Button    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/thead/tr/th[5]/div/button
+    Page Should Contain Element    ${maintable5}
     # - Check dropdown list เลือกจำนวนหน้า
-    Page Should Contain Element    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[1]/mat-form-field
+    Page Should Contain Element    ${selectitemperpage}
     Log To Console    Check Drop Down List \ - \ PASS
     # - Check รายการแสดงจำนวนหน้าที่เลือก
-    Page Should Contain Element    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/div
+    Page Should Contain Element    ${showinfoofitemperpage}
     Log To Console    Check Show Number Page - \ PASS
     #check ปุ่ม l<
-    Page Should Contain Element    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/button[1]
+    Page Should Contain Element    ${firstpagebuttom}
     Log To Console    Check Buttom l< \ \ \ - \ PASS
     #check ปุ่ม <
-    Page Should Contain Element    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/button[2]
+    Page Should Contain Element    ${previouspagebuttom}
     Log To Console    Check Buttom < \ \ - PASS
     #check ปุ่ม >
-    Page Should Contain Element    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/button[3]
+    Page Should Contain Element    ${nextpage}
     Log To Console    Check Buttom > \ - \ PASS
     #check ปุ่ม >l
-    Page Should Contain Element    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/button[4]
-    #Checkว่ามีปุ่ม จบการทำงาน
-    Page Should Contain Button    //*[@id="content"]/app-trademark/div/div/div[4]/button
+    Page Should Contain Element    ${lastpage}
     Log To Console    Check Buttom >l \ - \ PASS
+    #Checkว่ามีปุ่ม จบการทำงาน
+    Page Should Contain Element    ${finishjob}
     Log To Console    Check 4. Information Table \\ PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Capture Page Screenshot    Homepage.png
     Close Browser
+    [Teardown]
 
 ED_00001_Step_2_ทดสอบเลือกกลุ่มสินค้าหลัก_(PRCE0002)
     [Documentation]    * Test Choose Group Product *
@@ -146,14 +150,15 @@ ED_00001_Step_2_ทดสอบเลือกกลุ่มสินค้า�
     ...    Expected Result
     ...    1. สามารถเลือก ชื่อกลุ่มสินค้าได้
     ...    2. สามารถกรอก รายละเอียด Field บันทึกรายการได้
-    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB/#/trademark
-    Choose Name Of Product
+    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB-DEV/#/trademark
+    Choose Name Of Product    0101
     Page Should Contain    เครื่องหมายการค้าหลัก
     Page Should Contain    ชื่อกลุ่มสินค้า
     Sleep    2.5
     Log To Console    Action 1. Can Choose " Name Of Product" // PASS
     Log To Console    Action 2 . Can Click "Submit" Buttom // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Capture Page Screenshot    ChooseGroupOfProduct.png
     Close Browser
 
 ED_00001_Step_3_ทดสอบกรอกข้อมูลเงื่อนไขบันทึกรายการ_(PRCE0002)
@@ -175,9 +180,9 @@ ED_00001_Step_3_ทดสอบกรอกข้อมูลเงื่อน�
     ...    2. สามารถกรอก ข้อมูลเป็นภาษาอังกฤษได้
     ...    3. สามารถกรอกหรือเลือกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าได้
     ...    4. สามารถกรอกหรือเลือกข้อมูล วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้าได้
-    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB/#/trademark
-    Choose Name Of Product
-    Input Information list
+    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB-DEV/#/trademark
+    Choose Name Of Product    0101
+    Input Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Log To Console    Action 1. Can Input Thai Character In Field
     Log To Console    Action 2. Can Input English Character In Field
     Log To Console    Action 3. Can Input Start Date Of NameProduct
@@ -200,11 +205,11 @@ ED_00001_Step_4_ทดสอบบันทึกรหัสเครื่อ�
     ...    Expected Result
     ...    1. แสดง popup สามารถข้อความ 'บันทึกข้อมูลเรียบร้อยแล้ว
     ...    2. สามารถบันทึก รหัสเครื่องหมายการค้าหลักได้
-    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB/#/trademark
-    Choose Name Of Product
-    Input Information list
+    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB-DEV/#/trademark
+    Choose Name Of Product    0101
+    Input Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     #กดปุ่ม บันทึก
-    Click Element    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[2]
+    Click Element    ${savebuttom}
     Log To Console    Action 1. Can Input % Click Save Buttom // PASS
     #Pop Up ควรจะโชว์ข้อความว่า " บันทึกข้อมูลเรียบร้อยแล้ว "
     Alert Should Be Present    บันทึกข้อมูลเรียบร้อยแล้ว    ACCEPT    10
@@ -226,19 +231,20 @@ ED_00001_Step_5_ทดสอบค้นหารหัสเครื่อง�
     ...    Expected Result
     ...    1. สามารถค้นหา รหัสเครื่องหมายการค้าหลักตามเงื่อนไขได้
     [Template]
-    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB/#/trademark
-    Choose Name Of Product
-    Input Information list
+    [Timeout]
+    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB-DEV/#/trademark
+    Choose Name Of Product    0101
+    Input Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     #กดปุ่มค้นหา
-    Click Button    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[1]
+    Click Button    ${searchbuttom}
     #Check ว่า ชื่อเครื่องหมายการค้าหลัก (ไทย) ในแสดงรายการ เป็นข้อความชื่อ "ไทยออย2"
-    Table Should Contain    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/tbody/tr[1]/td[2]    ไทยออย2
+    Table Should Contain    ${namethaiproduct}    ไทยออย2
     Log To Console    Check Table 1 // Pass
-    Table Should Contain    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/tbody/tr[1]/td[3]    ThaiOil2
+    Table Should Contain    ${nameengproduct}    ThaiOil2
     Log To Console    Check Table 2 // Pass
-    Table Should Contain    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/tbody/tr[1]/td[4]    30/08/2561
+    Table Should Contain    ${startdate}    30/08/2561
     Log To Console    Check Table 3 // Pass
-    Table Should Contain    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/tbody/tr[1]/td[5]    30/09/2561
+    Table Should Contain    ${enddate}    30/09/2561
     Log To Console    Check Table 4 // Pass
     Sleep    5
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
@@ -263,19 +269,18 @@ ED_00001_Step_6_ทดสอบแก้ไขรหัสเครื่อง�
     ...    2. สามารถบันทึก การแก้ไขรหัสเครื่องหมายการค้าหลักได้ ระบบแสดง popup ข้อความ "บันทึกเรียบร้อยแล้ว" "
     ...    ปุ่ม OK"
     ...    3. ปิดการแจ้งเตือน แล้วแสดงข้อมูลที่ทำการแก้ไขเรียบร้อยแล้วในตารางแสดงผล
-    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB/#/trademark
-    Choose Name Of Product
-    Input Information list
+    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB-DEV/#/trademark
+    Choose Name Of Product    0101
+    Input Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     #กดปุ่มค้นหา
-    Click Element    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[1]
+    Click Element    ${searchbuttom}
     Log To Console    Click Search Buttom PASS
-    #Click เพื่อดูข้อมูลนั้นๆ
     Sleep    4
-    #jquery:td:contains('ไทยออย2'):eq(0)
-    Click Element    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/tbody/tr/td[3]
+    #Click เพื่อดูข้อมูลนั้นๆ    #jquery:td:contains('ไทยออย2'):eq(0)
+    Click Element    ${showinformation}
     Log To Console    Can Click For Show Information
     Sleep    4
-    Input For Edit Information List In Trademark
+    Input For Edit Information List In Trademark    ไทยออย3    ThaiOil3    29/08/2561    29/09/2561
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
     Sleep    5
     Close Browser
@@ -303,53 +308,42 @@ ED_00001_Step_7_ทดสอบลบรหัสเครื่องหมา�
     ...    3. สามารถลบ รหัสเครื่องหมายการค้าหลักได้
     ...    4. สามารถยกเลิกการลบ รหัสเครื่องหมายการค้าหลักได้
     [Template]
-    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB/#/trademark
-    Choose Name Of Product
+    [Timeout]
+    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB-DEV/#/trademark
+    Choose Name Of Product    0101
     #Clear ข้อความเพื่อใส่ข้อมูลใหม่
-    Input Text    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[2]/div[2]/input    ${EMPTY}
+    Input Text    ${namethaiproduct}    ${EMPTY}
     #ใส่ ข้อความที่ ชื่อเครื่องหมายการค้า (ไทย)
-    Input Text    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[2]/div[2]/input    ไทยออย3
+    Input Text    ${namethaiproduct}    ไทยออย3
     Log To Console    Input 1 // PASS
     #Clear ข้อความเพื่อใส่ข้อมูลใหม่
-    Input Text    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[3]/div[2]/input    ${EMPTY}
+    Input Text    ${nameengproduct}    ${EMPTY}
     #ใส่ ข้อความที่ชื่อเครื่องหมายการค้า (อังกฤษ)
-    Input Text    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[3]/div[2]/input    ThaiOil3
+    Input Text    ${nameengproduct}    ThaiOil3
     Log To Console    Input 2 // PASS
-    #ใช้คลิก
-    #คลิกช่อง วันที่เริ่มใช้รหัสเครื่องหมายการค้าเพื่อเลือกวันที่ เริ่มใช้เครื่องหมายการค้า
-    #Click Element    //*[@id="startdate"]
-    #พิมพ์ เลือกวันที่ ไว้สลับพิมพ์กับคลิก
-    #Click Element    xpath=/html/body/div[2]/div[1]/table/tbody/tr[1]/td[4]
-    #คลิกช่อง วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้าเพื่อเลือกวันที่ เริ่มใช้เครื่องหมายการค้า
-    #Click Element    //*[@id="enddate"]
-    #เลือกวันที่ 31/8/61
-    #Click Element    xpath=/html/body/div[2]/div[1]/table/tbody/tr[5]/td[6]
-    #Sleep    2.5
-    #ใช้พิมพ์
-    #Clear ข้อความเพื่อใส่ข้อมูลใหม่
-    Input Text    //*[@id="startdate"]    ${EMPTY}
+    Input Text    ${startdate}    ${EMPTY}
     #พิมพ์วันที่ 01/08/2561 ใส่ วันที่เริ่มใช้รหัสเครื่องหมายการค้า
-    Input Text    //*[@id="startdate"]    29/08/2561
+    Input Text    ${startdate}    29/08/2561
     #กดปุ่ม Enter
-    Press Key    //*[@id="startdate"]    \\13
+    Press Key    ${startdate}    \\13
     Log To Console    Input 3 // PASS
     #Clear ข้อความเพื่อใส่ข้อมูลใหม่
-    Input Text    //*[@id="enddate"]    ${EMPTY}
+    Input Text    ${enddate}    ${EMPTY}
     #พิมพ์วันที่ 28/08/2561 ใส่ วันที่เริ่มใช้รหัสเครื่องหมายการค้า
-    Input Text    //*[@id="enddate"]    29/09/2561
+    Input Text    ${enddate}    29/09/2561
     #กดปุ่ม Enter
-    Press Key    //*[@id="enddate"]    \\13
+    Press Key    ${enddate}    \\13
     Log To Console    Input 4 // PASS
     #กดปุ่ม Search
-    Click Element    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[1]
+    Click Element    ${searchbuttom}
     Log To Console    Can Click Search Buttom // \ PASS
     Sleep    4
     #Click เลือกเพื่อแสดงข้อมูล
-    Click Element    xpath=//*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/tbody/tr/td[2]
+    Click Element    ${showinformation}
     Log To Console    Can Click For Search Info PASS
     Log To Console    Action 1. Can Input & Search For Delete \ // PASS
     #Click ปุ่ม ลบ เพื่อลบข้อมูล
-    Click Element    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[3]
+    Click Element    ${deletebuttom}
     Log To Console    Action 2. Can Click "Delete" Buttom // PASS
     #Pop Up จะขึ้นว่า " ต้องการลบข้อมูลหรือไม่? "
     Alert Should Be Present    ต้องการลบข้อมูลหรือไม่?    DISMISS    10
@@ -357,9 +351,9 @@ ED_00001_Step_7_ทดสอบลบรหัสเครื่องหมา�
     Log To Console    Cancal Delete Step // PASS
     Log To Console    Action 4. Click "Cancal" Buttom // PASS
     Close Browser
-    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB/#/trademark
-    Choose Name Of Product
-    Delete Information List In Trademark(Main)
+    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB-DEV/#/trademark
+    Choose Name Of Product    0101
+    Delete Information List In Trademark(Main)    ไทยออย3    ThaiOil3    29/08/2561    29/09/2561
     Log To Console    Action 3. Click "Ok" Buttom // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
     Close Browser
@@ -375,17 +369,17 @@ ED_00001_Step_8_ทดสอบล้างข้อมูลรหัสเค�
     ...
     ...    Expected Result
     ...    1. สามารถล้างข้อมูล ให้สามารถทำรายการใหม่ได้
-    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB/#/trademark
-    Choose Name Of Product
-    Input Information list
+    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB-DEV/#/trademark
+    Choose Name Of Product    0101
+    Input Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     #Click ปุ่มล้างข้อมูล
-    Click Element    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[4]
+    Click Element    ${cleardatabuttom}
     # ช่อง รหัสเครื่องหมายการค้า ต้องไม่มีตัวอักษร (ไทย)
-    Textfield Value Should Be    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[2]/div[2]/input    ${EMPTY}
+    Textfield Value Should Be    ${namethaiproduct}    ${EMPTY}
     # ช่อง รหัสเครื่องหมายการค้า (อังกฤษ)
-    Textfield Value Should Be    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[3]/div[2]/input    ${EMPTY}
+    Textfield Value Should Be    ${nameengproduct}    ${EMPTY}
     # ช่อง วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า ต้องไม่มีตัวอักษร
-    Textfield Value Should Be    //*[@id="enddate"]    ${EMPTY}
+    Textfield Value Should Be    ${enddate}    ${EMPTY}
     Sleep    10
     Log To Console    Action 1. Can Clear Data For New Input // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
@@ -413,96 +407,87 @@ ED_00001_Step_9_ทดสอบตารางแสดงข้อมูลร�
     ...    5. สามารถกดปุ่ม จบการทำงานได้
     [Template]
     [Timeout]
-    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB/#/trademark
-    Choose Name Of Product
-    Input For Check Table Information list
+    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB-DEV/#/trademark
+    Choose Name Of Product    0101
+    Input For Check Table Information list    กก    aaa    08/08/2561    28/08/2561
     #Click ปุ่มค้นหา
-    Click Button    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[1]
+    Click Button    ${searchbuttom}
     Sleep    3
     #Click คลิกข้อมูลที่ต้องการค้นหา
-    Click Element    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/tbody/tr[1]/td[3]
+    Click Element    ${showinformation}
     Sleep    3
     Log To Console    Click Infomation // PASS
-    Textfield Should Contain    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[2]/div[2]/input    กก
-    Textfield Should Contain    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[3]/div[2]/input    กกก
-    Textfield Should Contain    //*[@id="startdate"]    08/08/2561
-    Textfield Should Contain    //*[@id="enddate"]    28/08/2561
+    Textfield Should Contain    ${namethaiproduct}    กก
+    Textfield Should Contain    ${nameengproduct}    aaa
+    Textfield Should Contain    ${startdate}    08/08/2561
+    Textfield Should Contain    ${enddate}    28/08/2561
     Log To Console    Action 1. Show Info In Table // PASS
-    Click Element    xpath=//*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[1]/mat-form-field/div/div[1]/div
+    #Click select buttom เพื่อเลือกจำนวนข้อมูลต่อหน้า
+    Click Element    ${selectitemperpage}
     Sleep    3
-    Click Element    id=mat-option-4
+    #เลือก 50 ข้อมูลต่อหน้า
+    Click Element    ${itemperpageequal50}
     Log To Console    Can Choose Item Per Page
     Sleep    5
     #Check แสดงจำนวนหน้า
-    Page Should Contain Element    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/div
-    ${test}=    Get Text    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/div
+    Page Should Contain Element    ${showinfoofitemperpage}
+    ${test}=    Get Text    ${showinfoofitemperpage}
     Log    ${test}
     Should Not Be Equal    ${test}    0 of 0
     Log To Console    Action 3.สามารถแสดงจำนวนหน้าที่มีข้อมูลได้ถูกต้อง \ // PASS
-    #กดล้างข้อมูล
-    Click Element    //div[contains(@class,'mt-2')]//button[4]
-    #Clear ข้อความ
-    Input Text    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[2]/div[2]/input    ${EMPTY}
-    Sleep    2.5
-    #Clear ข้อความ
-    Input Text    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[3]/div[2]/input    ${EMPTY}
-    Sleep    2.5
-    #Clear ข้อความ
-    Input Text    //*[@id="startdate"]    ${EMPTY}
-    #กดปุ่ม Enter
-    Press Key    //*[@id="startdate"]    \\13
-    #Clear ข้อความ
-    Input Text    //*[@id="enddate"]    ${EMPTY}
-    #กดปุ่ม Enter
-    Press Key    //*[@id="enddate"]    \\13
+    Close Browser
+    Open Website trademark(Main)    บันทึกรหัสเครื่องหมายการค้าหลัก    http://13.250.227.94:7001/ED-WEB-DEV/#/trademark
+    Choose Name Of Product    0101
+    Input Information list    ${EMPTY}    ${EMPTY}    ${EMPTY}    ${EMPTY}
     #กดปุ่มค้นหา
-    Click Button    //div[contains(@class,'mt-2')]//button[1]
+    Click Button    ${searchbuttom}
     Sleep    3
     Log To Console    Click Buttom "Search" // PASS
-    #เช็คจำนวนหน้าปัจจุบัน ต้องเป็น 1 -20 of 124
-    ${test2}=    Get Text    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/div
+    #เช็คจำนวนหน้าปัจจุบัน
+    ${test2}=    Get Text    ${showinfoofitemperpage}
     Log    ${test2}
     Log To Console    Get Text1 // PASS
     Sleep    5
     #Click ปุ่ม Next    //div[@class='mat-paginator-range-actions']//button[3]
-    Click Element    //button[@class='mat-paginator-navigation-next mat-icon-button'][@aria-label='Next page']
+    Click Element    ${nextpage}
     Sleep    5
     Log To Console    Click Buttom // PASS
     #เก็บค่าจำนวนหน้าใหม่
-    ${afternext}=    Get Text    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/div
+    ${afternext}=    Get Text    ${showinfoofitemperpage}
     Log    ${afternext}
     #Check ว่าจำนวนหน้าที่เปลี่ยนได้มีการเปลี่ยนแปลงไหม
     Should Not Be Equal    ${afternext}    ${test2}=
     Sleep    5
     Log To Console    Check Equal /= ค่าเดิม // PASS
     #Click ปุ่ม Last Page
-    Click Element    //div[contains(@class,'mat-paginator-range-actions')]//button[4]
-    ${afterlastpage}=    Get Text    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/div
+    Click Element    ${lastpage}
+    ${afterlastpage}=    Get Text    ${showinfoofitemperpage}
     Log    ${afterlastpage}
     #Check ว่าจำนวนหน้าที่เปลี่ยนหลังกดหน้าสุดท้ายเปลี่ยนไหม
     Should Not Be Equal    ${afterlastpage}    ${afternext}
     Sleep    5
     Log To Console    Check Equal /= ค่าเดิม2 // PASS
     #Click ปุ่ม Back
-    Click Element    //div[contains(@class,'mat-paginator-range-actions')]//button[2]
-    ${afterback}=    Get Text    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/div
+    Click Element    ${previouspagebuttom}
+    ${afterback}=    Get Text    ${showinfoofitemperpage}
     Log    ${afterback}
     #Check ว่าจำนวนหน้าที่เปลี่ยนหลังกดกลับ เปลี่ยนไหม
     Should Not Be Equal    ${afterback}    ${afterlastpage}
     Sleep    5
     Log To Console    Check Equal /= ค่าเดิม3 // PASS
     #Click ปุ่ม firstpage
-    Click Element    //div[contains(@class,'mat-paginator-range-actions')]//button[1]
-    ${afterfirstpage}=    Get Text    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/div
+    Click Element    ${firstpagebuttom}
+    ${afterfirstpage}=    Get Text    ${showinfoofitemperpage}
     Log    ${afterfirstpage}
     #Checkว่าจำนวนหน้าที่เปลี่ยนหลังกดหน้าแรกว่าเปลี่ยนไหม
     Should Not Be Equal    ${afterfirstpage}    ${afterback}
     Sleep    5
     Log To Console    Action 4 // PASS
     #Click ปุ่มจบการทำงาน
-    Click Element    //*[@id="content"]/app-trademark/div/div/div[4]/button
+    Click Element    ${finishjob}
     Log To Console    Actiion 5 // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
     Close Browser
+    [Teardown]
 
 *** Keywords ***

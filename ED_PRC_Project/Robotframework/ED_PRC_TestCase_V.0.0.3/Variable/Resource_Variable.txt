@@ -1,5 +1,5 @@
 *** Variables ***
-${urlmain}        http://13.250.227.94:7001/ED-WEB/#/    # Website ED Homepage
+${urlmain}        http://13.250.227.94:7001/ED-WEB-DEV    # Website ED Homepage
 ${browser}        gc    # เลือก Browser ที่เปิด ex. gc , firefox , ie
 ${nameproductmain}    //*[@id="content"]/app-trademark/div/div/div[1]/div[2]/div/div[2]/span/span[1]/span    # คลิกเลือกชื่อกลุ่มสินค้า ในช่อง ชื่อกลุ่มสินค้า
 @{Tabsidebar1}    //*[@id="sidebar"]/ul/li[5]/a    //*[@id="CostSubmenu"]/li[1]/a    //*[@id="CostSubmenuV2_main"]/li[1]/a    # Tab ด้านซ้าย " กำหนดมูลค่า " | # Tab บันทึกข้อมูลหลัก {เป็น Sub ของ Tab " กำหนดมูลค่า "} | # Tab บันทึกรหัสเครื่องหมายการค้าหลัก { เป็น Sub ของ Tab " บันทึกข้อมูลหลัก "}
@@ -9,3 +9,24 @@ ${namethaiproduct}    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div
 ${nameengproduct}    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[3]/div[2]/input    # ช่องกรอกข้อมูล ชื่อเครื่องหมายการค้าอังกฤษ
 ${startdate}      //*[@id="startdate"]    # ช่องกรอก วันที่เริ่มใช้รหัสเครื่องหมายการค้า
 ${enddate}        //*[@id="enddate"]    # ช่องกรอก วันที่สิ้นสุดรหัสเครื่องหมายการค้า
+${searchbuttom}    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[1]    # ปุ่ม ค้นหา
+${savebuttom}     //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[2]    # ปุ่ม บันทึก
+${deletebuttom}    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[3]    # ปุ่ม ลบ
+${cleardatabuttom}    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[4]    # ปุ่มล้างข้อมูล
+${version}        //*[@id="content"]/app-trademark/app-navbar/nav/div/div[1]/span[1]    # ระบบงานวิชาการกำหนดมูลค่า Ex. v0.0.30-27AUG18
+${firstpagebuttom}    //div[contains(@class,'mat-paginator-range-actions')]//button[1]    # ปุ่ม First Page เลือกไปหน้าแรกของข้อมูลที่แสดง
+${previouspagebuttom}    //div[contains(@class,'mat-paginator-range-actions')]//button[2]    # ปุ่ม Previous Page เลือกหน้าก่อนหน้านี้ของข้อมูลที่แสดง
+${nextpage}       //button[@class='mat-paginator-navigation-next mat-icon-button'][@aria-label='Next page']    # ปุ่ม Next Page เลือกหน้าถัดไปของข้อมูลที่แสดง
+${lastpage}       //div[contains(@class,'mat-paginator-range-actions')]//button[4]    # ปุ่ม Last Page เลือกหน้าสุดท้ายของข้อมูลที่แสดง
+${finishjob}      //*[@id="content"]/app-trademark/div/div/div[4]/button    # ปุ่มจบการทำงาน
+${selectitemperpage}    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[1]/mat-form-field/div/div[1]/div    # เลือกจำนวนข้อมูลต่อหน้า ( Item Per Page )
+${itemperpageequal50}    id=mat-option-1    # เลือกจำนวนข้อมูลต่อหน้าเป็น 50
+${itemperpageequal100}    id=mat-option-2    # เลือกจำนวนข้อมูลต่อหน้าเป็น 100
+${showinfoofitemperpage}    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/div    # element ที่แสดงจำนวนข้อมูลและจำนวนหน้าทั้งหมด Ex. 51-100 of 124
+${maintable1}     //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/thead/tr/th[1]    # ส่วนแสดงรายการ หัวtableช่อง รหัสเครื่องหมายการค้าหลัก
+${maintable2}     //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/thead/tr/th[2]    # ส่วนแสดงรายการ หัวtableช่อง ชื่อเครื่องหมายการค้าหลัก (ไทย)
+${maintable3}     //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/thead/tr/th[3]    # ส่วนแสดงรายการ หัวtableช่อง ชื่อเครื่องหมายการค้าหลัก (อังกฤษ)
+${maintable4}     //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/thead/tr/th[4]    # ส่วนแสดงรายการ หัวtableช่อง วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+${maintable5}     //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/thead/tr/th[5]    # ส่วนแสดงรายการ หัวtableช่อง วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+${showinformation}    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/tbody/tr[1]/td[3]    # เลือกคลิกดูข้อมูลแถวแรกช่องที่3 เพื่อดู , แก้ไข , เปลี่ยนแปลง , ลบ ข้อมูล
+${urldev}         http://13.250.227.94:7001/ED-WEB-DEV/#/trademark    # Website ED For Dev
