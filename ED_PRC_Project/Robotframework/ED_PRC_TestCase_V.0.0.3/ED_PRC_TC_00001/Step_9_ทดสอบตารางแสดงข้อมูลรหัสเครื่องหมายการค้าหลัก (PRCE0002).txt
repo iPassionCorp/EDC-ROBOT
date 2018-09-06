@@ -1,0 +1,138 @@
+*** Settings ***
+Documentation     * Test Table Information List *
+...               ทดสอบตารางแสดงข้อมูลรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+...
+...               Action
+...               1. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002) - แสดงรายการข้อมูลที่ค้นหา
+...               2. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002) - Items per page:
+...               - เลือกจำนวนหน้าที่ต้องการแสดงผล
+...               3. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002) - 0 of 0:
+...               - รายการแสดงจำนวนหน้าที่เลือก
+...               4. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+...               - ปุ่มก่อน...ถัดไป
+...               5. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002) \ - กดปุ่ม จบการทำงาน
+...
+...               Expected Result
+...               1. สามารถแสดงรายการข้อมูลได้
+...               2. สามารถแสดงตารางข้อมูลตามจำนวนหน้าที่เลือกได้
+...               3. สามารถแสดงจำนวนหน้าที่มีข้อมูลได้ถูกต้อง
+...               4. สามารถกดปุ่มก่อน/ถัดไป และแสดงข้อมูลได้
+...               5. สามารถกดปุ่ม จบการทำงานได้
+Suite Setup       Log To Console    Start Test
+Suite Teardown    Log To Console    End Test
+Library           BuiltIn
+Library           Selenium2Library
+Library           String
+Resource          ../Keywords/ED PRC TestCase.txt
+Resource          ../Variable/Resource_Variable.txt
+
+*** Test Cases ***
+Step_9_ทดสอบตารางแสดงข้อมูลรหัสเครื่องหมายการค้าหลัก_(PRCE0002)
+    [Documentation]    * Test Table Information List *
+    ...    ทดสอบตารางแสดงข้อมูลรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+    ...
+    ...    Action
+    ...    1. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002) - แสดงรายการข้อมูลที่ค้นหา
+    ...    2. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002) - Items per page:
+    ...    - เลือกจำนวนหน้าที่ต้องการแสดงผล
+    ...    3. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002) - 0 of 0:
+    ...    - รายการแสดงจำนวนหน้าที่เลือก
+    ...    4. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+    ...    - ปุ่มก่อน...ถัดไป
+    ...    5. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002) \ - กดปุ่ม จบการทำงาน
+    ...
+    ...    Expected Result
+    ...    1. สามารถแสดงรายการข้อมูลได้
+    ...    2. สามารถแสดงตารางข้อมูลตามจำนวนหน้าที่เลือกได้
+    ...    3. สามารถแสดงจำนวนหน้าที่มีข้อมูลได้ถูกต้อง
+    ...    4. สามารถกดปุ่มก่อน/ถัดไป และแสดงข้อมูลได้
+    ...    5. สามารถกดปุ่ม จบการทำงานได้
+    [Tags]    00001
+    [Template]
+    [Timeout]
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input For Check Table Information list    กก    aaa    08/08/2561    28/08/2561
+    #Click ปุ่มค้นหา
+    Click Button    ${searchbuttom}
+    Sleep    3
+    #Click คลิกข้อมูลที่ต้องการค้นหา
+    Click Element    ${showinformation}
+    Sleep    3
+    Log To Console    Click Infomation // PASS
+    Textfield Should Contain    ${namethaiproduct}    กก
+    Textfield Should Contain    ${nameengproduct}    aaa
+    Textfield Should Contain    ${startdate}    08/08/2561
+    Textfield Should Contain    ${enddate}    28/08/2561
+    Log To Console    Action 1. Show Info In Table // PASS
+    #Click select buttom เพื่อเลือกจำนวนข้อมูลต่อหน้า
+    Click Element    ${selectitemperpage}
+    Sleep    3
+    #เลือก 50 ข้อมูลต่อหน้า
+    Click Element    ${itemperpageequal50}
+    Log To Console    Can Choose Item Per Page
+    Sleep    5
+    #Check แสดงจำนวนหน้า
+    Page Should Contain Element    ${showinfoofitemperpage}
+    ${test}=    Get Text    ${showinfoofitemperpage}
+    Log    ${test}
+    Should Not Be Equal    ${test}    0 of 0
+    Log To Console    Action 3.สามารถแสดงจำนวนหน้าที่มีข้อมูลได้ถูกต้อง \ // PASS
+    Close Browser
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input For Save Information list    ${EMPTY}    ${EMPTY}    ${EMPTY}    ${EMPTY}
+    #กดปุ่มค้นหา
+    Click Button    ${searchbuttom}
+    Sleep    3
+    Log To Console    Click Buttom "Search" // PASS
+    #เช็คจำนวนหน้าปัจจุบัน
+    ${test2}=    Get Text    ${showinfoofitemperpage}
+    Log    ${test2}
+    Log To Console    Get Text1 // PASS
+    Sleep    5
+    #Click ปุ่ม Next    //div[@class='mat-paginator-range-actions']//button[3]
+    Click Element    ${nextpage}
+    Sleep    5
+    Log To Console    Click Buttom // PASS
+    #เก็บค่าจำนวนหน้าใหม่
+    ${afternext}=    Get Text    ${showinfoofitemperpage}
+    Log    ${afternext}
+    #Check ว่าจำนวนหน้าที่เปลี่ยนได้มีการเปลี่ยนแปลงไหม
+    Should Not Be Equal    ${afternext}    ${test2}=
+    Sleep    5
+    Log To Console    Check Equal /= ค่าเดิม // PASS
+    #Click ปุ่ม Last Page
+    Click Element    ${lastpage}
+    ${afterlastpage}=    Get Text    ${showinfoofitemperpage}
+    Log    ${afterlastpage}
+    #Check ว่าจำนวนหน้าที่เปลี่ยนหลังกดหน้าสุดท้ายเปลี่ยนไหม
+    Should Not Be Equal    ${afterlastpage}    ${afternext}
+    Sleep    5
+    Log To Console    Check Equal /= ค่าเดิม2 // PASS
+    #Click ปุ่ม Back
+    Click Element    ${previouspagebuttom}
+    ${afterback}=    Get Text    ${showinfoofitemperpage}
+    Log    ${afterback}
+    #Check ว่าจำนวนหน้าที่เปลี่ยนหลังกดกลับ เปลี่ยนไหม
+    Should Not Be Equal    ${afterback}    ${afterlastpage}
+    Sleep    5
+    Log To Console    Check Equal /= ค่าเดิม3 // PASS
+    #Click ปุ่ม firstpage
+    Click Element    ${firstpagebuttom}
+    ${afterfirstpage}=    Get Text    ${showinfoofitemperpage}
+    Log    ${afterfirstpage}
+    #Checkว่าจำนวนหน้าที่เปลี่ยนหลังกดหน้าแรกว่าเปลี่ยนไหม
+    Should Not Be Equal    ${afterfirstpage}    ${afterback}
+    Sleep    5
+    Log To Console    Action 4 // PASS
+    #Click ปุ่มจบการทำงาน
+    Click Element    ${finishjob}
+    Location Should Be    http://13.250.227.94:7001/ED-WEB/#/
+    Log To Console    Action 5 // PASS
+    Capture Page Screenshot    ED_00001_Step_9.png
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+    [Teardown]

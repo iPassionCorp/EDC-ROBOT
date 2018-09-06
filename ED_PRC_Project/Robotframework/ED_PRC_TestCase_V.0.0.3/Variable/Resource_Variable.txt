@@ -1,8 +1,9 @@
 *** Variables ***
-${urlmain}        http://13.250.227.94:7001/ED-WEB-DEV    # Website ED Homepage
+${urlmain}        http://13.250.227.94:7001/ED-WEB/#/    # Website ED Homepage
+${urldev}         http://13.250.227.94:7001/ED-WEB-DEV    # Website ED For Dev
 ${browser}        gc    # เลือก Browser ที่เปิด ex. gc , firefox , ie
 ${nameproductmain}    //*[@id="content"]/app-trademark/div/div/div[1]/div[2]/div/div[2]/span/span[1]/span    # คลิกเลือกชื่อกลุ่มสินค้า ในช่อง ชื่อกลุ่มสินค้า
-@{Tabsidebar1}    //*[@id="sidebar"]/ul/li[5]/a    //*[@id="CostSubmenu"]/li[1]/a    //*[@id="CostSubmenuV2_main"]/li[1]/a    # Tab ด้านซ้าย " กำหนดมูลค่า " | # Tab บันทึกข้อมูลหลัก {เป็น Sub ของ Tab " กำหนดมูลค่า "} | # Tab บันทึกรหัสเครื่องหมายการค้าหลัก { เป็น Sub ของ Tab " บันทึกข้อมูลหลัก "}
+@{Tabsidebar1}    //*[@id="sidebar"]/ul/li[5]/a    //*[@id="CostSubmenu"]/li[1]/a    //*[@id="CostSubmenuV2_main"]/li[1]/a    //*[@id="CostSubmenuV2_main"]/li[2]/a    # Tab ด้านซ้าย " กำหนดมูลค่า " | # Tab บันทึกข้อมูลหลัก {เป็น Sub ของ Tab " กำหนดมูลค่า "} | # Tab บันทึกรหัสเครื่องหมายการค้าหลัก { เป็น Sub ของ Tab " บันทึกข้อมูลหลัก "} | # Tab บันทึกรหัสเครื่องหมายการค้ารอง { เป็น Sub ของ Tab " บันทึกข้อมูลหลัก "}
 ${inputproduct}    xpath=/html/body/span/span/span[1]/input    # ช่องกรอกข้อมูล ชื่อกลุ่มสินค้า
 ${submitbuttom}    //*[@id="content"]/app-trademark/div/div/div[1]/div[2]/div/div[3]/button    # ปุ่มตกลง ตรงเครื่องหมายการค้าหลักและชื่อกลุ่มสินค้า
 ${namethaiproduct}    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[2]/div[2]/input    # ช่องกรอกข้อมูล ชื่อเครื่องหมายการค้าไทย
@@ -29,4 +30,5 @@ ${maintable3}     //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/t
 ${maintable4}     //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/thead/tr/th[4]    # ส่วนแสดงรายการ หัวtableช่อง วันที่เริ่มใช้รหัสเครื่องหมายการค้า
 ${maintable5}     //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/thead/tr/th[5]    # ส่วนแสดงรายการ หัวtableช่อง วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
 ${showinformation}    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/tbody/tr[1]/td[3]    # เลือกคลิกดูข้อมูลแถวแรกช่องที่3 เพื่อดู , แก้ไข , เปลี่ยนแปลง , ลบ ข้อมูล
-${urldev}         http://13.250.227.94:7001/ED-WEB-DEV/#/trademark    # Website ED For Dev
+${titletrademarkmain}    บันทึกรหัสเครื่องหมายการค้าหลัก    # Title หน้าเครื่องหมายการค้าหลัก
+${titletrademarksub}    บันทึกรหัสเครื่องหมายการค้ารอง    # Title หน้าเครื่องหมายการค้ารอง

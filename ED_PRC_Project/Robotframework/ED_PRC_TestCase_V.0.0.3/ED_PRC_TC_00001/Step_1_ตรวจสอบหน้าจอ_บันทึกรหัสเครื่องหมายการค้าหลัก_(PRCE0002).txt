@@ -1,0 +1,192 @@
+*** Settings ***
+Documentation     *** ทดสอบการบันทึกรหัสเครื่องหมายการค้าหลักในกรณี Happy Flow ***
+...               * Check Main Website Main Trademark (PRCE0002) *
+...               * ตรวจสอบหน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002) *
+...
+...               Action
+...               1. หน้าจอ กรมสรรพสามิตร
+...               2. กดปุ่ม/Tab กำหนดมูลค่า
+...               3. กดปุ่ม/Tab บันทึกข้อมูลหลัก
+...               4. กดปุ่ม/Tab บันทึกรหัสเครื่องหมายการค้าหลัก
+...
+...               Expected Result
+...               ระบบแสดงหน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก ประกอบด้วย
+...               1. Tab ข้อมูล
+...               - ระบบงานวิชาการกำหนดมูลค่า \ v0.0.30-27AUG18
+...               - บันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+...               - หน้าหลัก
+...               - กำหนดมูลค่า
+...               - บันทึกข้อมูลหลัก
+...               - บันทึกรหัสเครื่องหมายการค้าหลัก
+...               - ผู้ใช้งาน :
+...               - หน่วยงาน :
+...               - ออกจากระบบ
+...
+...               2. เครื่องหมายการค้าหลัก
+...               - ชื่อกลุ่มสินค้า
+...               - ปุ่มตกลง
+...
+...               3. บันทึกรายการ
+...               - กลุ่มสินค้า
+...               - รหัสเครื่องหมายการค้า
+...               - ชื่อเครื่องหมายการค้า (ไทย)
+...               - ชื่อเครื่องหมายการค้า (อังกฤษ)
+...               - วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+...               - วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+...               - ปุ่มค้นหา
+...               - ปุ่มบันทึก
+...               - ปุ่มลบ
+...               - ปุ่มล้างข้อมูล
+...
+...               4. ตารางแสดงผลข้อมูล
+...               - แสดงรายการ
+...               - รหัสเครื่องหมายการค้าหลัก
+...               - ชื่อเครื่องหมายการค้าหลัก (ไทย)
+...               - ชื่อเครื่องหมายการค้า (อังกฤษ)
+...               - วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+...               - วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+...               - dropdown list เลือกจำนวนหน้า
+...               - รายการแสดงจำนวนหน้าที่เลือก
+...               - ปุ่มก่อน...ถัดไป
+...               - ปุ่มจบการทำงาน
+Suite Setup       Log To Console    Start Test
+Suite Teardown    Log To Console    End Test
+Library           String
+Library           BuiltIn
+Library           Selenium2Library
+Resource          ../Keywords/ED PRC TestCase.txt
+Resource          ../Variable/Resource_Variable.txt
+
+*** Variables ***
+
+*** Test Cases ***
+Step_1_Action_1_หน้าจอกรมสรรพสามิตร
+    [Documentation]    * Check Main Website Main Trademark (PRCE0002) *
+    ...    * ตรวจสอบหน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002) *
+    ...
+    ...    Action
+    ...    1. หน้าจอ กรมสรรพสามิตร
+    ...    2. กดปุ่ม/Tab กำหนดมูลค่า
+    ...    3. กดปุ่ม/Tab บันทึกข้อมูลหลัก
+    ...    4. กดปุ่ม/Tab บันทึกรหัสเครื่องหมายการค้าหลัก
+    ...
+    ...    Expected Result
+    ...    ระบบแสดงหน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก ประกอบด้วย
+    ...    1. Tab ข้อมูล
+    ...    - ระบบงานวิชาการกำหนดมูลค่า \ v0.0.30-27AUG18
+    ...    - บันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+    ...    - หน้าหลัก
+    ...    - กำหนดมูลค่า
+    ...    - บันทึกข้อมูลหลัก
+    ...    - บันทึกรหัสเครื่องหมายการค้าหลัก
+    ...    - ผู้ใช้งาน :
+    ...    - หน่วยงาน :
+    ...    - ออกจากระบบ
+    ...
+    ...    2. เครื่องหมายการค้าหลัก
+    ...    - ชื่อกลุ่มสินค้า
+    ...    - ปุ่มตกลง
+    ...
+    ...    3. บันทึกรายการ
+    ...    - กลุ่มสินค้า
+    ...    - รหัสเครื่องหมายการค้า
+    ...    - ชื่อเครื่องหมายการค้า (ไทย)
+    ...    - ชื่อเครื่องหมายการค้า (อังกฤษ)
+    ...    - วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    ...    - วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+    ...    - ปุ่มค้นหา
+    ...    - ปุ่มบันทึก
+    ...    - ปุ่มลบ
+    ...    - ปุ่มล้างข้อมูล
+    ...
+    ...    4. ตารางแสดงผลข้อมูล
+    ...    - แสดงรายการ
+    ...    - รหัสเครื่องหมายการค้าหลัก
+    ...    - ชื่อเครื่องหมายการค้าหลัก (ไทย)
+    ...    - ชื่อเครื่องหมายการค้า (อังกฤษ)
+    ...    - วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    ...    - วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+    ...    - dropdown list เลือกจำนวนหน้า
+    ...    - รายการแสดงจำนวนหน้าที่เลือก
+    ...    - ปุ่มก่อน...ถัดไป
+    ...    - ปุ่มจบการทำงาน
+    [Tags]    00001
+    [Template]
+    [Timeout]
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    #Check element ตรงระบบงานวิชาการกำหนดมูลค่า v0.0.30-27AUG18
+    Page Should Contain Element    ${version}
+    Page Should Contain    บันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+    Page Should Contain    หน้าหลัก
+    Page Should Contain    กำหนดมูลค่า
+    Page Should Contain    บันทึกข้อมูลหลัก
+    Page Should Contain    บันทึกรหัสเครื่องหมายการค้าหลัก
+    Page Should Contain    ผู้ใช้งาน
+    Page Should Contain    หน่วยงาน
+    Page Should Contain    ออกจากระบบ
+    Log To Console    Check Action 1.Tab Data \ // PASS
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    #Check ปุ่ม buttom " ตกลง "
+    Page Should Contain Button    ${submitbuttom}
+    Log To Console    Check " 2.Trademark(Main) \ // \ PASS
+    Page Should Contain    บันทึกรายการ
+    Page Should Contain    กลุ่มสินค้า
+    Page Should Contain    รหัสเครื่องหมายการค้า
+    Page Should Contain    ชื่อเครื่องหมายการค้า (ไทย)
+    Page Should Contain    ชื่อเครื่องหมายการค้า (อังกฤษ)
+    Page Should Contain    วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    Page Should Contain    วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+    # Check Buttom บันทึก
+    Page Should Contain Button    ${savebuttom}
+    Log To Console    Check Buttom " Save " \ - \ PASS
+    # Check Buttom ลบ
+    Page Should Contain Button    ${deletebuttom}
+    Log To Console    Check Buttom " Delete " - PASS
+    # Check Buttom ค้นหา
+    Page Should Contain Button    ${searchbuttom}
+    Log To Console    Check Buttom " Search " - PASS
+    # Check Buttom ล้างข้อมูล
+    Page Should Contain Button    ${cleardatabuttom}
+    Log To Console    Check Buttom " Clear Data " - PASS
+    Log To Console    Check 3. Save List // PASS
+    Page Should Contain    แสดงรายการ
+    #Check ปุ่ม รหัสเครื่องหมายการค้าหลัก ด้านล่าง
+    Page Should Contain Element    ${maintable1}
+    #Check ปุ่ม รหัสเครื่องหมายการค้าหลัก (ไทย) ด้านล่าง
+    Page Should Contain Element    ${maintable2}
+    #Check ปุ่ม รหัสเครื่องหมายการค้าหลัก (อังกฤษ) ด้านล่าง
+    Page Should Contain Element    ${maintable3}
+    #Check ปุ่ม วันที่เริ่มใช้รหัสเรื่องหมายการค้า ด้านล่าง
+    Page Should Contain Element    ${maintable4}
+    #Check ปุ่ม วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า ด้านล่าง
+    Page Should Contain Element    ${maintable5}
+    # - Check dropdown list เลือกจำนวนหน้า
+    Page Should Contain Element    ${selectitemperpage}
+    Log To Console    Check Drop Down List \ - \ PASS
+    # - Check รายการแสดงจำนวนหน้าที่เลือก
+    Page Should Contain Element    ${showinfoofitemperpage}
+    Log To Console    Check Show Number Page - \ PASS
+    #check ปุ่ม l<
+    Page Should Contain Element    ${firstpagebuttom}
+    Log To Console    Check Buttom l< \ \ \ - \ PASS
+    #check ปุ่ม <
+    Page Should Contain Element    ${previouspagebuttom}
+    Log To Console    Check Buttom < \ \ - PASS
+    #check ปุ่ม >
+    Page Should Contain Element    ${nextpage}
+    Log To Console    Check Buttom > \ - \ PASS
+    #check ปุ่ม >l
+    Page Should Contain Element    ${lastpage}
+    Log To Console    Check Buttom >l \ - \ PASS
+    #Checkว่ามีปุ่ม จบการทำงาน
+    Page Should Contain Element    ${finishjob}
+    Log To Console    Check 4. Information Table \\ PASS
+    Log To Console    Step 1 Action 1 \ // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Capture Page Screenshot    Step1_Action1.png
+    Close Browser
+    [Teardown]
+
+*** Keywords ***

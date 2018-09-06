@@ -1,0 +1,70 @@
+*** Settings ***
+Documentation     * Test Choose Group Product *
+...               * ทดสอบเลือกกลุ่มสินค้าหลัก (PRCE0002) *
+...
+...               Action
+...               1. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+...               - เลือกชื่อกลุ่มสินค้า
+...               2. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+...               - กดปุ่ม ตกลง
+...
+...               Expected Result
+...               1. สามารถเลือก ชื่อกลุ่มสินค้าได้
+...               2. สามารถกรอก รายละเอียด Field บันทึกรายการได้
+Suite Setup       Log To Console    Start Test
+Suite Teardown    Log To Console    End Test
+Library           String
+Library           BuiltIn
+Library           Selenium2Library
+Resource          ../Keywords/ED PRC TestCase.txt
+Resource          ../Variable/Resource_Variable.txt
+
+*** Test Cases ***
+Step_2_Action_1_ทดสอบเลือกกลุ่มสินค้าหลัก
+    [Documentation]    Action
+    ...    1. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...
+    ...    Expected Result
+    ...    1. สามารถเลือก ชื่อกลุ่มสินค้าได้
+    [Tags]    00001
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    Sleep    2.5
+    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
+    Click Element    ${nameproductmain}
+    Sleep    3
+    Log To Console    Step 2 Action 1 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Capture Page Screenshot    Step2_Action1.png
+    Close Browser
+
+Step_2_Action_2_กดปุ่มตกลง
+    [Documentation]    Action
+    ...    2. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+    ...    - กดปุ่ม ตกลง
+    ...
+    ...    Expected Result
+    ...    2. สามารถกรอก รายละเอียด Field บันทึกรายการได้
+    [Tags]    00001
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    Sleep    2.5
+    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
+    Click Element    ${nameproductmain}
+    Log To Console    Can Click Search Product \ - PASS
+    #พิมพ์ข้อความ 0101 ใส่ฟิล ชื่อกลุ่มสินค้า
+    Input Text    ${inputproduct}    0101
+    #กดปุ่ม Enter
+    Press Key    ${inputproduct}    \\13
+    #กดปุ่มตกลง
+    Click Element    ${submitbuttom}
+    Sleep    3
+    Log To Console    Step 2 Action 2 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Capture Page Screenshot    Step2_Action2.png
+    Close Browser

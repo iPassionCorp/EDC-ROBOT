@@ -1,0 +1,100 @@
+*** Settings ***
+Documentation     * Test Input Information List *
+...               * ทดสอบกรอกข้อมูลเงื่อนไขบันทึกรายการ (PRCE0002) *
+...
+...               Action
+...               1. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ) Field บันทึกรายการ
+...               - กรอกชื่อเครื่องหมายการค้า (ไทย)
+...               2. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ) Field บันทึกรายการ
+...               - กรอกชื่อเครื่องหมายการค้า (อังกฤษ)
+...               3. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ) Field บันทึกรายการ
+...               - กรอก/เลือก ข้อมูล วัน เดือน ปี ที่เริ่มใช้รหัสเครื่องหมายการค้า
+...               4. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ) Field บันทึกรายการ
+...               - กรอก/เลือก ข้อมูล วัน เดือน ปี ที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+...
+...               Expected Result
+...               1. สามารถกรอก ข้อมูลเป็นภาษาไทยได้
+...               2. สามารถกรอก ข้อมูลเป็นภาษาอังกฤษได้
+...               3. สามารถกรอกหรือเลือกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าได้
+...               4. สามารถกรอกหรือเลือกข้อมูล วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้าได้
+Suite Setup       Log To Console    Start Test
+Suite Teardown    Log To Console    End Test
+Library           String
+Library           BuiltIn
+Library           Selenium2Library
+Resource          ../Keywords/ED PRC TestCase.txt
+Resource          ../Variable/Resource_Variable.txt
+
+*** Test Cases ***
+Step_3_Action_1
+    [Documentation]    Action
+    ...    1. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ) Field บันทึกรายการ
+    ...    - กรอกชื่อเครื่องหมายการค้า (ไทย)
+    ...
+    ...    Expected Result
+    ...    1. สามารถกรอก ข้อมูลเป็นภาษาไทยได้
+    [Tags]    00001
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${namethaiproduct}    ภาษาไทย
+    Sleep    3
+    Log To Console    Step 3 Action 1 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Capture Page Screenshot    Step3_Action1.png
+    Close Browser
+
+Step_3_Action_2
+    [Documentation]    Action
+    ...    2. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ) Field บันทึกรายการ
+    ...    - กรอกชื่อเครื่องหมายการค้า (อังกฤษ)
+    ...
+    ...    Expected Result
+    ...    2. สามารถกรอก ข้อมูลเป็นภาษาอังกฤษได้
+    [Tags]    00001
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${nameengproduct}    English
+    Sleep    3
+    Log To Console    Step 3 Action 2 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Capture Page Screenshot    Step3_Action2.png
+    Close Browser
+
+Step_3_Action_3
+    [Documentation]    Action
+    ...    3. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ) Field บันทึกรายการ
+    ...    - กรอก/เลือก ข้อมูล วัน เดือน ปี ที่เริ่มใช้รหัสเครื่องหมายการค้า
+    ...
+    ...
+    ...    Expected Result
+    ...    3. สามารถกรอกหรือเลือกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าได้
+    [Tags]    00001
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${startdate}    25/10/2561
+    Sleep    3
+    Log To Console    Step 3 Action 1 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Capture Page Screenshot    Step3_Action1.png
+    Close Browser
+
+Step_3_Action_4
+    [Documentation]    Action
+    ...    4. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ) Field บันทึกรายการ
+    ...    - กรอก/เลือก ข้อมูล วัน เดือน ปี ที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+    ...
+    ...    Expected Result
+    ...    4. สามารถกรอกหรือเลือกข้อมูล วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้าได้
+    [Tags]    00001
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${enddate}    25/10/2561
+    Sleep    3
+    Log To Console    Step 3 Action 4 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Capture Page Screenshot    Step3_Action4.png
+    Close Browser

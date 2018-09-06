@@ -1,0 +1,39 @@
+*** Settings ***
+Suite Setup       Log To Console    Start Test
+Suite Teardown    Log To Console    End Test
+Library           Selenium2Library
+Library           String
+Library           BuiltIn
+Resource          ../Keywords/ED PRC TestCase.txt
+Resource          ../Variable/Resource_Variable.txt
+
+*** Test Cases ***
+Step_8_ทดสอบล้างข้อมูลรหัสเครื่องหมายการค้าหลัก
+    [Documentation]    * Test Clear All Fieid in information list*
+    ...    ทดสอบล้างข้อมูลรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+    ...
+    ...    Action
+    ...    1. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+    ...    - กรอก หรือ เลือกข้อมูลครบถ้วน
+    ...    - กดปุ่ม ล้างข้อมูล"
+    ...
+    ...    Expected Result
+    ...    1. สามารถล้างข้อมูล ให้สามารถทำรายการใหม่ได้
+    [Tags]    00001
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    #Click ปุ่มล้างข้อมูล
+    Click Element    ${cleardatabuttom}
+    # ช่อง รหัสเครื่องหมายการค้า ต้องไม่มีตัวอักษร (ไทย)
+    Textfield Value Should Be    ${namethaiproduct}    ${EMPTY}
+    # ช่อง รหัสเครื่องหมายการค้า (อังกฤษ)
+    Textfield Value Should Be    ${nameengproduct}    ${EMPTY}
+    # ช่อง วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า ต้องไม่มีตัวอักษร
+    Textfield Value Should Be    ${enddate}    ${EMPTY}
+    Sleep    10
+    Log To Console    Action 1. Can Clear Data For New Input // PASS
+    Capture Page Screenshot    ED_00001_Step_8.png
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser

@@ -1,0 +1,143 @@
+*** Settings ***
+Documentation     * Test Edit Information list in trademark *
+...               ทดสอบแก้ไขรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+...
+...               Action
+...               1.หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002) \ - กรอก หรือ เลือกข้อมูลที่ต้องการแก้ไข
+...               - กดปุ่ม ค้นหา
+...               - เลือกข้อมูลที่ต้องการแก้ไขจากรายการที่แสดง
+...
+...               2.หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002) \ - กดปุ่ม บันทึก
+...
+...               3.ระบบแสดง popup ข้อความ "บันทึกเรียบร้อยแล้ว"
+...               - กดปุ่ม OK
+...
+...               Expected Result
+...               1. สามารถแก้ไข รหัสเครื่องหมายการค้าหลักได้
+...               2. สามารถบันทึก การแก้ไขรหัสเครื่องหมายการค้าหลักได้ ระบบแสดง popup ข้อความ "บันทึกเรียบร้อยแล้ว" "
+...               ปุ่ม OK"
+...               3. ปิดการแจ้งเตือน แล้วแสดงข้อมูลที่ทำการแก้ไขเรียบร้อยแล้วในตารางแสดงผล
+Suite Setup       Log To Console    Start Test
+Suite Teardown    Log To Console    End Test
+Library           String
+Library           BuiltIn
+Library           Selenium2Library
+Resource          ../Keywords/ED PRC TestCase.txt
+Resource          ../Variable/Resource_Variable.txt
+
+*** Test Cases ***
+Step_6_Action_1
+    [Documentation]    Action
+    ...    1.หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002) \ - กรอก หรือ เลือกข้อมูลที่ต้องการแก้ไข
+    ...    - กดปุ่ม ค้นหา
+    ...    - เลือกข้อมูลที่ต้องการแก้ไขจากรายการที่แสดง
+    ...
+    ...    Expected Result
+    ...    1. สามารถแก้ไข รหัสเครื่องหมายการค้าหลักได้
+    [Tags]    00001
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Search Information List    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Log To Console    Click Search Buttom PASS
+    #Click เพื่อดูข้อมูลนั้นๆ    #jquery:td:contains('ไทยออย2'):eq(0)
+    Click Element    ${showinformation}
+    Log To Console    Can Click For Show Information
+    Sleep    4
+    #Clear ข้อความเพื่อใส่ข้อมูลใหม่
+    Input Text    ${namethaiproduct}    ${EMPTY}
+    Sleep    2.5
+    #ใส่ ข้อความที่ ชื่อเครื่องหมายการค้า (ไทย)
+    Input Text    ${namethaiproduct}    เปลี่ยน
+    #Clear ข้อความเพื่อใส่ข้อมูลใหม่
+    Input Text    ${nameengproduct}    ${EMPTY}
+    Sleep    2.5
+    #ใส่ ข้อความที่ชื่อเครื่องหมายการค้า (อังกฤษ)
+    Input Text    ${nameengproduct}    change
+    #Clear ช่องกรอกข้อความเพื่อใส่ข้อมูลใหม่
+    Input Text    ${startdate}    ${EMPTY}
+    #พิมพ์วันที่ 29/08/2561 ใส่ วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    Input Text    ${startdate}    1/08/2561
+    #กดปุ่ม Enter
+    Press Key    ${startdate}    \\13
+    #Clear ช่องกรอกข้อความเพื่อใส่ข้อมูลใหม่
+    Input Text    ${enddate}    ${EMPTY}
+    #พิมพ์วันที่ 29/09/2561 ใส่ วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+    Input Text    ${enddate}    2/09/2561
+    #กดปุ่ม Enter
+    Press Key    ${enddate}    \\13
+    Log To Console    Step6 Action1 // PASS
+    Capture Page Screenshot    Step6_Action1.png
+    Sleep    5
+    Delete Information List In Trademark(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_6_Action_2
+    [Documentation]    * Test Edit Information list in trademark *
+    ...    ทดสอบแก้ไขรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+    ...
+    ...    Action
+    ...    2.หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002) \ - กดปุ่ม บันทึก
+    ...
+    ...    Expected Result
+    ...    2. สามารถบันทึก การแก้ไขรหัสเครื่องหมายการค้าหลักได้ ระบบแสดง popup ข้อความ "บันทึกเรียบร้อยแล้ว" "
+    ...    ปุ่ม OK"
+    [Tags]    00001
+    [Template]
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Search Information List    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Click Element    ${showinformation}
+    #Click เพื่อดูข้อมูลนั้นๆ    #jquery:td:contains('ไทยออย2'):eq(0)
+    Input For Edit Information List In Trademark    ไทยออย3    ThaiOil3    29/08/2561    29/09/2561
+    Log To Console    Step6 Action2 // PASS
+    Capture Page Screenshot    Step6_Action2.png
+    Delete Information List In Trademark(Main)    ไทยออย3    ThaiOil3    29/08/2561    29/09/2561
+    Sleep    5
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_6_Action_3
+    [Documentation]    * Test Edit Information list in trademark *
+    ...    ทดสอบแก้ไขรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+    ...
+    ...    3.ระบบแสดง popup ข้อความ "บันทึกเรียบร้อยแล้ว"
+    ...    - กดปุ่ม OK
+    ...
+    ...    Expected Result
+    ...
+    ...    3. ปิดการแจ้งเตือน แล้วแสดงข้อมูลที่ทำการแก้ไขเรียบร้อยแล้วในตารางแสดงผล
+    [Tags]    00001
+    [Template]
+    [Timeout]
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Search Information List    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Click Element    ${showinformation}
+    #Click เพื่อดูข้อมูลนั้นๆ    #jquery:td:contains('ไทยออย2'):eq(0)
+    Input For Edit Information List In Trademark    ไทยออย3    ThaiOil3    29/08/2561    29/09/2561
+    Sleep    5
+    Click Element    ${showinformation}
+    #Check ว่า ชื่อเครื่องหมายการค้าหลัก (ไทย) ในแสดงรายการ เป็นข้อความชื่อ "ไทยออย2"
+    Sleep    7
+    Table Should Contain    ${namethaiproduct}    ไทยออย3
+    Log To Console    Check Table 1 // Pass
+    Table Should Contain    ${nameengproduct}    ThaiOil3
+    Log To Console    Check Table 2 // Pass
+    Table Should Contain    ${startdate}    29/08/2561
+    Log To Console    Check Table 3 // Pass
+    Table Should Contain    ${enddate}    29/09/2561
+    Log To Console    Check Table 4 // Pass
+    Sleep    5
+    Log To Console    Step6 Action3 // PASS
+    Capture Page Screenshot    Step6_Action3.png
+    Sleep    5
+    Delete Information List In Trademark(Main)    ไทยออย3    ThaiOil3    29/08/2561    29/09/2561
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser

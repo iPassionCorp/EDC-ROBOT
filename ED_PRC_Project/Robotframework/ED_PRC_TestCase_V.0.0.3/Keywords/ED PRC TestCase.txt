@@ -6,24 +6,24 @@ Resource          ../Variable/Resource_Variable.txt
 Resource          ED PRC TestCase.txt
 
 *** Keywords ***
-Open Website trademark(Main)
-    [Arguments]    ${titlename}    ${urltrademarkmain}
-    Open Browser    ${urlmain}    ${browser}
+Open Website Trademark
+    [Arguments]    ${url}
+    Open Browser    ${url}    ${browser}
     Maximize Browser Window
     Sleep    4
+
+Choose Tab For Work
+    [Arguments]    ${titlename}    ${tab1}    ${tab2}    ${tab3}
     # Click tab กำหนดมูลค่าเพื่อเปิด tab ไปยังบันทึกข้อมูลหลัก
     Click Element    @{Tabsidebar1}[0]
+    Sleep    3.5
     # Click Tab บันทึกข้อมูลหลัก
-    Wait Until Page Contains    บันทึกข้อมูลหลัก
-    Sleep    3.5
     Click Element    @{Tabsidebar1}[1]
-    # Click Tab บันทึกรหัสเครื่องหมายการค้าหลัก
-    Wait Until Page Contains    บันทึกรหัสเครื่องหมายการค้าหลัก
     Sleep    3.5
+    # Click Tab บันทึกรหัสเครื่องหมายการค้าหลัก
     Click Element    @{Tabsidebar1}[2]
     Sleep    2.5
     Title Should Be    ${titlename}
-    Location Should Be    ${urltrademarkmain}
 
 Choose Name Of Product
     [Arguments]    ${inputproducttext}
@@ -40,7 +40,7 @@ Choose Name Of Product
     #กดปุ่มตกลง
     Click Element    ${submitbuttom}
 
-Input Information list
+Input For Save Information list
     [Arguments]    ${inputthaiproduct}    ${inputengproduct}    ${inputstartdate}    ${inputenddate}
     [Timeout]
     #ใส่ ข้อความที่ ชื่อเครื่องหมายการค้า (ไทย)
@@ -55,6 +55,22 @@ Input Information list
     Input Text    ${enddate}    ${inputenddate}
     #กดปุ่ม Enter
     Press Key    ${enddate}    \\13
+    #กดปุ่ม บันทึก
+    Click Element    ${savebuttom}
+    #Pop up ขึ้นว่า บันทึกข้อมูลเรียบร้อยแล้วกดปุ่ม Ok
+    Alert Should Be Present    บันทึกข้อมูลเรียบร้อยแล้ว    ACCEPT    10
+    Sleep    5
+
+Input For Search Information List
+    [Arguments]    ${thainame}    ${endname}    ${strdate}    ${findate}
+    #ใส่ข้อมูล
+    Input Text    ${namethaiproduct}    ${thainame}
+    Input Text    ${nameengproduct}    ${endname}
+    Input Text    ${startdate}    ${strdate}
+    Input Text    ${enddate}    ${findate}
+    #กดปุ่มค้นหา
+    Click Button    ${searchbuttom}
+    Sleep    5
 
 Input For Edit Information List In Trademark
     [Arguments]    ${editinputthaiproduct}    ${editinputengproduct}    ${editinputstartdate}    ${editinputenddate}
@@ -82,9 +98,11 @@ Input For Edit Information List In Trademark
     #กดปุ่ม Enter
     Press Key    ${enddate}    \\13
     #กดปุ่มบันทึก
+    Sleep    3
     Click Element    ${savebuttom}
     #Pop up จะขึ้นว่า " บันทึกข้อมูลเรียบร้อยแล้ว "
     Alert Should Be Present    บันทึกข้อมูลเรียบร้อยแล้ว    ACCEPT    10
+    Sleep    3
     [Teardown]
 
 Delete Information List In Trademark(Main)
@@ -129,7 +147,9 @@ Delete Information List In Trademark(Main)
     Alert Should Be Present    ลบข้อมูลเรียบร้อยแล้ว    ACCEPT    10
     Sleep    4
     Log To Console    Delete Step 2 // PASS
+    Alert Should Be Present    ไม่พบข้อมูล โปรดลองใหม่อีกครั้ง    DISMISS    10
     Sleep    4
+    Log To Console    Delete Step 3 // PASS
 
 Input For Check Table Information list
     [Arguments]    ${checktablethaiproduct}    ${checktableengproduct}    ${checktablestartdate}    ${checktableenddate}

@@ -5,53 +5,101 @@ Suite Teardown
 Library           Selenium2Library
 Library           BuiltIn
 Library           String
+Resource          ../Keywords/ED PRC TestCase.txt
+Resource          ../Variable/Resource_Variable.txt
 
 *** Test Cases ***
-ED_00003_Step_1
+ED_00003_Step_1 ยังไม่เสร็จ
     [Documentation]    * Check Main Website Sub Trademark (PRCE0002) *
     ...    ตรวจสอบหน้าจอ บันทึกรหัส เครื่องหมายการค้ารอง (PRCE0002)
+    ...    Action
+    ...    1. หน้าจอ กรมสรรพสามิตร
+    ...
+    ...    1.1 กดปุ่ม/Tab กำหนดมูลค่า
+    ...
+    ...    1.2 กดปุ่ม/Tab บันทึกข้อมูลหลัก
+    ...    1.3 กดปุ่ม/Tab บันทึกรหัสเครื่องหมายการค้ารอง
+    ...
+    ...    Expected Result
     ...    ระบบแสดงหน้าจอ บันทึกรหัสเครื่องหมายการค้ารอง ประกอบด้วย
+    ...    1. Tab ข้อมูล
     ...
-    ...    1. เครื่องหมายการค้ารอง
+    ...    - ระบบงานวิชาการกำหนดมูลค่า \ v0.0.30-27AUG18
+    ...
+    ...    - บันทึกรหัสเครื่องหมายการค้ารอง (PRCE0003)
+    ...
+    ...    - หน้าหลัก
+    ...
+    ...    - กำหนดมูลค่า
+    ...
+    ...    - บันทึกข้อมูลหลัก \
+    ...
+    ...    - บันทึกรหัสเครื่องหมายการค้ารอง
+    ...
+    ...    - ผู้ใช้งาน :
+    ...
+    ...    - หน่วยงาน :
+    ...
+    ...    - ออกจากระบบ
+    ...
+    ...    2. เครื่องหมายการค้ารอง
+    ...
     ...    - ชื่อกลุ่มสินค้า
-    ...    - เครื่องหมายการค้าหลัก
-    ...    - ปุ่มตกลง
-    ...    - ปุ่มล้าง
     ...
-    ...    2. บันทึกรายการ
+    ...    - เครื่องหมายการค้าหลัก
+    ...
+    ...    - ปุ่มตกลง
+    ...
+    ...    3. บันทึกรายการ
+    ...
+    ...    - กลุ่มสินค้า :
+    ...
     ...    - รหัสเครื่องหมายการค้ารอง
+    ...
     ...    - ชื่อเครื่องหมายการค้า (ไทย)
+    ...
     ...    - ชื่อเครื่องหมายการค้า (อังกฤษ)
+    ...
     ...    - วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    ...
     ...    - วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
-    ...    - ปุ่มบันทึก
-    ...    - ปุ่มลบ
+    ...
     ...    - ปุ่มค้นหา
+    ...
+    ...    - ปุ่มบันทึก
+    ...
+    ...    - ปุ่มลบ
+    ...
     ...    - ปุ่มล้างข้อมูล
     ...
-    ...    3. ตารางแสดงผลข้อมูล
-    ...    - รหัสเครื่องหมายการค้าหลัก
-    ...    - ชื่อเครื่องหมายการค้าหลัก (ไทย)
-    ...    - ชื่อเครื่องหมายการค้า (อังกฤษ)
+    ...    4. ตารางแสดงรายการ
+    ...
+    ...    - รหัสเครื่องหมายการค้ารอง
+    ...
+    ...    - ชื่อเครื่องหมายการค้ารอง (ไทย)
+    ...
+    ...    - ชื่อเครื่องหมายการค้ารอง (อังกฤษ)
+    ...
     ...    - วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    ...
     ...    - วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
     ...
-    ...    4. Items per page
     ...    - dropdown list เลือกจำนวนหน้า
+    ...
     ...    - รายการแสดงจำนวนหน้าที่เลือก
     ...
-    ...    5. ปุ่มก่อน...ถัดไป
-    [Tags]    PRCE0003
-    Open Website Trademark(Sub)
+    ...    - ปุ่มก่อน...ถัดไป
+    ...
+    ...    - ปุ่มจบการทำงาน
+    [Tags]    00003
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[3]
     Page Should Contain    เครื่องหมายการค้ารอง
     Page Should Contain    ชื่อกลุ่มสินค้า
     Page Should Contain    เครื่องหมายการค้าหลัก
     #Check ปุ่ม buttom " ตกลง "
-    Page Should Contain Button    //*[@id="content"]/app-trademark/div/div/div[1]/div[2]/div[2]/div[3]/button
+    Page Should Contain Button    ${submitbuttom}
     Log To Console    Check Buttom "Submit" \ - \ PASS
-    # Check ปุ่ม buttom " ล้าง " ไม่มีปุ่มล้างแล้วหลังจากอัพเดทล่าสุด
-    #Page Should Contain Button    xpath=/html/body/app-root/div[1]/app-trademark/div[1]/div[2]/div[2]/div/div/button[2]
-    #Log To Console    Check Buttom " Clear " - PASS
     Page Should Contain    กลุ่มสินค้า
     Page Should Contain    รหัสเครื่องหมายการค้ารอง
     Page Should Contain    รหัสเครื่องหมายการค้า
@@ -93,12 +141,13 @@ ED_00003_Step_1
     Close Browser
     [Teardown]
 
-ED_00003_Step_2
+ED_00003_Step_2 ยังไม่เสร็จ
     [Documentation]    ทดสอบเลือกกลุ่มสินค้ารอง (PRCE0003)
     ...    - เลือกชื่อกลุ่มสินค้า
     ...    - เลือกเครื่องหมายการค้าหลัก
     ...    - กดปุ่ม ตกลง
     ...    - กดปุ่ม ล้าง
+    [Tags]    00003
     [Template]
     Open Website Trademark(Sub)
     Page Should Contain    รหัสเครื่องหมายการค้ารอง
@@ -129,47 +178,8 @@ ED_00003_Step_2
     Close Browser
 
 ED_00003_Step_3 ยังไม่เสร็จ
+    [Tags]    00003
     Open Website Trademark(Sub)
     Choose Name Of Product
 
 *** Keywords ***
-Open Website Trademark(Sub)
-    Open Browser    http://13.250.227.94:7001/ED-WEB/#/    gc
-    Maximize Browser Window
-    Sleep    2.5
-    # Click tab กำหนดมูลค่าเพื่อเปิด tab ไปยังบันทึกข้อมูลหลัก
-    Click Element    //*[@id="sidebar"]/ul/li[5]/a
-    # Click Tab บันทึกข้อมูลหลัก
-    Wait Until Page Contains    บันทึกข้อมูลหลัก
-    Sleep    3.5
-    Click Element    //*[@id="CostSubmenu"]/li[1]/a
-    # Click Tab บันทึกรหัสเครื่องหมายการค้ารอง
-    Wait Until Page Contains    บันทึกรหัสเครื่องหมายการค้ารอง
-    Sleep    3.5
-    Click Element    //*[@id="CostSubmenuV2_main"]/li[2]/a
-    Sleep    2.5
-    Location Should Be    http://13.250.227.94:7001/ED-WEB/#/trademark2
-    Title Should Be    บันทึกรหัสเครื่องหมายการค้ารอง
-
-Choose Name Of Product
-    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
-    Click Element    //*[@id="content"]/app-trademark/div/div/div[1]/div[2]/div[1]/div[2]/span/span[1]/span
-    Log To Console    Can Click Search Product \ - PASS
-    Sleep    3
-    #พิมพ์ข้อความ 0101 - น้ำมันและผลิตภัณท์น้ำมัน ใส่ฟิล ชื่อกลุ่มสินค้า
-    Input Text    xpath=/html/body/span/span/span[1]/input    0101 - น้ำมันและผลิตภัณฑ์น้ำมัน
-    #กดปุ่ม Enter
-    Sleep    3
-    Press Key    xpath=/html/body/span/span/span[1]/input    \\13
-    Log To Console    Can Input Text "0101 - น้ำมันและผลิตภัณฑ์น้ำมัน "
-    #พิมพ์ข้อความ 124 - เทส ใส่ช่องเครื่องหมายการค้าหลัก
-    Click Element    //*[@id="content"]/app-trademark/div/div/div[1]/div[2]/div[2]/div[2]/span/span[1]/span
-    Sleep    3
-    Input Text    xpath=/html/body/span/span/span[1]/input    124 - เทส
-    Sleep    3
-    Press Key    xpath=/html/body/span/span/span[1]/input    \\13
-    Log To Console    Can Input Text "124 - เทส"
-    #กดปุ่มตกลง
-    Click Button    //*[@id="content"]/app-trademark/div/div/div[1]/div[2]/div[2]/div[3]/button
-    Sleep    5
-    Log to Console    Can Click Submit Buttom

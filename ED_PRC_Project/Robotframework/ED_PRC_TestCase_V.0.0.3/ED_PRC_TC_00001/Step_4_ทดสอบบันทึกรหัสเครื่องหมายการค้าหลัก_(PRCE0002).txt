@@ -1,0 +1,59 @@
+*** Settings ***
+Documentation     * Save Information list *
+...               ทดสอบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+...
+...               Action
+...               1. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+...               - กรอก หรือ เลือกข้อมูลครบถ้วน
+...               - กดปุ่ม บันทึก
+...               2. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+...               - กดปุ่ม OK
+...
+...               Expected Result
+...               1. แสดง popup สามารถข้อความ 'บันทึกข้อมูลเรียบร้อยแล้ว
+...               2. สามารถบันทึก รหัสเครื่องหมายการค้าหลักได้
+Suite Setup       Log To Console    Start Test
+Suite Teardown    Log To Console    End Test
+Library           String
+Library           BuiltIn
+Library           Selenium2Library
+Resource          ../Keywords/ED PRC TestCase.txt
+Resource          ../Variable/Resource_Variable.txt
+
+*** Test Cases ***
+Step_4_Action_1
+    [Documentation]    1. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+    ...    - กรอก หรือ เลือกข้อมูลครบถ้วน
+    ...    - กดปุ่ม บันทึก
+    ...
+    ...    Expected Result
+    ...    1. แสดง popup สามารถข้อความ 'บันทึกข้อมูลเรียบร้อยแล้ว
+    [Tags]    00001
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Capture Page Screenshot    Step4_Action1.png
+    Sleep    5
+    Delete Information List In Trademark(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Log To Console    Step 4 Action 1 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_4_Action_2
+    [Documentation]    2. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002)
+    ...    - กดปุ่ม OK
+    ...
+    ...    Expected Result
+    ...    2. สามารถบันทึก รหัสเครื่องหมายการค้าหลักได้
+    [Tags]    00001
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Delete Information List In Trademark(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Log To Console    Step4 Action2 // PASS
+    Capture Page Screenshot    Step4_Action2.png
+    Sleep    5
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
