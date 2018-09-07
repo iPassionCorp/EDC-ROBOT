@@ -6,6 +6,7 @@ Library           String
 Library           BuiltIn
 Resource          ../Keywords/ED PRC TestCase.txt
 Resource          ../Variable/Resource_Variable.txt
+Resource          ../Repositories/Web_Config.txt
 
 *** Test Cases ***
 Step_8_ทดสอบล้างข้อมูลรหัสเครื่องหมายการค้าหลัก
@@ -21,17 +22,17 @@ Step_8_ทดสอบล้างข้อมูลรหัสเครื่�
     ...    1. สามารถล้างข้อมูล ให้สามารถทำรายการใหม่ได้
     [Tags]    00001
     Open Website Trademark    ${urlmain}
-    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
     Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     #Click ปุ่มล้างข้อมูล
-    Click Element    ${cleardatabuttom}
+    Click Element    ${bt_cleardatabuttom}
     # ช่อง รหัสเครื่องหมายการค้า ต้องไม่มีตัวอักษร (ไทย)
-    Textfield Value Should Be    ${namethaiproduct}    ${EMPTY}
+    Textfield Value Should Be    ${tb_namethaiproduct}    ${EMPTY}
     # ช่อง รหัสเครื่องหมายการค้า (อังกฤษ)
-    Textfield Value Should Be    ${nameengproduct}    ${EMPTY}
+    Textfield Value Should Be    ${tb_nameengproduct}    ${EMPTY}
     # ช่อง วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า ต้องไม่มีตัวอักษร
-    Textfield Value Should Be    ${enddate}    ${EMPTY}
+    Textfield Value Should Be    ${tb_enddate}    ${EMPTY}
     Sleep    10
     Log To Console    Action 1. Can Clear Data For New Input // PASS
     Capture Page Screenshot    ED_00001_Step_8.png

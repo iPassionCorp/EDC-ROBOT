@@ -15,13 +15,13 @@ Open Website Trademark
 Choose Tab For Work
     [Arguments]    ${titlename}    ${tab1}    ${tab2}    ${tab3}
     # Click tab กำหนดมูลค่าเพื่อเปิด tab ไปยังบันทึกข้อมูลหลัก
-    Click Element    @{Tabsidebar1}[0]
+    Click Element    @{lb_tabsidebar1}[0]
     Sleep    3.5
     # Click Tab บันทึกข้อมูลหลัก
-    Click Element    @{Tabsidebar1}[1]
+    Click Element    @{lb_tabsidebar1}[1]
     Sleep    3.5
     # Click Tab บันทึกรหัสเครื่องหมายการค้าหลัก
-    Click Element    @{Tabsidebar1}[2]
+    Click Element    @{lb_tabsidebar1}[2]
     Sleep    2.5
     Title Should Be    ${titlename}
 
@@ -31,32 +31,32 @@ Choose Name Of Product
     Page Should Contain    ชื่อกลุ่มสินค้า
     Sleep    2.5
     # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
-    Click Element    ${nameproductmain}
+    Click Element    ${lb_nameproductmain}
     Log To Console    Can Click Search Product \ - PASS
     #พิมพ์ข้อความ 0101 ใส่ฟิล ชื่อกลุ่มสินค้า
-    Input Text    ${inputproduct}    ${inputproducttext}
+    Input Text    ${tb_inputproduct}    ${inputproducttext}
     #กดปุ่ม Enter
-    Press Key    ${inputproduct}    \\13
+    Press Key    ${tb_inputproduct}    \\13
     #กดปุ่มตกลง
-    Click Element    ${submitbuttom}
+    Click Element    ${bt_submitbuttom}
 
 Input For Save Information list
     [Arguments]    ${inputthaiproduct}    ${inputengproduct}    ${inputstartdate}    ${inputenddate}
     [Timeout]
     #ใส่ ข้อความที่ ชื่อเครื่องหมายการค้า (ไทย)
-    Input Text    ${namethaiproduct}    ${inputthaiproduct}
+    Input Text    ${tb_namethaiproduct}    ${inputthaiproduct}
     #ใส่ ข้อความที่ชื่อเครื่องหมายการค้า (อังกฤษ)
-    Input Text    ${nameengproduct}    ${inputengproduct}
+    Input Text    ${tb_nameengproduct}    ${inputengproduct}
     #พิมพ์วันที่ 30/08/2561 ใส่ วันที่เริ่มใช้รหัสเครื่องหมายการค้า
-    Input Text    ${startdate}    ${inputstartdate}
+    Input Text    ${tb_startdate}    ${inputstartdate}
     #กดปุ่ม Enter
-    Press Key    ${startdate}    \\13
+    Press Key    ${tb_startdate}    \\13
     #พิมพ์วันที่ 30/09/2561 ใส่ วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
-    Input Text    ${enddate}    ${inputenddate}
+    Input Text    ${tb_enddate}    ${inputenddate}
     #กดปุ่ม Enter
-    Press Key    ${enddate}    \\13
+    Press Key    ${tb_enddate}    \\13
     #กดปุ่ม บันทึก
-    Click Element    ${savebuttom}
+    Click Element    ${bt_savebuttom}
     #Pop up ขึ้นว่า บันทึกข้อมูลเรียบร้อยแล้วกดปุ่ม Ok
     Alert Should Be Present    บันทึกข้อมูลเรียบร้อยแล้ว    ACCEPT    10
     Sleep    5
@@ -64,42 +64,42 @@ Input For Save Information list
 Input For Search Information List
     [Arguments]    ${thainame}    ${endname}    ${strdate}    ${findate}
     #ใส่ข้อมูล
-    Input Text    ${namethaiproduct}    ${thainame}
-    Input Text    ${nameengproduct}    ${endname}
-    Input Text    ${startdate}    ${strdate}
-    Input Text    ${enddate}    ${findate}
+    Input Text    ${tb_namethaiproduct}    ${thainame}
+    Input Text    ${tb_nameengproduct}    ${endname}
+    Input Text    ${tb_startdate}    ${strdate}
+    Input Text    ${tb_enddate}    ${findate}
     #กดปุ่มค้นหา
-    Click Button    ${searchbuttom}
+    Click Button    ${bt_searchbuttom}
     Sleep    5
 
 Input For Edit Information List In Trademark
     [Arguments]    ${editinputthaiproduct}    ${editinputengproduct}    ${editinputstartdate}    ${editinputenddate}
     [Timeout]
     #Clear ข้อความเพื่อใส่ข้อมูลใหม่
-    Input Text    ${namethaiproduct}    ${EMPTY}
+    Input Text    ${tb_namethaiproduct}    ${EMPTY}
     Sleep    2.5
     #ใส่ ข้อความที่ ชื่อเครื่องหมายการค้า (ไทย)
-    Input Text    ${namethaiproduct}    ${editinputthaiproduct}
+    Input Text    ${tb_namethaiproduct}    ${editinputthaiproduct}
     #Clear ข้อความเพื่อใส่ข้อมูลใหม่
-    Input Text    ${nameengproduct}    ${EMPTY}
+    Input Text    ${tb_nameengproduct}    ${EMPTY}
     Sleep    2.5
     #ใส่ ข้อความที่ชื่อเครื่องหมายการค้า (อังกฤษ)
-    Input Text    ${nameengproduct}    ${editinputengproduct}
+    Input Text    ${tb_nameengproduct}    ${editinputengproduct}
     #Clear ช่องกรอกข้อความเพื่อใส่ข้อมูลใหม่
-    Input Text    ${startdate}    ${EMPTY}
+    Input Text    ${tb_startdate}    ${EMPTY}
     #พิมพ์วันที่ 29/08/2561 ใส่ วันที่เริ่มใช้รหัสเครื่องหมายการค้า
-    Input Text    ${startdate}    ${editinputstartdate}
+    Input Text    ${tb_startdate}    ${editinputstartdate}
     #กดปุ่ม Enter
-    Press Key    ${startdate}    \\13
+    Press Key    ${tb_startdate}    \\13
     #Clear ช่องกรอกข้อความเพื่อใส่ข้อมูลใหม่
-    Input Text    ${enddate}    ${EMPTY}
+    Input Text    ${tb_enddate}    ${EMPTY}
     #พิมพ์วันที่ 29/09/2561 ใส่ วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
-    Input Text    ${enddate}    ${editinputenddate}
+    Input Text    ${tb_enddate}    ${editinputenddate}
     #กดปุ่ม Enter
-    Press Key    ${enddate}    \\13
+    Press Key    ${tb_enddate}    \\13
     #กดปุ่มบันทึก
     Sleep    3
-    Click Element    ${savebuttom}
+    Click Element    ${bt_savebuttom}
     #Pop up จะขึ้นว่า " บันทึกข้อมูลเรียบร้อยแล้ว "
     Alert Should Be Present    บันทึกข้อมูลเรียบร้อยแล้ว    ACCEPT    10
     Sleep    3
@@ -108,37 +108,37 @@ Input For Edit Information List In Trademark
 Delete Information List In Trademark(Main)
     [Arguments]    ${deleteinputthaiproduct}    ${deleteinputengproduct}    ${deleteinputstartdate}    ${deleteinputenddate}
     #Clear ข้อความเพื่อใส่ข้อมูลใหม่
-    Input Text    ${namethaiproduct}    ${EMPTY}
+    Input Text    ${tb_namethaiproduct}    ${EMPTY}
     #ใส่ ข้อความที่ ชื่อเครื่องหมายการค้า (ไทย)
-    Input Text    ${namethaiproduct}    ${deleteinputthaiproduct}
+    Input Text    ${tb_namethaiproduct}    ${deleteinputthaiproduct}
     Log To Console    Input 1 // PASS
     #Clear ข้อความเพื่อใส่ข้อมูลใหม่
-    Input Text    ${nameengproduct}    ${EMPTY}
+    Input Text    ${tb_nameengproduct}    ${EMPTY}
     #ใส่ ข้อความที่ชื่อเครื่องหมายการค้า (อังกฤษ)
-    Input Text    ${nameengproduct}    ${deleteinputengproduct}
+    Input Text    ${tb_nameengproduct}    ${deleteinputengproduct}
     Log To Console    Input 2 // PASS
-    Input Text    ${startdate}    ${EMPTY}
+    Input Text    ${tb_startdate}    ${EMPTY}
     #พิมพ์วันที่ 29/08/2561 ใส่ วันที่เริ่มใช้รหัสเครื่องหมายการค้า
-    Input Text    ${startdate}    ${deleteinputstartdate}
+    Input Text    ${tb_startdate}    ${deleteinputstartdate}
     #กดปุ่ม Enter
-    Press Key    ${startdate}    \\13
+    Press Key    ${tb_startdate}    \\13
     Log To Console    Input 3 // PASS
     #Clear ข้อความเพื่อใส่ข้อมูลใหม่
-    Input Text    ${enddate}    ${EMPTY}
+    Input Text    ${tb_enddate}    ${EMPTY}
     #พิมพ์วันที่ 29/09/2561 ใส่ วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
-    Input Text    ${enddate}    ${deleteinputenddate}
+    Input Text    ${tb_enddate}    ${deleteinputenddate}
     #กดปุ่ม Enter
-    Press Key    ${enddate}    \\13
+    Press Key    ${tb_enddate}    \\13
     Log To Console    Input 4 // PASS
     #กดปุ่ม Search
-    Click Element    ${searchbuttom}
+    Click Element    ${bt_searchbuttom}
     Log To Console    Can Click Search Buttom // \ PASS
     Sleep    4
     #Click เลือกเพื่อแสดงข้อมูล
-    Click Element    ${showinformation}
+    Click Element    ${lb_showinformation}
     Log To Console    Can Click For Search Info PASS
     #Click ปุ่ม ลบ เพื่อลบข้อมูล
-    Click Element    ${deletebuttom}
+    Click Element    ${bt_deletebuttom}
     #Pop Up จะขึ้นว่า " ต้องการลบข้อมูลหรือไม่? "
     Alert Should Be Present    ต้องการลบข้อมูลหรือไม่?    ACCEPT    10
     Sleep    4
@@ -155,15 +155,15 @@ Input For Check Table Information list
     [Arguments]    ${checktablethaiproduct}    ${checktableengproduct}    ${checktablestartdate}    ${checktableenddate}
     [Timeout]
     #เว้นช่องข้อความที่ ชื่อเครื่องหมายการค้า (ไทย)
-    Input Text    ${namethaiproduct}    ${checktablethaiproduct}
+    Input Text    ${tb_namethaiproduct}    ${checktablethaiproduct}
     #เว้นช่องข้อความที่ชื่อเครื่องหมายการค้า (อังกฤษ)
-    Input Text    ${nameengproduct}    ${checktableengproduct}
+    Input Text    ${tb_nameengproduct}    ${checktableengproduct}
     #ใส่ข้อความ 08/08/2561 วันที่เริ่มใช้รหัสเครื่องหมายการค้า
-    Input Text    ${startdate}    ${checktablestartdate}
+    Input Text    ${tb_startdate}    ${checktablestartdate}
     #กดปุ่ม Enter
-    Press Key    ${startdate}    \\13
+    Press Key    ${tb_startdate}    \\13
     #ใส่ข้อความ 28/08/2561 วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
-    Input Text    ${enddate}    ${checktableenddate}
+    Input Text    ${tb_enddate}    ${checktableenddate}
     #กดปุ่ม Enter
-    Press Key    ${enddate}    \\13
+    Press Key    ${tb_enddate}    \\13
     [Teardown]

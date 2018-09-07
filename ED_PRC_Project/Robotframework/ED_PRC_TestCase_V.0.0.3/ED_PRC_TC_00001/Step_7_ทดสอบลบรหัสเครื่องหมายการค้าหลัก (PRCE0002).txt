@@ -26,6 +26,7 @@ Library           BuiltIn
 Library           Selenium2Library
 Resource          ../Keywords/ED PRC TestCase.txt
 Resource          ../Variable/Resource_Variable.txt
+Resource          ../Repositories/Web_Config.txt
 
 *** Test Cases ***
 Step_7_Action_1 ทดสอบเลือกข้อมูลเพื่อจะลบข้อมูล
@@ -46,15 +47,15 @@ Step_7_Action_1 ทดสอบเลือกข้อมูลเพื่อ�
     [Template]
     [Timeout]
     Open Website Trademark    ${urlmain}
-    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
     Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Input For Search Information List    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
-    Click Element    ${showinformation}
-    Table Should Contain    ${namethaiproduct}    ไทยออย2
-    Table Should Contain    ${nameengproduct}    ThaiOil2
-    Table Should Contain    ${startdate}    30/08/2561
-    Table Should Contain    ${enddate}    30/09/2561
+    Click Element    ${lb_showinformation}
+    Table Should Contain    ${tb_namethaiproduct}    ไทยออย2
+    Table Should Contain    ${tb_nameengproduct}    ThaiOil2
+    Table Should Contain    ${tb_startdate}    30/08/2561
+    Table Should Contain    ${tb_enddate}    30/09/2561
     Log To Console    Step7 Action1 // PASS
     Capture Page Screenshot    Step7_Action1.png
     Delete Information List In Trademark(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
@@ -74,14 +75,14 @@ Step_7_Action_2_กดปุ่ม_ลบ
     [Template]
     [Timeout]
     Open Website Trademark    ${urlmain}
-    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
     Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Input For Search Information List    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     #คลิกดูข้อมูล
-    Click Element    ${showinformation}
+    Click Element    ${lb_showinformation}
     #กดลบข้อมูล
-    Click Element    ${deletebuttom}
+    Click Element    ${bt_deletebuttom}
     #Pop Up จะขึ้นว่า " ต้องการลบข้อมูลหรือไม่? "
     ${message}=    Handle Alert    DISMISS    10
     Should Be Equal    ต้องการลบข้อมูลหรือไม่?    ${message}
@@ -106,14 +107,14 @@ Step_7_Action_3_กดปุ่ม_OK
     [Template]
     [Timeout]
     Open Website Trademark    ${urlmain}
-    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
     Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Input For Search Information List    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     #คลิกดูข้อมูล
-    Click Element    ${showinformation}
+    Click Element    ${lb_showinformation}
     #กดลบข้อมูล
-    Click Element    ${deletebuttom}
+    Click Element    ${bt_deletebuttom}
     #Pop Up จะขึ้นว่า " ต้องการลบข้อมูลหรือไม่? "
     ${message}=    Handle Alert    ACCEPT    10
     Should Be Equal    ต้องการลบข้อมูลหรือไม่?    ${message}
@@ -142,14 +143,14 @@ Step_7_Action_4_กดปุ่ม_Cancel
     [Template]
     [Timeout]
     Open Website Trademark    ${urlmain}
-    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
     Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Input For Search Information List    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     #คลิกดูข้อมูล
-    Click Element    ${showinformation}
+    Click Element    ${lb_showinformation}
     #กดลบข้อมูล
-    Click Element    ${deletebuttom}
+    Click Element    ${bt_deletebuttom}
     #Pop Up จะขึ้นว่า " ต้องการลบข้อมูลหรือไม่? "
     ${message}=    Handle Alert    DISMISS    10
     Should Be Equal    ต้องการลบข้อมูลหรือไม่?    ${message}

@@ -56,6 +56,7 @@ Library           BuiltIn
 Library           Selenium2Library
 Resource          ../Keywords/ED PRC TestCase.txt
 Resource          ../Variable/Resource_Variable.txt
+Resource          ../Repositories/Web_Config.txt
 
 *** Variables ***
 
@@ -114,9 +115,9 @@ Step_1_Action_1_หน้าจอกรมสรรพสามิตร
     [Template]
     [Timeout]
     Open Website Trademark    ${urlmain}
-    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     #Check element ตรงระบบงานวิชาการกำหนดมูลค่า v0.0.30-27AUG18
-    Page Should Contain Element    ${version}
+    Page Should Contain Element    ${lb_version}
     Page Should Contain    บันทึกรหัสเครื่องหมายการค้าหลัก (PRCE0002)
     Page Should Contain    หน้าหลัก
     Page Should Contain    กำหนดมูลค่า
@@ -129,7 +130,7 @@ Step_1_Action_1_หน้าจอกรมสรรพสามิตร
     Page Should Contain    เครื่องหมายการค้าหลัก
     Page Should Contain    ชื่อกลุ่มสินค้า
     #Check ปุ่ม buttom " ตกลง "
-    Page Should Contain Button    ${submitbuttom}
+    Page Should Contain Button    ${bt_submitbuttom}
     Log To Console    Check " 2.Trademark(Main) \ // \ PASS
     Page Should Contain    บันทึกรายการ
     Page Should Contain    กลุ่มสินค้า
@@ -139,49 +140,49 @@ Step_1_Action_1_หน้าจอกรมสรรพสามิตร
     Page Should Contain    วันที่เริ่มใช้รหัสเครื่องหมายการค้า
     Page Should Contain    วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
     # Check Buttom บันทึก
-    Page Should Contain Button    ${savebuttom}
+    Page Should Contain Button    ${bt_savebuttom}
     Log To Console    Check Buttom " Save " \ - \ PASS
     # Check Buttom ลบ
-    Page Should Contain Button    ${deletebuttom}
+    Page Should Contain Button    ${bt_deletebuttom}
     Log To Console    Check Buttom " Delete " - PASS
     # Check Buttom ค้นหา
-    Page Should Contain Button    ${searchbuttom}
+    Page Should Contain Button    ${bt_searchbuttom}
     Log To Console    Check Buttom " Search " - PASS
     # Check Buttom ล้างข้อมูล
-    Page Should Contain Button    ${cleardatabuttom}
+    Page Should Contain Button    ${bt_cleardatabuttom}
     Log To Console    Check Buttom " Clear Data " - PASS
     Log To Console    Check 3. Save List // PASS
     Page Should Contain    แสดงรายการ
     #Check ปุ่ม รหัสเครื่องหมายการค้าหลัก ด้านล่าง
-    Page Should Contain Element    ${maintable1}
+    Page Should Contain Element    ${lb_maintable1}
     #Check ปุ่ม รหัสเครื่องหมายการค้าหลัก (ไทย) ด้านล่าง
-    Page Should Contain Element    ${maintable2}
+    Page Should Contain Element    ${lb_maintable2}
     #Check ปุ่ม รหัสเครื่องหมายการค้าหลัก (อังกฤษ) ด้านล่าง
-    Page Should Contain Element    ${maintable3}
+    Page Should Contain Element    ${lb_maintable3}
     #Check ปุ่ม วันที่เริ่มใช้รหัสเรื่องหมายการค้า ด้านล่าง
-    Page Should Contain Element    ${maintable4}
+    Page Should Contain Element    ${lb_maintable4}
     #Check ปุ่ม วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า ด้านล่าง
-    Page Should Contain Element    ${maintable5}
+    Page Should Contain Element    ${lb_maintable5}
     # - Check dropdown list เลือกจำนวนหน้า
-    Page Should Contain Element    ${selectitemperpage}
+    Page Should Contain Element    ${lb_selectitemperpage}
     Log To Console    Check Drop Down List \ - \ PASS
     # - Check รายการแสดงจำนวนหน้าที่เลือก
-    Page Should Contain Element    ${showinfoofitemperpage}
+    Page Should Contain Element    ${lb_showinfoofitemperpage}
     Log To Console    Check Show Number Page - \ PASS
     #check ปุ่ม l<
-    Page Should Contain Element    ${firstpagebuttom}
+    Page Should Contain Element    ${bt_firstpagebuttom}
     Log To Console    Check Buttom l< \ \ \ - \ PASS
     #check ปุ่ม <
-    Page Should Contain Element    ${previouspagebuttom}
+    Page Should Contain Element    ${bt_previouspagebuttom}
     Log To Console    Check Buttom < \ \ - PASS
     #check ปุ่ม >
-    Page Should Contain Element    ${nextpage}
+    Page Should Contain Element    ${bt_nextpagebuttom}
     Log To Console    Check Buttom > \ - \ PASS
     #check ปุ่ม >l
-    Page Should Contain Element    ${lastpage}
+    Page Should Contain Element    ${bt_lastpagebuttom}
     Log To Console    Check Buttom >l \ - \ PASS
     #Checkว่ามีปุ่ม จบการทำงาน
-    Page Should Contain Element    ${finishjob}
+    Page Should Contain Element    ${bt_finishjobbuttom}
     Log To Console    Check 4. Information Table \\ PASS
     Log To Console    Step 1 Action 1 \ // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}

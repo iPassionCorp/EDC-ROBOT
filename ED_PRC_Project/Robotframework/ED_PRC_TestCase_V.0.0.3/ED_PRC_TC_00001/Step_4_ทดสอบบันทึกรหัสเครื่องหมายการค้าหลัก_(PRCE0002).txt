@@ -19,6 +19,7 @@ Library           BuiltIn
 Library           Selenium2Library
 Resource          ../Keywords/ED PRC TestCase.txt
 Resource          ../Variable/Resource_Variable.txt
+Resource          ../Repositories/Web_Config.txt
 
 *** Test Cases ***
 Step_4_Action_1
@@ -30,7 +31,7 @@ Step_4_Action_1
     ...    1. แสดง popup สามารถข้อความ 'บันทึกข้อมูลเรียบร้อยแล้ว
     [Tags]    00001
     Open Website Trademark    ${urlmain}
-    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
     Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Capture Page Screenshot    Step4_Action1.png
@@ -48,7 +49,7 @@ Step_4_Action_2
     ...    2. สามารถบันทึก รหัสเครื่องหมายการค้าหลักได้
     [Tags]    00001
     Open Website Trademark    ${urlmain}
-    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
     Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Delete Information List In Trademark(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561

@@ -24,6 +24,7 @@ Library           BuiltIn
 Library           Selenium2Library
 Resource          ../Keywords/ED PRC TestCase.txt
 Resource          ../Variable/Resource_Variable.txt
+Resource          ../Repositories/Web_Config.txt
 
 *** Test Cases ***
 Step_6_Action_1
@@ -36,37 +37,37 @@ Step_6_Action_1
     ...    1. สามารถแก้ไข รหัสเครื่องหมายการค้าหลักได้
     [Tags]    00001
     Open Website Trademark    ${urlmain}
-    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
     Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Input For Search Information List    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Log To Console    Click Search Buttom PASS
     #Click เพื่อดูข้อมูลนั้นๆ    #jquery:td:contains('ไทยออย2'):eq(0)
-    Click Element    ${showinformation}
+    Click Element    ${lb_showinformation}
     Log To Console    Can Click For Show Information
     Sleep    4
     #Clear ข้อความเพื่อใส่ข้อมูลใหม่
-    Input Text    ${namethaiproduct}    ${EMPTY}
+    Input Text    ${tb_namethaiproduct}    ${EMPTY}
     Sleep    2.5
     #ใส่ ข้อความที่ ชื่อเครื่องหมายการค้า (ไทย)
-    Input Text    ${namethaiproduct}    เปลี่ยน
+    Input Text    ${tb_namethaiproduct}    เปลี่ยน
     #Clear ข้อความเพื่อใส่ข้อมูลใหม่
-    Input Text    ${nameengproduct}    ${EMPTY}
+    Input Text    ${tb_nameengproduct}    ${EMPTY}
     Sleep    2.5
     #ใส่ ข้อความที่ชื่อเครื่องหมายการค้า (อังกฤษ)
-    Input Text    ${nameengproduct}    change
+    Input Text    ${tb_nameengproduct}    change
     #Clear ช่องกรอกข้อความเพื่อใส่ข้อมูลใหม่
-    Input Text    ${startdate}    ${EMPTY}
+    Input Text    ${tb_startdate}    ${EMPTY}
     #พิมพ์วันที่ 29/08/2561 ใส่ วันที่เริ่มใช้รหัสเครื่องหมายการค้า
-    Input Text    ${startdate}    1/08/2561
+    Input Text    ${tb_startdate}    1/08/2561
     #กดปุ่ม Enter
-    Press Key    ${startdate}    \\13
+    Press Key    ${tb_startdate}    \\13
     #Clear ช่องกรอกข้อความเพื่อใส่ข้อมูลใหม่
-    Input Text    ${enddate}    ${EMPTY}
+    Input Text    ${tb_enddate}    ${EMPTY}
     #พิมพ์วันที่ 29/09/2561 ใส่ วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
-    Input Text    ${enddate}    2/09/2561
+    Input Text    ${tb_enddate}    2/09/2561
     #กดปุ่ม Enter
-    Press Key    ${enddate}    \\13
+    Press Key    ${tb_enddate}    \\13
     Log To Console    Step6 Action1 // PASS
     Capture Page Screenshot    Step6_Action1.png
     Sleep    5
@@ -87,11 +88,11 @@ Step_6_Action_2
     [Tags]    00001
     [Template]
     Open Website Trademark    ${urlmain}
-    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
     Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Input For Search Information List    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
-    Click Element    ${showinformation}
+    Click Element    ${lb_showinformation}
     #Click เพื่อดูข้อมูลนั้นๆ    #jquery:td:contains('ไทยออย2'):eq(0)
     Input For Edit Information List In Trademark    ไทยออย3    ThaiOil3    29/08/2561    29/09/2561
     Log To Console    Step6 Action2 // PASS
@@ -115,24 +116,24 @@ Step_6_Action_3
     [Template]
     [Timeout]
     Open Website Trademark    ${urlmain}
-    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
     Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Input For Search Information List    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
-    Click Element    ${showinformation}
+    Click Element    ${lb_showinformation}
     #Click เพื่อดูข้อมูลนั้นๆ    #jquery:td:contains('ไทยออย2'):eq(0)
     Input For Edit Information List In Trademark    ไทยออย3    ThaiOil3    29/08/2561    29/09/2561
     Sleep    5
-    Click Element    ${showinformation}
+    Click Element    ${lb_showinformation}
     #Check ว่า ชื่อเครื่องหมายการค้าหลัก (ไทย) ในแสดงรายการ เป็นข้อความชื่อ "ไทยออย2"
     Sleep    7
-    Table Should Contain    ${namethaiproduct}    ไทยออย3
+    Table Should Contain    ${tb_namethaiproduct}    ไทยออย3
     Log To Console    Check Table 1 // Pass
-    Table Should Contain    ${nameengproduct}    ThaiOil3
+    Table Should Contain    ${tb_nameengproduct}    ThaiOil3
     Log To Console    Check Table 2 // Pass
-    Table Should Contain    ${startdate}    29/08/2561
+    Table Should Contain    ${tb_startdate}    29/08/2561
     Log To Console    Check Table 3 // Pass
-    Table Should Contain    ${enddate}    29/09/2561
+    Table Should Contain    ${tb_enddate}    29/09/2561
     Log To Console    Check Table 4 // Pass
     Sleep    5
     Log To Console    Step6 Action3 // PASS

@@ -4,6 +4,7 @@ Library           String
 Library           BuiltIn
 Resource          ../Keywords/ED PRC TestCase.txt
 Resource          ../Variable/Resource_Variable.txt
+Resource          ../Repositories/Web_Config.txt
 
 *** Test Cases ***
 ED_00002_Step_1_ตรวจสอบหน้าจอ_บันทึกรหัสเครื่องหมายการค้าหลัก(PRCE0002)

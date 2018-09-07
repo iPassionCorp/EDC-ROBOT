@@ -24,6 +24,7 @@ Library           BuiltIn
 Library           Selenium2Library
 Resource          ../Keywords/ED PRC TestCase.txt
 Resource          ../Variable/Resource_Variable.txt
+Resource          ../Repositories/Web_Config.txt
 
 *** Test Cases ***
 Step_3_Action_1
@@ -35,9 +36,9 @@ Step_3_Action_1
     ...    1. สามารถกรอก ข้อมูลเป็นภาษาไทยได้
     [Tags]    00001
     Open Website Trademark    ${urlmain}
-    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input Text    ${namethaiproduct}    ภาษาไทย
+    Input Text    ${tb_namethaiproduct}    ภาษาไทย
     Sleep    3
     Log To Console    Step 3 Action 1 // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
@@ -53,9 +54,9 @@ Step_3_Action_2
     ...    2. สามารถกรอก ข้อมูลเป็นภาษาอังกฤษได้
     [Tags]    00001
     Open Website Trademark    ${urlmain}
-    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input Text    ${nameengproduct}    English
+    Input Text    ${tb_nameengproduct}    English
     Sleep    3
     Log To Console    Step 3 Action 2 // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
@@ -72,9 +73,9 @@ Step_3_Action_3
     ...    3. สามารถกรอกหรือเลือกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าได้
     [Tags]    00001
     Open Website Trademark    ${urlmain}
-    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input Text    ${startdate}    25/10/2561
+    Input Text    ${tb_startdate}    25/10/2561
     Sleep    3
     Log To Console    Step 3 Action 1 // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
@@ -90,9 +91,9 @@ Step_3_Action_4
     ...    4. สามารถกรอกหรือเลือกข้อมูล วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้าได้
     [Tags]    00001
     Open Website Trademark    ${urlmain}
-    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[2]
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input Text    ${enddate}    25/10/2561
+    Input Text    ${tb_enddate}    25/10/2561
     Sleep    3
     Log To Console    Step 3 Action 4 // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
