@@ -1,0 +1,7 @@
+﻿เพิ่ม ED PRC TC 00002 Step 3 Action 1-9
+เพิ่ม ED PRC TC 00002 Step 4 Action 1-8
+ติด ED PRC TC 00002 Step 4 Action 7
+ติด ED PRC TC 00002 Step 4 Action 8
+แก้ ตัวแปรตามที่บอกแล้วครับกับสร้าง Arguments config ที่ใช้เปลี่ยนarguments** ผมสร้างถูกหรือเปล่าครับ
+รบกวนดูให้ทีครับว่าเช็คตรงกับเทสเคสไหมครับผมจะอัพเทสเคสขึ้นGitเข้าไปด้วยครับ
+ติดตรง Table กับพวก validateข้อมูลเป็นส่วนใหญ่ครับ

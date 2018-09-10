@@ -10,16 +10,16 @@ Open Website Trademark
     [Arguments]    ${url}
     Open Browser    ${url}    ${browser}
     Maximize Browser Window
-    Sleep    4
+    Sleep    2.5
 
 Choose Tab For Work
     [Arguments]    ${titlename}    ${tab1}    ${tab2}    ${tab3}
     # Click tab กำหนดมูลค่าเพื่อเปิด tab ไปยังบันทึกข้อมูลหลัก
     Click Element    @{lb_tabsidebar1}[0]
-    Sleep    3.5
+    Sleep    2.5
     # Click Tab บันทึกข้อมูลหลัก
     Click Element    @{lb_tabsidebar1}[1]
-    Sleep    3.5
+    Sleep    2.5
     # Click Tab บันทึกรหัสเครื่องหมายการค้าหลัก
     Click Element    @{lb_tabsidebar1}[2]
     Sleep    2.5
@@ -29,7 +29,7 @@ Choose Name Of Product
     [Arguments]    ${inputproducttext}
     Page Should Contain    เครื่องหมายการค้าหลัก
     Page Should Contain    ชื่อกลุ่มสินค้า
-    Sleep    2.5
+    Sleep    3
     # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
     Click Element    ${lb_nameproductmain}
     Log To Console    Can Click Search Product \ - PASS
@@ -59,7 +59,7 @@ Input For Save Information list
     Click Element    ${bt_savebuttom}
     #Pop up ขึ้นว่า บันทึกข้อมูลเรียบร้อยแล้วกดปุ่ม Ok
     Alert Should Be Present    บันทึกข้อมูลเรียบร้อยแล้ว    ACCEPT    10
-    Sleep    5
+    Sleep    3
 
 Input For Search Information List
     [Arguments]    ${thainame}    ${endname}    ${strdate}    ${findate}
@@ -70,7 +70,7 @@ Input For Search Information List
     Input Text    ${tb_enddate}    ${findate}
     #กดปุ่มค้นหา
     Click Button    ${bt_searchbuttom}
-    Sleep    5
+    Sleep    3
 
 Input For Edit Information List In Trademark
     [Arguments]    ${editinputthaiproduct}    ${editinputengproduct}    ${editinputstartdate}    ${editinputenddate}
@@ -133,7 +133,7 @@ Delete Information List In Trademark(Main)
     #กดปุ่ม Search
     Click Element    ${bt_searchbuttom}
     Log To Console    Can Click Search Buttom // \ PASS
-    Sleep    4
+    Sleep    3
     #Click เลือกเพื่อแสดงข้อมูล
     Click Element    ${lb_showinformation}
     Log To Console    Can Click For Search Info PASS
@@ -141,14 +141,14 @@ Delete Information List In Trademark(Main)
     Click Element    ${bt_deletebuttom}
     #Pop Up จะขึ้นว่า " ต้องการลบข้อมูลหรือไม่? "
     Alert Should Be Present    ต้องการลบข้อมูลหรือไม่?    ACCEPT    10
-    Sleep    4
+    Sleep    3
     Log To Console    Delete Step 1 // PASS
     #Pop up จะขึ้นว่า " ลบข้อมูลเรียบร้อยแล้ว "
     Alert Should Be Present    ลบข้อมูลเรียบร้อยแล้ว    ACCEPT    10
-    Sleep    4
+    Sleep    3
     Log To Console    Delete Step 2 // PASS
     Alert Should Be Present    ไม่พบข้อมูล โปรดลองใหม่อีกครั้ง    DISMISS    10
-    Sleep    4
+    Sleep    3
     Log To Console    Delete Step 3 // PASS
 
 Input For Check Table Information list

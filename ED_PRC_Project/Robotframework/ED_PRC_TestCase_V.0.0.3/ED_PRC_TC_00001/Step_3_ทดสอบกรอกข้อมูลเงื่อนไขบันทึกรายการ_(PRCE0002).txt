@@ -42,7 +42,7 @@ Step_3_Action_1
     Sleep    3
     Log To Console    Step 3 Action 1 // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
-    Capture Page Screenshot    Step3_Action1.png
+    Capture Page Screenshot    TC01_Step3_Action1.png
     Close Browser
 
 Step_3_Action_2
@@ -60,7 +60,7 @@ Step_3_Action_2
     Sleep    3
     Log To Console    Step 3 Action 2 // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
-    Capture Page Screenshot    Step3_Action2.png
+    Capture Page Screenshot    TC01_Step3_Action2.png
     Close Browser
 
 Step_3_Action_3
@@ -79,7 +79,7 @@ Step_3_Action_3
     Sleep    3
     Log To Console    Step 3 Action 1 // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
-    Capture Page Screenshot    Step3_Action1.png
+    Capture Page Screenshot    TC01_Step3_Action3.png
     Close Browser
 
 Step_3_Action_4
@@ -97,5 +97,5 @@ Step_3_Action_4
     Sleep    3
     Log To Console    Step 3 Action 4 // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
-    Capture Page Screenshot    Step3_Action4.png
+    Capture Page Screenshot    TC01_Step3_Action4.png
     Close Browser

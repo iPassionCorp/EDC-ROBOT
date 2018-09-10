@@ -33,8 +33,8 @@ Step_8_ทดสอบล้างข้อมูลรหัสเครื่�
     Textfield Value Should Be    ${tb_nameengproduct}    ${EMPTY}
     # ช่อง วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า ต้องไม่มีตัวอักษร
     Textfield Value Should Be    ${tb_enddate}    ${EMPTY}
-    Sleep    10
+    Sleep    5
     Log To Console    Action 1. Can Clear Data For New Input // PASS
-    Capture Page Screenshot    ED_00001_Step_8.png
+    Capture Page Screenshot    TC01_Step8_Action1.png
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
     Close Browser

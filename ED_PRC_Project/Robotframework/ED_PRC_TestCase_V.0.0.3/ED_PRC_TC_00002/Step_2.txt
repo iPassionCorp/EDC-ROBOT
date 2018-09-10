@@ -1,0 +1,49 @@
+*** Settings ***
+Documentation     * ทดสอบไม่เลือก / กรอกชื่อกลุ่มสินค้า (เครื่องหมายการค้าหลัก) *
+...
+...               Action
+...               1. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+...               - กดปุ่ม ตกลง
+...               2. ระบบแจ้งเตือน "กรุณาระบุชื่อกลุ่มสินค้า"
+...               - กดปุ่ม OK
+...
+...               Expected Result
+...               1. สามารถกดปุ่มตกลงได้ แต่ไม่กรอกบันทึกรายการได้ ระบบแจ้งเตือน "กรุณาระบุชื่อกลุ่มสินค้า" และ
+...               ปุ่ม OK
+...               2. ปิดแจ้งเตือน
+Suite Setup       Log To Console    Start Test
+Suite Teardown    Log To Console    End Test
+Library           Selenium2Library
+Library           String
+Library           BuiltIn
+Resource          ../Keywords/ED PRC TestCase.txt
+Resource          ../Repositories/Web_Config.txt
+Resource          ../Variable/Resource_Variable.txt
+
+*** Test Cases ***
+Step_2_Action_1_and_2_ทดสอบไม่เลือก_กรอกชื่อกลุ่มสินค้า(เครื่องหมายการค้าหลัก)
+    [Documentation]    * ทดสอบไม่เลือก / กรอกชื่อกลุ่มสินค้า (เครื่องหมายการค้าหลัก) *
+    ...
+    ...    Action
+    ...    1. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+    ...    - กดปุ่ม ตกลง
+    ...    2. ระบบแจ้งเตือน "กรุณาระบุชื่อกลุ่มสินค้า"
+    ...    - กดปุ่ม OK
+    ...
+    ...    Expected Result
+    ...    1. สามารถกดปุ่มตกลงได้ แต่ไม่กรอกบันทึกรายการได้ ระบบแจ้งเตือน "กรุณาระบุชื่อกลุ่มสินค้า" และ
+    ...    ปุ่ม OK
+    ...    2. ปิดแจ้งเตือน
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    #กดปุ่มตกลง
+    Click Button    ${bt_submitbuttom}
+    Log To Console    Action 1. Click " Submit " Buttom // PASS
+    #Pop Up แจ้งเตือนว่า " กรุณาระบุชื่อกลุ่มสินค้า "
+    Alert Should Be Present    กรุณาระบุชื่อกลุ่มสินค้า    ACCEPT    10
+    Log To Console    Action 2. Click Ok Buttom in Pop Up // PASS
+    Sleep    5
+    Capture Page Screenshot    TC02_Step2_Action1and2.png
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser

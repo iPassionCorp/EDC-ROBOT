@@ -1,0 +1,341 @@
+*** Settings ***
+Documentation     * ทดสอบเลือก / กรอกชื่อกลุ่มสินค้า (เครื่องหมายการค้าหลัก) *
+...
+...               Action
+...               1. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+...               - กด Dropdownlist
+...               2. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+...               - กด Dropdownlist
+...               - เลือกหรือกรอกข้อมูล ชื่อกลุ่มสินค้า
+...               3. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+...               - กด Dropdownlist
+...               - กรอกข้อมูล ชื่อกลุ่มสินค้า : ภาษาไทย
+...               4. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+...               - กด Dropdownlist
+...               - กรอกข้อมูล ชื่อกลุ่มสินค้า : ตัวเลข
+...               5. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+...               - กด Dropdownlist
+...               - กรอกข้อมูล ชื่อกลุ่มสินค้า : อักขระพิเศษ
+...               6. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+...               - กด Dropdownlist
+...               - กรอกข้อมูล ชื่อกลุ่มสินค้า : space bar (ค่าว่าง)
+...               7. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+...               - กด Dropdownlist
+...               - กรอกข้อมูล ชื่อกลุ่มสินค้า : ที่มีในระบบ
+...               8. หน้าจอ \ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+...               - กด Dropdownlist
+...               - กรอกข้อมูล ชื่อกลุ่มสินค้า : ที่ไม่มีในระบบ
+...               9. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+...               - กด Dropdownlist
+...               - เลือก / กรอกข้อมูล ชื่อกลุ่มสินค้า
+...               - กดปุ่ม ตกลง
+...
+...               Expected Result
+...               1.ระบบแสดงข้อมูลชื่อกลุ่มสินค้าที่มีในระบบได้ โดยเรียงตามรหัสกลุ่มสินค้า จากน้อยไปมาก
+...               2.สามารถเลือกข้อมูลชื่อกลุ่มสินค้าได้
+...               3.สามารถกรอกข้อมูลชื่อกลุ่มสินค้าเป็นภาษาไทยได้ และระบบแสดงข้อมูลชื่อกลุ่มสินค้าที่ทำการค้นหา
+...               4.สามารถกรอกข้อมูลชื่อกลุ่มสินค้าเป็นตัวเลขได้ และระบบแสดงข้อมูลชื่อกลุ่มสินค้าที่ทำการค้นหา
+...               5.สามารถกรอกข้อมูลชื่อกลุ่มสินค้าเป็นอักขระพิเศษได้ และระบบแสดงข้อมูลชื่อกลุ่มสินค้าที่ทำการค้นหา
+...               6.สามารถกรอกข้อมูลชื่อกลุ่มสินค้าเป็น space bar (ค่าว่าง) ได้ และระบบแสดงข้อมูลชื่อกลุ่มสินค้าที่ทำการค้นหา
+...               7.สามารถกรอกข้อมูลชื่อกลุ่มสินค้าได้ และระบบแสดงข้อมูลชื่อกลุ่มสินค้าที่ทำการค้นหา
+...               8.ระบบแสดงข้อความ "No results found"
+...               9.สามารถกรอกข้อมูลบันทึกรายการ เครื่องหมายการค้าหลักได้
+Suite Setup       Log To Console    Start Test
+Suite Teardown    Log To Console    End Test
+Library           BuiltIn
+Library           Selenium2Library
+Library           String
+Resource          ../Variable/Resource_Variable.txt
+Resource          ../Keywords/ED PRC TestCase.txt
+Resource          ../Repositories/Web_Config.txt
+
+*** Test Cases ***
+Step_3_Action_1 *** Check เรียงจากน้อยไปมากไม่ได้ครับ
+    [Documentation]    * ทดสอบเลือก / กรอกชื่อกลุ่มสินค้า (เครื่องหมายการค้าหลัก) *
+    ...
+    ...    Action
+    ...    1. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+    ...    - กด Dropdownlist
+    ...
+    ...    Expected Result
+    ...    1.ระบบแสดงข้อมูลชื่อกลุ่มสินค้าที่มีในระบบได้ โดยเรียงตามรหัสกลุ่มสินค้า จากน้อยไปมาก
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    Sleep    2.5
+    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
+    Click Element    ${lb_nameproductmain}
+    Log To Console    Can Click Search Product \ - PASS
+    Sleep    2.5
+    #Check ว่ามีช่องให้ใส่และเลือก ชื่อกลุ่มสินค้า
+    Page Should Contain Element    ${lb_nameproductbox}
+    Log To Console    Action 1 // PASS
+    Capture Page Screenshot    TC02_Step3_Action1.png
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_3_Action_2
+    [Documentation]    * ทดสอบเลือก / กรอกชื่อกลุ่มสินค้า (เครื่องหมายการค้าหลัก) *
+    ...
+    ...    Action
+    ...    2. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+    ...    - กด Dropdownlist
+    ...    - เลือกหรือกรอกข้อมูล ชื่อกลุ่มสินค้า
+    ...
+    ...    Expected Result
+    ...    2.สามารถเลือกข้อมูลชื่อกลุ่มสินค้าได้
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    Sleep    2.5
+    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
+    Click Element    ${lb_nameproductmain}
+    Log To Console    Can Click Search Product \ - PASS
+    Sleep    3
+    #Check ว่ามีช่องให้ใส่และเลือก ชื่อกลุ่มสินค้า
+    Page Should Contain Element    ${lb_nameproductbox}
+    #พิมพ์ข้อความ 0101 ใส่ฟิล ชื่อกลุ่มสินค้า
+    Input Text    ${tb_inputproduct}    0101
+    #กดปุ่ม Enter
+    Press Key    ${tb_inputproduct}    \\13
+    Log To Console    Action 2 // PASS
+    #กดปุ่มตกลง
+    Click Button    ${bt_submitbuttom}
+    Capture Page Screenshot    TC02_Step3_Action2.png
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_3_Action_3
+    [Documentation]    * ทดสอบเลือก / กรอกชื่อกลุ่มสินค้า (เครื่องหมายการค้าหลัก) *
+    ...
+    ...    Action
+    ...
+    ...    3. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+    ...    - กด Dropdownlist
+    ...    - กรอกข้อมูล ชื่อกลุ่มสินค้า : ภาษาไทย
+    ...
+    ...    Expected Result
+    ...    3.สามารถกรอกข้อมูลชื่อกลุ่มสินค้าเป็นภาษาไทยได้ และระบบแสดงข้อมูลชื่อกลุ่มสินค้าที่ทำการค้นหา
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    Sleep    2.5
+    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
+    Click Element    ${lb_nameproductmain}
+    Log To Console    Can Click Search Product \ - PASS
+    Sleep    3
+    #Check ว่ามีช่องให้ใส่และเลือก ชื่อกลุ่มสินค้า
+    Page Should Contain Element    ${lb_nameproductbox}
+    #พิมพ์ข้อความ เครื่องดื่ม ใส่ฟิล ชื่อกลุ่มสินค้า
+    Input Text    ${tb_inputproduct}    เครื่องดื่ม
+    #กดปุ่ม Enter
+    Current Frame Should Contain    0201 - เครื่องดื่ม
+    Press Key    ${tb_inputproduct}    \\13
+    Log To Console    Action 3 // PASS
+    Capture Page Screenshot    TC02_Step3_Action3.png
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_3_Action_4
+    [Documentation]    * ทดสอบเลือก / กรอกชื่อกลุ่มสินค้า (เครื่องหมายการค้าหลัก) *
+    ...
+    ...    Action
+    ...    4. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+    ...    - กด Dropdownlist
+    ...    - กรอกข้อมูล ชื่อกลุ่มสินค้า : ตัวเลข
+    ...
+    ...    Expected Result
+    ...    4.สามารถกรอกข้อมูลชื่อกลุ่มสินค้าเป็นตัวเลขได้ และระบบแสดงข้อมูลชื่อกลุ่มสินค้าที่ทำการค้นหา
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    Sleep    2.5
+    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
+    Click Element    ${lb_nameproductmain}
+    Log To Console    Can Click Search Product \ - PASS
+    Sleep    3
+    #Check ว่ามีช่องให้ใส่และเลือก ชื่อกลุ่มสินค้า
+    Page Should Contain Element    ${lb_nameproductbox}
+    #พิมพ์ข้อความ 0101 ใส่ฟิล ชื่อกลุ่มสินค้า
+    Input Text    ${tb_inputproduct}    0201
+    #กดปุ่ม Enter
+    Current Frame Should Contain    0201 - เครื่องดื่ม
+    Press Key    ${tb_inputproduct}    \\13
+    Log To Console    Action 4 // PASS
+    #กดปุ่มตกลง
+    Click Button    ${bt_submitbuttom}
+    Capture Page Screenshot    TC02_Step3_Action4.png
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_3_Action_5
+    [Documentation]    * ทดสอบเลือก / กรอกชื่อกลุ่มสินค้า (เครื่องหมายการค้าหลัก) *
+    ...
+    ...    Action
+    ...    5. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+    ...    - กด Dropdownlist
+    ...    - กรอกข้อมูล ชื่อกลุ่มสินค้า : อักขระพิเศษ
+    ...
+    ...    Expected Result
+    ...    5.สามารถกรอกข้อมูลชื่อกลุ่มสินค้าเป็นอักขระพิเศษได้ และระบบแสดงข้อมูลชื่อกลุ่มสินค้าที่ทำการค้นหา
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    Sleep    2.5
+    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
+    Click Element    ${lb_nameproductmain}
+    Log To Console    Can Click Search Product \ - PASS
+    Sleep    3
+    #Check ว่ามีช่องให้ใส่และเลือก ชื่อกลุ่มสินค้า
+    Page Should Contain Element    ${lb_nameproductbox}
+    #พิมพ์ข้อความ 0101 ใส่ฟิล ชื่อกลุ่มสินค้า
+    Input Text    ${tb_inputproduct}    $&*%*(^)((*&'
+    #กดปุ่ม Enter
+    Current Frame Should Contain    No results found
+    Press Key    ${tb_inputproduct}    \\13
+    Log To Console    Action 5 // PASS
+    Capture Page Screenshot    TC02_Step3_Action5.png
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_3_Action_6
+    [Documentation]    * ทดสอบเลือก / กรอกชื่อกลุ่มสินค้า (เครื่องหมายการค้าหลัก) *
+    ...
+    ...    Action
+    ...    6. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+    ...    - กด Dropdownlist
+    ...    - กรอกข้อมูล ชื่อกลุ่มสินค้า : space bar (ค่าว่าง)
+    ...
+    ...    Expected Result
+    ...    6.สามารถกรอกข้อมูลชื่อกลุ่มสินค้าเป็น space bar (ค่าว่าง) ได้ และระบบแสดงข้อมูลชื่อกลุ่มสินค้าที่ทำการค้นหา
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    Sleep    2.5
+    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
+    Click Element    ${lb_nameproductmain}
+    Log To Console    Can Click Search Product \ - PASS
+    Sleep    3
+    #Check ว่ามีช่องให้ใส่และเลือก ชื่อกลุ่มสินค้า
+    Page Should Contain Element    ${lb_nameproductbox}
+    #พิมพ์ข้อความ 0101 ใส่ฟิล ชื่อกลุ่มสินค้า
+    Input Text    ${tb_inputproduct}    ${SPACE*5}
+    #กดปุ่ม Enter
+    Current Frame Should Contain    0101
+    Press Key    ${tb_inputproduct}    \\13
+    Log To Console    Action 6 // PASS
+    Capture Page Screenshot    TC02_Step3_Action6.png
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+    [Teardown]
+
+Step_3_Action_7
+    [Documentation]    * ทดสอบเลือก / กรอกชื่อกลุ่มสินค้า (เครื่องหมายการค้าหลัก) *
+    ...
+    ...    Action
+    ...    7. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+    ...    - กด Dropdownlist
+    ...    - กรอกข้อมูล ชื่อกลุ่มสินค้า : ที่มีในระบบ
+    ...
+    ...    Expected Result
+    ...    7.สามารถกรอกข้อมูลชื่อกลุ่มสินค้าได้ และระบบแสดงข้อมูลชื่อกลุ่มสินค้าที่ทำการค้นหา
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    Sleep    2.5
+    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
+    Click Element    ${lb_nameproductmain}
+    Log To Console    Can Click Search Product \ - PASS
+    Sleep    3
+    #Check ว่ามีช่องให้ใส่และเลือก ชื่อกลุ่มสินค้า
+    Page Should Contain Element    ${lb_nameproductbox}
+    #พิมพ์ข้อความ 0101 ใส่ฟิล ชื่อกลุ่มสินค้า
+    Input Text    ${tb_inputproduct}     0501 - รถยนต์
+    #กดปุ่ม Enter
+    Current Frame Should Contain     0501 - รถยนต์
+    Press Key    ${tb_inputproduct}    \\13
+    Log To Console    Action 7 // PASS
+    Capture Page Screenshot    TC02_Step3_Action7.png
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_3_Action_8
+    [Documentation]    * ทดสอบเลือก / กรอกชื่อกลุ่มสินค้า (เครื่องหมายการค้าหลัก) *
+    ...
+    ...    Action
+    ...    8. หน้าจอ \ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+    ...    - กด Dropdownlist
+    ...    - กรอกข้อมูล ชื่อกลุ่มสินค้า : ที่ไม่มีในระบบ
+    ...
+    ...    Expected Result
+    ...    8.ระบบแสดงข้อความ "No results found"
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    Sleep    2.5
+    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
+    Click Element    ${lb_nameproductmain}
+    Log To Console    Can Click Search Product \ - PASS
+    Sleep    3
+    #Check ว่ามีช่องให้ใส่และเลือก ชื่อกลุ่มสินค้า
+    Page Should Contain Element    ${lb_nameproductbox}
+    #พิมพ์ข้อความ 0101 ใส่ฟิล ชื่อกลุ่มสินค้า
+    Input Text    ${tb_inputproduct}    323223 - น้ำหวาน
+    #กดปุ่ม Enter
+    Current Frame Should Contain    No results found
+    Press Key    ${tb_inputproduct}    \\13
+    Log To Console    Action 8 // PASS
+    Capture Page Screenshot    TC02_Step3_Action8.png
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_3_Action_9
+    [Documentation]    * ทดสอบเลือก / กรอกชื่อกลุ่มสินค้า (เครื่องหมายการค้าหลัก) *
+    ...
+    ...    Action
+    ...    9. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (เครื่องหมายการค้าหลัก)
+    ...    - กด Dropdownlist
+    ...    - เลือก / กรอกข้อมูล ชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...
+    ...    Expected Result
+    ...    9.สามารถกรอกข้อมูลบันทึกรายการ เครื่องหมายการค้าหลักได้
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    Sleep    2.5
+    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
+    Click Element    ${lb_nameproductmain}
+    Log To Console    Can Click Search Product \ - PASS
+    Sleep    3
+    #Check ว่ามีช่องให้ใส่และเลือก ชื่อกลุ่มสินค้า
+    Page Should Contain Element    ${lb_nameproductbox}
+    #พิมพ์ข้อความ 0101 ใส่ฟิล ชื่อกลุ่มสินค้า
+    Input Text    ${tb_inputproduct}    8001 - ยาสูบ
+    #กดปุ่ม Enter
+    Current Frame Should Contain    8001 - ยาสูบ
+    Press Key    ${tb_inputproduct}    \\13
+    #กดปุ่มตกลง
+    Click Element    ${bt_submitbuttom}
+    Log To Console    Action 9 // PASS
+    Capture Page Screenshot    TC02_Step3_Action9.png
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser

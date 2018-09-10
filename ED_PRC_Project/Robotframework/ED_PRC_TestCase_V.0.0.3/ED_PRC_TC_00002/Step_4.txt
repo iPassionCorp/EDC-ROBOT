@@ -1,0 +1,310 @@
+*** Settings ***
+Documentation     * Test not Choose , Input Information *
+...               ทดสอบไม่เลือก / กรอกเงื่อนไขบันทึกรายการ (บันทึกรายการ)
+...
+...               Action
+...               1. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก \ (บันทึกรายการ)
+...               - กดปุ่ม บันทึก
+...               2. ระบบแสดงแจ้งเตือน ""กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือชื่อเครื่องหมายการค้า (อังกฤษ) ให้ครบ""
+...               - กดปุ่ม OK"
+...               3. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก \ \ (บันทึกรายการ)
+...               - กดปุ่ม ลบ
+...               4. ต้องการลบข้อมูลหรือไม่?
+...               กดปุ่ม Cancel
+...               5. ต้องการลบข้อมูลหรือไม่?
+...               กดปุ่ม OK"
+...               6. ลบข้อมูลไม่สำเร็จ โปรดลงใหม่อีกครั้ง
+...               กดปุ่ม OK"
+...               7. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก \ \ (บันทึกรายการ)
+...               - กดปุ่ม ค้นหา
+...               8. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก \ \ (บันทึกรายการ)
+...               - กดปุ่ม ล้างข้อมูล
+...
+...               Expected Result
+...               1. ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือชื่อเครื่องหมายการค้า (อังกฤษ) ให้ครบ" "
+...               ปุ่ม OK
+...               "
+...               2. ปิดแจ้งเตือน
+...               3. ระบบแสดงแจ้งเตือน "ต้องการลบข้อมูลหรือไม่?" "
+...               ปุ่ม OK และ ปุ่ม Cancel"
+...               4. ปิดแจ้งเตือน
+...               5. ระบบแสดงแจ้งเตือน "ลบข้อมูลไม่สำเร็จ โปรดลงใหม่อีกครั้ง" "
+...               ปุ่ม OK"
+...               6. ปิดแจ้งเตือน
+...               7. ระบบแสดงข้อมููลทั้งหมดที่มีในระบบ รูปแบบData Table ตาม Default วันที่
+...               8. สามารถกดปุ่มล้างข้อมูลได้
+Suite Setup       Log To Console    Start Test
+Suite Teardown    Log To Console    End Test
+Library           BuiltIn
+Library           String
+Library           Selenium2Library
+Library           Screenshot
+Resource          ../Repositories/Web_Config.txt
+Resource          ../Keywords/ED PRC TestCase.txt
+Resource          ../Variable/Resource_Variable.txt
+
+*** Test Cases ***
+Step_4_ Action_1
+    [Documentation]    * Test not Choose , Input Information *
+    ...    ทดสอบไม่เลือก / กรอกเงื่อนไขบันทึกรายการ (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    1. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก \ (บันทึกรายการ)
+    ...    - กดปุ่ม บันทึก
+    ...    2. ระบบแสดงแจ้งเตือน ""กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือชื่อเครื่องหมายการค้า (อังกฤษ) ให้ครบ""
+    ...    - กดปุ่ม OK"
+    ...    3. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก \ \ (บันทึกรายการ)
+    ...    - กดปุ่ม ลบ
+    ...    4. ต้องการลบข้อมูลหรือไม่?
+    ...    กดปุ่ม Cancel
+    ...    5. ต้องการลบข้อมูลหรือไม่?
+    ...    กดปุ่ม OK"
+    ...    6. ลบข้อมูลไม่สำเร็จ โปรดลงใหม่อีกครั้ง
+    ...    กดปุ่ม OK"
+    ...    7. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก \ \ (บันทึกรายการ)
+    ...    - กดปุ่ม ค้นหา
+    ...    8. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก \ \ (บันทึกรายการ)
+    ...    - กดปุ่ม ล้างข้อมูล
+    ...
+    ...    Expected Result
+    ...    1. ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือชื่อเครื่องหมายการค้า (อังกฤษ) ให้ครบ" "
+    ...    ปุ่ม OK
+    ...    "
+    ...    2. ปิดแจ้งเตือน
+    ...    3. ระบบแสดงแจ้งเตือน "ต้องการลบข้อมูลหรือไม่?" "
+    ...    ปุ่ม OK และ ปุ่ม Cancel"
+    ...    4. ปิดแจ้งเตือน
+    ...    5. ระบบแสดงแจ้งเตือน "ลบข้อมูลไม่สำเร็จ โปรดลงใหม่อีกครั้ง" "
+    ...    ปุ่ม OK"
+    ...    6. ปิดแจ้งเตือน
+    ...    7. ระบบแสดงข้อมููลทั้งหมดที่มีในระบบ รูปแบบData Table ตาม Default วันที่
+    ...    8. สามารถกดปุ่มล้างข้อมูลได้
+    [Tags]    00002
+    [Template]
+    [Timeout]
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    #Click ปุ่มบันทึก
+    Sleep    2.5
+    Click Element    ${bt_savebuttom}
+    ${message} =    Handle Alert    ACCEPT    60
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) ให้ครบ
+    Log    Step_4Action_1 // PASS
+    Sleep    2.5
+    Capture Page Screenshot    TC02_Step4_Action1.png
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+    [Teardown]
+
+Step_4_Action_2
+    [Documentation]    * Test not Choose , Input Information *
+    ...    ทดสอบไม่เลือก / กรอกเงื่อนไขบันทึกรายการ (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    1. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก \ (บันทึกรายการ)
+    ...    - กดปุ่ม บันทึก
+    ...    2. ระบบแสดงแจ้งเตือน ""กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือชื่อเครื่องหมายการค้า (อังกฤษ) ให้ครบ""
+    ...    - กดปุ่ม OK"
+    ...    3. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก \ \ (บันทึกรายการ)
+    ...    - กดปุ่ม ลบ
+    ...    4. ต้องการลบข้อมูลหรือไม่?
+    ...    กดปุ่ม Cancel
+    ...    5. ต้องการลบข้อมูลหรือไม่?
+    ...    กดปุ่ม OK"
+    ...    6. ลบข้อมูลไม่สำเร็จ โปรดลงใหม่อีกครั้ง
+    ...    กดปุ่ม OK"
+    ...    7. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก \ \ (บันทึกรายการ)
+    ...    - กดปุ่ม ค้นหา
+    ...    8. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก \ \ (บันทึกรายการ)
+    ...    - กดปุ่ม ล้างข้อมูล
+    ...
+    ...    Expected Result
+    ...    1. ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือชื่อเครื่องหมายการค้า (อังกฤษ) ให้ครบ" "
+    ...    ปุ่ม OK
+    ...    "
+    ...    2. ปิดแจ้งเตือน
+    ...    3. ระบบแสดงแจ้งเตือน "ต้องการลบข้อมูลหรือไม่?" "
+    ...    ปุ่ม OK และ ปุ่ม Cancel"
+    ...    4. ปิดแจ้งเตือน
+    ...    5. ระบบแสดงแจ้งเตือน "ลบข้อมูลไม่สำเร็จ โปรดลงใหม่อีกครั้ง" "
+    ...    ปุ่ม OK"
+    ...    6. ปิดแจ้งเตือน
+    ...    7. ระบบแสดงข้อมููลทั้งหมดที่มีในระบบ รูปแบบData Table ตาม Default วันที่
+    ...    8. สามารถกดปุ่มล้างข้อมูลได้
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    #Click ปุ่มบันทึก
+    Sleep    2.5
+    Click Element    ${bt_savebuttom}
+    Alert Should Be Present    กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) ให้ครบ    ACCEPT    60
+    Log    Step_4Action_2 // PASS
+    Sleep    2.5
+    Capture Page Screenshot    TC02_Step4_Action2.png
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_4_Action_3
+    [Documentation]    * Test not Choose , Input Information *
+    ...    ทดสอบไม่เลือก / กรอกเงื่อนไขบันทึกรายการ (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    3. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก \ \ (บันทึกรายการ)
+    ...    - กดปุ่ม ลบ
+    ...
+    ...    Expected Result
+    ...    3. ระบบแสดงแจ้งเตือน "ต้องการลบข้อมูลหรือไม่?" "ปุ่ม OK และ ปุ่ม Cancel"
+    [Tags]    00002
+    [Timeout]
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    #Click ปุ่มDelete
+    Sleep    3
+    Click Element    ${bt_deletebuttom}
+    ${message}=    Handle Alert    LEAVE    60
+    Take Screenshot    TC02_Step4_Action3.jpg
+    Should Be Equal As Strings    ${message}    ต้องการลบข้อมูลหรือไม่?
+    Log To Console    Action 3 // PASS
+    Close Window
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_4_Action_4
+    [Documentation]    * Test not Choose , Input Information *
+    ...    ทดสอบไม่เลือก / กรอกเงื่อนไขบันทึกรายการ (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    4.หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก(บันทึกรายการ)
+    ...    - กดปุ่ม ลบ
+    ...    - แสดงข้อความ "ลบต้องการลบข้อมูลหรือไม่?"
+    ...    - กดปุ่ม Cancel
+    ...
+    ...    Expected Result
+    ...    4. ปิดแจ้งเตือน
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    #Click ปุ่มDelete
+    Sleep    3
+    Click Element    ${bt_deletebuttom}
+    ${message}=    Handle Alert    DISMISS    60
+    Should Be Equal As Strings    ${message}    ต้องการลบข้อมูลหรือไม่?
+    Take Screenshot    TC02_Step4_Action4.jpg
+    Log To Console    Action 4 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_4_Action_5
+    [Documentation]    * Test not Choose , Input Information *
+    ...    ทดสอบไม่เลือก / กรอกเงื่อนไขบันทึกรายการ (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    5.หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก(บันทึกรายการ)
+    ...    - กดปุ่ม ลบ
+    ...    - แสดงข้อความ "ลบต้องการลบข้อมูลหรือไม่?"
+    ...    - กดปุ่ม OK"
+    ...
+    ...    Expected Result
+    ...    5. ระบบแสดงแจ้งเตือน "ลบข้อมูลไม่สำเร็จ โปรดลงใหม่อีกครั้ง" และ "ปุ่ม OK"
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    #Click ปุ่มDelete
+    Sleep    3
+    Click Element    ${bt_deletebuttom}
+    ${message}=    Handle Alert    ACCEPT    60
+    ${message2}=    Handle Alert    LEAVE    60
+    Take Screenshot    TC02_Step4_Action6.jpg
+    Close Window
+    Should Be Equal As Strings    ${message}    ต้องการลบข้อมูลหรือไม่?
+    Should Be Equal As Strings    ${message2}    ลบข้อมูลไม่สำเร็จ โปรดลองใหม่อีกครั้ง
+    Log To Console    Action 5 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_4_Action_6
+    [Documentation]    * Test not Choose , Input Information *
+    ...    ทดสอบไม่เลือก / กรอกเงื่อนไขบันทึกรายการ (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    6. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก(บันทึกรายการ)
+    ...    - กดปุ่ม ลบ
+    ...    - แสดงข้อความ "ลบต้องการลบข้อมูลหรือไม่?"
+    ...    - กดปุ่ม "OK"
+    ...    - แสดงข้อความ "ลบข้อมูลไม่สำเร็จ โปรดลงใหม่อีกครั้ง"
+    ...    - กดปุ่ม "OK"
+    ...
+    ...    Expected Result
+    ...    6. ปิดแจ้งเตือน
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    #Click ปุ่มDelete
+    Sleep    3
+    Click Element    ${bt_deletebuttom}
+    ${message}=    Handle Alert    ACCEPT    60
+    ${message2}=    Handle Alert    ACCEPT    60
+    Take Screenshot    TC02_Step4_Action6.jpg
+    Should Be Equal As Strings    ${message}    ต้องการลบข้อมูลหรือไม่?
+    Should Be Equal As Strings    ${message2}    ลบข้อมูลไม่สำเร็จ โปรดลองใหม่อีกครั้ง
+    Log To Console    Action 6 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_4_Action_7 *** Checkว่ามีข้อมูลหรือไม่มี ไม่ได้ ***
+    [Documentation]    * Test not Choose , Input Information *
+    ...    ทดสอบไม่เลือก / กรอกเงื่อนไขบันทึกรายการ (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    7. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก \ \ (บันทึกรายการ)
+    ...    - กดปุ่ม ค้นหา
+    ...
+    ...    Expected Result
+    ...    7. ระบบแสดงข้อมููลทั้งหมดที่มีในระบบ รูปแบบData Table ตาม Default วันที่
+    [Tags]    00002
+    [Timeout]
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    #Click ปุ่มDelete
+    Sleep    3
+    Click Element    ${bt_searchbuttom}
+    Take Screenshot    TC02_Step4_Action7.jpg
+    Log To Console    Action 7 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_4_Action_8 *** Checkได้ไม่ครบครับบางข้อมูลดึงข้อความออกมาไม่ได้
+    [Documentation]    * Test not Choose , Input Information *
+    ...    ทดสอบไม่เลือก / กรอกเงื่อนไขบันทึกรายการ (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    8. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก \ \ (บันทึกรายการ)
+    ...    - กดปุ่ม ล้างข้อมูล
+    ...
+    ...    Expected Result
+    ...    8. สามารถกดปุ่มล้างข้อมูลได้
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    #Click ปุ่มล้างข้อมูล
+    Sleep    3
+    Click Element    ${bt_cleardatabuttom}
+    # ช่อง รหัสเครื่องหมายการค้า ต้องไม่มีตัวอักษร (ไทย)
+    Textfield Value Should Be    ${tb_namethaiproduct}    ${EMPTY}
+    # ช่อง รหัสเครื่องหมายการค้า (อังกฤษ)
+    Textfield Value Should Be    ${tb_nameengproduct}    ${EMPTY}
+    # ช่อง วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า ต้องไม่มีตัวอักษร
+    Textfield Value Should Be    ${tb_enddate}    ${EMPTY}
+    Sleep    5
+    Log To Console    Action 1. Can Clear Data For New Input // PASS
+    Capture Page Screenshot    TC01_Step4_Action8.png
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser

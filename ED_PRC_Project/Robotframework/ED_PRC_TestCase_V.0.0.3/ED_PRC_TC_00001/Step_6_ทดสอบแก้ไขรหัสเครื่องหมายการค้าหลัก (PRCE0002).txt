@@ -69,7 +69,7 @@ Step_6_Action_1
     #กดปุ่ม Enter
     Press Key    ${tb_enddate}    \\13
     Log To Console    Step6 Action1 // PASS
-    Capture Page Screenshot    Step6_Action1.png
+    Capture Page Screenshot    TC01_Step6_Action1.png
     Sleep    5
     Delete Information List In Trademark(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
@@ -96,7 +96,7 @@ Step_6_Action_2
     #Click เพื่อดูข้อมูลนั้นๆ    #jquery:td:contains('ไทยออย2'):eq(0)
     Input For Edit Information List In Trademark    ไทยออย3    ThaiOil3    29/08/2561    29/09/2561
     Log To Console    Step6 Action2 // PASS
-    Capture Page Screenshot    Step6_Action2.png
+    Capture Page Screenshot    TC01_Step6_Action2.png
     Delete Information List In Trademark(Main)    ไทยออย3    ThaiOil3    29/08/2561    29/09/2561
     Sleep    5
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
@@ -137,7 +137,7 @@ Step_6_Action_3
     Log To Console    Check Table 4 // Pass
     Sleep    5
     Log To Console    Step6 Action3 // PASS
-    Capture Page Screenshot    Step6_Action3.png
+    Capture Page Screenshot    TC01_Step6_Action3.png
     Sleep    5
     Delete Information List In Trademark(Main)    ไทยออย3    ThaiOil3    29/08/2561    29/09/2561
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}

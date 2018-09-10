@@ -57,7 +57,7 @@ Step_7_Action_1 ทดสอบเลือกข้อมูลเพื่อ�
     Table Should Contain    ${tb_startdate}    30/08/2561
     Table Should Contain    ${tb_enddate}    30/09/2561
     Log To Console    Step7 Action1 // PASS
-    Capture Page Screenshot    Step7_Action1.png
+    Capture Page Screenshot    TC01_Step7_Action1.png
     Delete Information List In Trademark(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
     Close Browser
@@ -86,8 +86,8 @@ Step_7_Action_2_กดปุ่ม_ลบ
     #Pop Up จะขึ้นว่า " ต้องการลบข้อมูลหรือไม่? "
     ${message}=    Handle Alert    DISMISS    10
     Should Be Equal    ต้องการลบข้อมูลหรือไม่?    ${message}
-    Capture Page Screenshot    Step7_Action2.png
-    Sleep    4
+    Capture Page Screenshot    TC01_Step7_Action2.png
+    Sleep    3
     Log To Console    Step7 Action2 // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
     Delete Information List In Trademark(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
@@ -122,8 +122,8 @@ Step_7_Action_3_กดปุ่ม_OK
     Should Be Equal    ลบข้อมูลเรียบร้อยแล้ว    ${message2}
     ${message3}=    Handle Alert    ACCEPT    10
     Should Be Equal    ไม่พบข้อมูล โปรดลองใหม่อีกครั้ง    ${message3}
-    Capture Page Screenshot    Step7_Action3.png
-    Sleep    4
+    Capture Page Screenshot    TC01_Step7_Action3.png
+    Sleep    3
     Log To Console    Step7 Action3 // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
     Close Browser
@@ -154,8 +154,8 @@ Step_7_Action_4_กดปุ่ม_Cancel
     #Pop Up จะขึ้นว่า " ต้องการลบข้อมูลหรือไม่? "
     ${message}=    Handle Alert    DISMISS    10
     Should Be Equal    ต้องการลบข้อมูลหรือไม่?    ${message}
-    Capture Page Screenshot    Step7_Action4.png
-    Sleep    4
+    Capture Page Screenshot    TC_01Step7_Action4.png
+    Sleep    3
     Log To Console    Step7 Action4 // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
     Delete Information List In Trademark(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561

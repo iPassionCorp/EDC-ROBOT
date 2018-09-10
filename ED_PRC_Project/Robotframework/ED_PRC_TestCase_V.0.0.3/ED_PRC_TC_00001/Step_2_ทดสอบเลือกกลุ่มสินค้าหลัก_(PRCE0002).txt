@@ -39,7 +39,7 @@ Step_2_Action_1_ทดสอบเลือกกลุ่มสินค้า�
     Sleep    3
     Log To Console    Step 2 Action 1 // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
-    Capture Page Screenshot    Step2_Action1.png
+    Capture Page Screenshot    TC01_Step2_Action1.png
     Close Browser
 
 Step_2_Action_2_กดปุ่มตกลง
@@ -67,5 +67,5 @@ Step_2_Action_2_กดปุ่มตกลง
     Sleep    3
     Log To Console    Step 2 Action 2 // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
-    Capture Page Screenshot    Step2_Action2.png
+    Capture Page Screenshot    TC01_Step2_Action2.png
     Close Browser

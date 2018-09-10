@@ -19,8 +19,9 @@ ${bt_nextpagebuttom}    //button[@class='mat-paginator-navigation-next mat-icon-
 ${bt_lastpagebuttom}    //div[contains(@class,'mat-paginator-range-actions')]//button[4]    # ปุ่ม Last Page เลือกหน้าสุดท้ายของข้อมูลที่แสดง
 ${bt_finishjobbuttom}    //*[@id="content"]/app-trademark/div/div/div[4]/button    # ปุ่มจบการทำงาน
 ${lb_selectitemperpage}    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[1]/mat-form-field/div/div[1]/div    # เลือกจำนวนข้อมูลต่อหน้า ( Item Per Page )
-${lb_itemperpageequal50}    id=mat-option-1    # เลือกจำนวนข้อมูลต่อหน้าเป็น 50
-${lb_itemperpageequal100}    id=mat-option-2    # เลือกจำนวนข้อมูลต่อหน้าเป็น 100
+${lb_itemperpageequal20}    xpath=//span[contains(text(),'20')]    # เลือกจำนวนข้อมูลต่อหน้าเป็น 20
+${lb_itemperpageequal50}    xpath=//span[contains(text(),'50')]    # เลือกจำนวนข้อมูลต่อหน้าเป็น 50
+${lb_itemperpageequal100}    xpath=//span[contains(text(),'100')]    # เลือกจำนวนข้อมูลต่อหน้าเป็น 100
 ${lb_showinfoofitemperpage}    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/div    # element ที่แสดงจำนวนข้อมูลและจำนวนหน้าทั้งหมด Ex. 51-100 of 124
 ${lb_maintable1}    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/thead/tr/th[1]    # ส่วนแสดงรายการ หัวtableช่อง รหัสเครื่องหมายการค้าหลัก
 ${lb_maintable2}    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/thead/tr/th[2]    # ส่วนแสดงรายการ หัวtableช่อง ชื่อเครื่องหมายการค้าหลัก (ไทย)
@@ -30,3 +31,4 @@ ${lb_maintable5}    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table
 ${lb_showinformation}    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/table/tbody/tr[1]/td[3]    # เลือกคลิกดูข้อมูลแถวแรกช่องที่3 เพื่อดู , แก้ไข , เปลี่ยนแปลง , ลบ ข้อมูล
 ${txt_titletrademarkmain}    บันทึกรหัสเครื่องหมายการค้าหลัก    # Title หน้าเครื่องหมายการค้าหลัก
 ${txt_titletrademarksub}    บันทึกรหัสเครื่องหมายการค้ารอง    # Title หน้าเครื่องหมายการค้ารอง
+${lb_nameproductbox}    xpath=//span[@class='select2-container select2-container--default select2-container--open']    # Tab ชื่อกลุ่มสินค้าที่แสดง
