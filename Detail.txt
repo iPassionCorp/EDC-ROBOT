@@ -1,4 +1,5 @@
-﻿เพิ่ม ED PRC TC 00002 Step 3 Action 1-9
+﻿เพิ่ม ED PRC TC 00002 Step 5 Action 1-23
+เพิ่ม ED PRC TC 00002 Step 3 Action 1-9
 เพิ่ม ED PRC TC 00002 Step 4 Action 1-8
 ติด ED PRC TC 00002 Step 4 Action 7
 ติด ED PRC TC 00002 Step 4 Action 8

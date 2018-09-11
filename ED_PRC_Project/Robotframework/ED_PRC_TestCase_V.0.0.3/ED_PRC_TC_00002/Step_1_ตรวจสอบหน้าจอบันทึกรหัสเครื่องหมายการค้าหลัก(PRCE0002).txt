@@ -53,6 +53,7 @@ Suite Teardown    Log To Console    End Test
 Library           Selenium2Library
 Library           String
 Library           BuiltIn
+Library           Screenshot
 Resource          ../Keywords/ED PRC TestCase.txt
 Resource          ../Variable/Resource_Variable.txt
 Resource          ../Repositories/Web_Config.txt

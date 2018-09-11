@@ -1,3 +1,148 @@
+*** Settings ***
+Documentation     * Test Choose & Input Some Information *
+...               ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+...
+...               Action
+...               1. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+...               - เลือกชื่อกลุ่มสินค้า
+...               - กดปุ่ม ตกลง
+...               2. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+...               - เลือกชื่อกลุ่มสินค้า
+...               - กดปุ่ม ตกลง
+...               - กดปุ่ม บันทึก
+...               3. ระบบแสดงแจ้งเตือน"กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (อังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ
+...               - กดปุ่ม OK
+...               4. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+...               - เลือกชื่อกลุ่มสินค้า
+...               - กดปุ่ม ตกลง
+...               - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาไทย
+...               - กดปุ่ม บันทึก
+...               5. ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+...               - กดปุ่ม OK
+...               6. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+...               - เลือกชื่อกลุ่มสินค้า
+...               - กดปุ่ม ตกลง
+...               - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาไทย
+...               - เลือก/กรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+...               - กดปุ่ม บันทึก
+...               7. ระบบแสดงแจ้งเตือน "บันทึกข้อมูลเรียบร้อยแล้ว"
+...               - กดปุ่ม OK
+...               8. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+...               - เลือกชื่อกลุ่มสินค้า
+...               - กดปุ่ม ตกลง
+...               - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาไทย
+...               - เลือก/กรอกข้อมูล วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+...               - กดปุ่ม บันทึก
+...               9. ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+...               - กดปุ่ม OK
+...               10. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+...               - เลือกชื่อกลุ่มสินค้า
+...               - กดปุ่ม ตกลง
+...               - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาอังกฤษ
+...               - กดปุ่ม บันทึก
+...               11. ระบบแสดงแจ้งเตือน \ "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+...               - กดปุ่ม OK
+...               12. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+...               - เลือกชื่อกลุ่มสินค้า
+...               - กดปุ่ม ตกลง
+...               - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาอังกฤษ
+...               - เลือก/กรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+...               - กดปุ่ม บันทึก
+...               13. ระบบแสดงแจ้งเตือน ""บันทึกข้อมูลเรียบร้อยแล้ว""
+...               - กดปุ่ม OK
+...               14. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+...               - เลือกชื่อกลุ่มสินค้า
+...               - กดปุ่ม ตกลง
+...               - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาอังกฤษ
+...               - เลือก/กรอกข้อมูล วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+...               - กดปุ่ม บันทึก
+...               15. ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+...               - กดปุ่ม OK
+...               16. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+...               - เลือกชื่อกลุ่มสินค้า
+...               - กดปุ่ม ตกลง
+...               - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาอังกฤษ
+...               - กดปุ่ม บันทึก
+...               17. ระบบแสดงแจ้งเตือน \ "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) ให้ถูกต้อง"
+...               - กดปุ่ม OK
+...               18. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+...               - เลือกชื่อกลุ่มสินค้า
+...               - กดปุ่ม ตกลง
+...               - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาอังกฤษ
+...               - เลือก/กรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+...               - กดปุ่ม บันทึก
+...               19. ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) ให้ถูกต้อง"
+...               - กดปุ่ม OK
+...               20. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+...               - เลือกชื่อกลุ่มสินค้า
+...               - กดปุ่ม ตกลง
+...               - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาอังกฤษ
+...               - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาไทย
+...               - กดปุ่ม บันทึก
+...               21. ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) และเครื่องหมายการค้า (ภาษาอังกฤษ)ให้ถูกต้อง"
+...               - กดปุ่ม OK
+...               22. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+...               - เลือกชื่อกลุ่มสินค้า
+...               - กดปุ่ม ตกลง
+...               - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาอังกฤษ
+...               - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาไทย
+...               - เลือก/กรอกข้อมูล วันที่เริ่มใช้ เครื่องหมายการค้า
+...               - กดปุ่ม บันทึก
+...               23. ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) และเครื่องหมายการค้า (ภาษาอังกฤษ)ให้ถูกต้อง"
+...               - กดปุ่ม OK
+...               Expect Result
+...
+...               1.สามารถกรอก รายละเอียด Field บันทึกรายการได้
+...               2.ระบบแสดงแจ้งเตือน ""กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (อังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ \ ปุ่ม OK
+...               3.ปิดแจ้งเตือน
+...               4.ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+...               ปุ่ม OK
+...
+...               "
+...               5.ปิดแจ้งเตือน
+...               6.ระบบแสดงแจ้งเตือน "บันทึกข้อมูลเรียบร้อยแล้ว""
+...               ปุ่ม OK"
+...               7.ปิดแจ้งเตือน แสดงผล
+...               8.ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+...               ปุ่ม OK
+...
+...               "
+...               9.ปิดแจ้งเตือน แสดงผล
+...               10.ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+...               ปุ่ม OK"
+...               11.ปิดแจ้งเตือน
+...               12.ระบบแสดงแจ้งเตือน "บันทึกข้อมูลเรียบร้อยแล้ว"
+...               - ปุ่ม OK
+...               13.ปิดแจ้งเตือน
+...               14."ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+...               ปุ่ม OK
+...
+...               "
+...               15.ปิดแจ้งเตือน
+...               16."ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) ให้ถูกต้อง"
+...               ปุ่ม OK"
+...               17.ปิดแจ้งเตือน
+...               18.ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) ให้ถูกต้อง"
+...               - ปุ่ม OK
+...               19.ปิดแจ้งเตือน
+...               20.ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) และเครื่องหมายการค้า (ภาษาอังกฤษ)ให้ถูกต้อง
+...               -
+...               ปุ่ม OK
+...               21.ปิดแจ้งเตือน
+...               22. ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) และเครื่องหมายการค้า (ภาษาอังกฤษ)ให้ถูกต้อง"
+...
+...               - ปุ่ม OK
+...               23. ปิดแจ้งเตือน
+Suite Setup       Log To Console    Start Test
+Suite Teardown    Log To Console    End Test
+Library           Selenium2Library
+Library           String
+Library           Screenshot
+Library           BuiltIn
+Resource          ../Variable/Resource_Variable.txt
+Resource          ../Repositories/Web_Config.txt
+Resource          ../Keywords/ED PRC TestCase.txt
+
 *** Test Cases ***
 ED_00002_Step_5_ยังไม่เสร็จ
     [Documentation]    * Test Choose & Input Some Information *
@@ -134,3 +279,955 @@ ED_00002_Step_5_ยังไม่เสร็จ
     ...
     ...    - ปุ่ม OK
     ...    23. ปิดแจ้งเตือน
+    [Tags]    00002
+    [Setup]
+
+Step_5_Action_1
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    1. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    Expect Result
+    ...    1.สามารถกรอก รายละเอียด Field บันทึกรายการได้
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Take Screenshot    TC02_Step5_Action1.jpg
+    Log To Console    Step5Action1 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_2
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    2. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กดปุ่ม บันทึก
+    ...
+    ...    Expect Result
+    ...    2.ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (อังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ" และ ปุ่ม OK
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ${EMPTY}
+    Input Text    ${tb_nameengproduct}    ${EMPTY}
+    Input Text    ${tb_startdate}    ${EMPTY}
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    ${EMPTY}
+    Press Key    ${tb_enddate}    \\13
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    LEAVE    60
+    Take Screenshot    TC02_Step5_Action2.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ
+    Sleep    3
+    Close Window
+    Log To Console    Step5Action 2 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_3 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    3. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กดปุ่ม บันทึก ระบบแสดงแจ้งเตือน"กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (อังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ
+    ...    - กดปุ่ม OK
+    ...
+    ...    Expect Result
+    ...    3.ปิดแจ้งเตือน
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ${EMPTY}
+    Input Text    ${tb_nameengproduct}    ${EMPTY}
+    Input Text    ${tb_startdate}    ${EMPTY}
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    ${EMPTY}
+    Press Key    ${tb_enddate}    \\13
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    ACCEPT    60
+    Take Screenshot    TC02_Step5_Action3.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ "
+    Sleep    3
+    Log To Console    Step5Action 3 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_4 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    4. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาไทย
+    ...    - กดปุ่ม บันทึก
+    ...    Expect Result
+    ...    4.ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ" "ปุ่ม OK"
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ภาษาไทย
+    Input Text    ${tb_nameengproduct}    ${EMPTY}
+    Input Text    ${tb_startdate}    ${EMPTY}
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    ${EMPTY}
+    Press Key    ${tb_enddate}    \\13
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    LEAVE    60
+    Take Screenshot    TC02_Step5_Action4.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 4 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_5 แจ้งเตือนผิดดาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    5. ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    ...    - กดปุ่ม OK
+    ...
+    ...    Expect Result
+    ...    5. สามารถปิดแจ้งเตือนได้
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ภาษาไทย
+    Input Text    ${tb_nameengproduct}    ${EMPTY}
+    Input Text    ${tb_startdate}    ${EMPTY}
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    ${EMPTY}
+    Press Key    ${tb_enddate}    \\13
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    ACCEPT    60
+    Take Screenshot    TC02_Step5_Action5.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 5 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_6 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    6. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาไทย
+    ...    - เลือก/กรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    ...    - กดปุ่ม บันทึก
+    ...
+    ...    Expect Result
+    ...    6.ระบบแสดงแจ้งเตือน "บันทึกข้อมูลเรียบร้อยแล้ว" และ "ปุ่ม OK"
+    [Tags]    00002
+    [Template]
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ไทยจ้าไทยจ้า
+    Input Text    ${tb_nameengproduct}    ${EMPTY}
+    Input Text    ${tb_startdate}    11/09/2561
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    ${EMPTY}
+    Press Key    ${tb_enddate}    \\13
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    LEAVE    60
+    Take Screenshot    TC02_Step5_Action6.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    บันทึกข้อมูลเรียบร้อยแล้ว"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 6 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_7 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    7. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาไทย
+    ...    - เลือก/กรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    ...    - กดปุ่ม บันทึก
+    ...    - ระบบแสดงแจ้งเตือน "บันทึกข้อมูลเรียบร้อยแล้ว"
+    ...    - กดปุ่ม OK
+    ...
+    ...    Expect Result
+    ...    7.ปิดแจ้งเตือน แสดงผล
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ไทยจ้าไทยจ้า
+    Input Text    ${tb_nameengproduct}    ${EMPTY}
+    Input Text    ${tb_startdate}    11/09/2561
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    ${EMPTY}
+    Press Key    ${tb_enddate}    \\13
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    ACCEPT    60
+    Take Screenshot    TC02_Step5_Action7.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    บันทึกข้อมูลเรียบร้อยแล้ว"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 7 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_8 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    8. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาไทย
+    ...    - เลือก/กรอกข้อมูล วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+    ...    - กดปุ่ม บันทึก
+    ...
+    ...    Expect Result
+    ...    8.ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    ...    ปุ่ม OK
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ไทยจ้าไทยจ้า
+    Input Text    ${tb_nameengproduct}    ${EMPTY}
+    Input Text    ${tb_startdate}    ${EMPTY}
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    11/10/2562
+    Press Key    ${tb_enddate}    \\13
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    LEAVE    60
+    Take Screenshot    TC02_Step5_Action8.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 8 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_9 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    9. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาไทย
+    ...    - เลือก/กรอกข้อมูล วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+    ...    - กดปุ่ม บันทึก
+    ...    - ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    ...    - กดปุ่ม OK
+    ...
+    ...    Expect Result
+    ...    9.ปิดแจ้งเตือน แสดงผล
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ไทยจ้าไทยจ้า
+    Input Text    ${tb_nameengproduct}    ${EMPTY}
+    Input Text    ${tb_startdate}    ${EMPTY}
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    11/10/2562
+    Press Key    ${tb_enddate}    \\13
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    ACCEPT    60
+    Take Screenshot    TC02_Step5_Action9.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 9 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_10 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    10. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - กดปุ่ม บันทึก
+    ...
+    ...    Expect Result
+    ...    10.ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ" ปุ่ม "OK"
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ${EMPTY}
+    Input Text    ${tb_nameengproduct}    ENGJA
+    Input Text    ${tb_startdate}    ${EMPTY}
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    ${EMPTY}
+    Press Key    ${tb_enddate}    \\13
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    LEAVE    60
+    Take Screenshot    TC02_Step5_Action10.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 10 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_11 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    11. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - กดปุ่ม บันทึก
+    ...    - ระบบแสดงแจ้งเตือน \ "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    ...    - กดปุ่ม OK
+    ...
+    ...    Expect Result
+    ...    11.ปิดแจ้งเตือน
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ${EMPTY}
+    Input Text    ${tb_nameengproduct}    ENGJA
+    Input Text    ${tb_startdate}    ${EMPTY}
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    ${EMPTY}
+    Press Key    ${tb_enddate}    \\13
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    ACCEPT    60
+    Take Screenshot    TC02_Step5_Action11.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 11 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_12 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    12. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - เลือก/กรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    ...    - กดปุ่ม บันทึก
+    ...    Expect Result
+    ...    12.ระบบแสดงแจ้งเตือน "บันทึกข้อมูลเรียบร้อยแล้ว" และ " ปุ่ม OK "
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ${EMPTY}
+    Input Text    ${tb_nameengproduct}    ENGJA
+    Input Text    ${tb_startdate}    14/09/2562
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    ${EMPTY}
+    Press Key    ${tb_enddate}    \\13
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    LEAVE    60
+    Take Screenshot    TC02_Step5_Action12.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 12 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_13 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    13. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - เลือก/กรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    ...    - กดปุ่ม บันทึก
+    ...    - ระบบแสดงแจ้งเตือน "บันทึกข้อมูลเรียบร้อยแล้ว"
+    ...    - กดปุ่ม OK
+    ...
+    ...    Expect Result
+    ...    13.ปิดแจ้งเตือน
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ${EMPTY}
+    Input Text    ${tb_nameengproduct}    ENGJA
+    Input Text    ${tb_startdate}    14/09/2562
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    ${EMPTY}
+    Press Key    ${tb_enddate}    \\13
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    ACCEPT    60
+    Take Screenshot    TC02_Step5_Action13.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 13 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_14 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    14. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - เลือก/กรอกข้อมูล วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+    ...    - กดปุ่ม บันทึก
+    ...
+    ...    Expect Result
+    ...    14."ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    ...    และ "ปุ่ม OK"
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ${EMPTY}
+    Input Text    ${tb_nameengproduct}    ENGJA
+    Input Text    ${tb_startdate}    ${EMPTY}
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    14/09/2562
+    Press Key    ${tb_enddate}    \\13
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    LEAVE    60
+    Take Screenshot    TC02_Step5_Action14.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 14 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_15 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    15. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - เลือก/กรอกข้อมูล วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+    ...    - กดปุ่ม บันทึก
+    ...    - ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    ...    - กดปุ่ม OK
+    ...
+    ...    Expect Result
+    ...    15.ปิดแจ้งเตือน
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ${EMPTY}
+    Input Text    ${tb_nameengproduct}    ENGJA
+    Input Text    ${tb_startdate}    ${EMPTY}
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    14/09/2562
+    Press Key    ${tb_enddate}    \\13
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    ACCEPT    60
+    Take Screenshot    TC02_Step5_Action15.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 15 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_16 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    16. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - กดปุ่ม บันทึก
+    ...
+    ...    Expect Result
+    ...    16."ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) ให้ถูกต้องและ "ปุ่ม OK"
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ENGINTHAI
+    Input Text    ${tb_nameengproduct}    ${EMPTY}
+    Input Text    ${tb_startdate}    ${EMPTY}
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    ${EMPTY}
+    Press Key    ${tb_enddate}    \\13
+    Textfield Should Contain    ${tb_namethaiproduct}    ENGINTHAI
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    LEAVE    60
+    Take Screenshot    TC02_Step5_Action16.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 16 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_17 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    17. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - กดปุ่ม บันทึก
+    ...    - ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) ให้ถูกต้อง"
+    ...    - กดปุ่ม OK
+    ...
+    ...    Expect Result
+    ...    17.ปิดแจ้งเตือน
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ENGINTHAI
+    Input Text    ${tb_nameengproduct}    ${EMPTY}
+    Input Text    ${tb_startdate}    ${EMPTY}
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    ${EMPTY}
+    Press Key    ${tb_enddate}    \\13
+    Textfield Should Contain    ${tb_namethaiproduct}    ENGINTHAI
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    ACCEPT    60
+    Take Screenshot    TC02_Step5_Action17.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 17 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_18 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    18. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - เลือก/กรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    ...    - กดปุ่ม บันทึก
+    ...
+    ...    Expect Result
+    ...    18.ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) ให้ถูกต้อง" และ แสดง "ปุ่ม OK"
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ENGINTHAI
+    Input Text    ${tb_nameengproduct}    ${EMPTY}
+    Input Text    ${tb_startdate}    30/11/2562
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    ${EMPTY}
+    Press Key    ${tb_enddate}    \\13
+    Textfield Should Contain    ${tb_namethaiproduct}    ENGINTHAI
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    LEAVE    60
+    Take Screenshot    TC02_Step5_Action18.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 18 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_19 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    19. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - เลือก/กรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    ...    - กดปุ่ม บันทึก
+    ...    - ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) ให้ถูกต้อง"
+    ...    - กดปุ่ม OK
+    ...
+    ...    Expect Result
+    ...    19.ปิดแจ้งเตือน
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ENGINTHAI
+    Input Text    ${tb_nameengproduct}    ${EMPTY}
+    Input Text    ${tb_startdate}    30/11/2562
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    ${EMPTY}
+    Press Key    ${tb_enddate}    \\13
+    Textfield Should Contain    ${tb_namethaiproduct}    ENGINTHAI
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    ACCEPT    60
+    Take Screenshot    TC02_Step5_Action19.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 19 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_20 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    20. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาไทย
+    ...    - กดปุ่ม บันทึก
+    ...
+    ...    Expect Result
+    ...    20.ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) และเครื่องหมายการค้า (ภาษาอังกฤษ)ให้ถูกต้อง และ
+    ...    ปุ่ม " OK "
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ENGINTHAI
+    Input Text    ${tb_nameengproduct}    ไทยอินอิ้ง
+    Input Text    ${tb_startdate}    ${EMPTY}
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    ${EMPTY}
+    Press Key    ${tb_enddate}    \\13
+    Textfield Should Contain    ${tb_namethaiproduct}    ENGINTHAI
+    Textfield Should Contain    ${tb_nameengproduct}    ไทยอินอิ้ง
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    LEAVE    60
+    Take Screenshot    TC02_Step5_Action20.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 20 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_21 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    1. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    2. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กดปุ่ม บันทึก
+    ...    3. ระบบแสดงแจ้งเตือน"กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (อังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ
+    ...    - กดปุ่ม OK
+    ...    4. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาไทย
+    ...    - กดปุ่ม บันทึก
+    ...    5. ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    ...    - กดปุ่ม OK
+    ...    6. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาไทย
+    ...    - เลือก/กรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    ...    - กดปุ่ม บันทึก
+    ...    7. ระบบแสดงแจ้งเตือน "บันทึกข้อมูลเรียบร้อยแล้ว"
+    ...    - กดปุ่ม OK
+    ...    8. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาไทย
+    ...    - เลือก/กรอกข้อมูล วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+    ...    - กดปุ่ม บันทึก
+    ...    9. ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    ...    - กดปุ่ม OK
+    ...    10. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - กดปุ่ม บันทึก
+    ...    11. ระบบแสดงแจ้งเตือน \ "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    ...    - กดปุ่ม OK
+    ...    12. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - เลือก/กรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    ...    - กดปุ่ม บันทึก
+    ...    13. ระบบแสดงแจ้งเตือน ""บันทึกข้อมูลเรียบร้อยแล้ว""
+    ...    - กดปุ่ม OK
+    ...    14. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - เลือก/กรอกข้อมูล วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+    ...    - กดปุ่ม บันทึก
+    ...    15. ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    ...    - กดปุ่ม OK
+    ...    16. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - กดปุ่ม บันทึก
+    ...    17. ระบบแสดงแจ้งเตือน \ "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) ให้ถูกต้อง"
+    ...    - กดปุ่ม OK
+    ...    18. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - เลือก/กรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    ...    - กดปุ่ม บันทึก
+    ...    19. ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) ให้ถูกต้อง"
+    ...    - กดปุ่ม OK
+    ...    20. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาไทย
+    ...    - กดปุ่ม บันทึก
+    ...    21. ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) และเครื่องหมายการค้า (ภาษาอังกฤษ)ให้ถูกต้อง"
+    ...    - กดปุ่ม OK
+    ...    22. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาไทย
+    ...    - เลือก/กรอกข้อมูล วันที่เริ่มใช้ เครื่องหมายการค้า
+    ...    - กดปุ่ม บันทึก
+    ...    23. ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) และเครื่องหมายการค้า (ภาษาอังกฤษ)ให้ถูกต้อง"
+    ...    - กดปุ่ม OK
+    ...    Expect Result
+    ...
+    ...    1.สามารถกรอก รายละเอียด Field บันทึกรายการได้
+    ...    2.ระบบแสดงแจ้งเตือน ""กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (อังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ \ ปุ่ม OK
+    ...    3.ปิดแจ้งเตือน
+    ...    4.ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    ...    ปุ่ม OK
+    ...
+    ...    "
+    ...    5.ปิดแจ้งเตือน
+    ...    6.ระบบแสดงแจ้งเตือน "บันทึกข้อมูลเรียบร้อยแล้ว""
+    ...    ปุ่ม OK"
+    ...    7.ปิดแจ้งเตือน แสดงผล
+    ...    8.ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    ...    ปุ่ม OK
+    ...
+    ...    "
+    ...    9.ปิดแจ้งเตือน แสดงผล
+    ...    10.ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    ...    ปุ่ม OK"
+    ...    11.ปิดแจ้งเตือน
+    ...    12.ระบบแสดงแจ้งเตือน "บันทึกข้อมูลเรียบร้อยแล้ว"
+    ...    - ปุ่ม OK
+    ...    13.ปิดแจ้งเตือน
+    ...    14."ระบบแสดงแจ้งเตือน "กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    ...    ปุ่ม OK
+    ...
+    ...    "
+    ...    15.ปิดแจ้งเตือน
+    ...    16."ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) ให้ถูกต้อง"
+    ...    ปุ่ม OK"
+    ...    17.ปิดแจ้งเตือน
+    ...    18.ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) ให้ถูกต้อง"
+    ...    - ปุ่ม OK
+    ...    19.ปิดแจ้งเตือน
+    ...    20.ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) และเครื่องหมายการค้า (ภาษาอังกฤษ)ให้ถูกต้อง
+    ...    -
+    ...    ปุ่ม OK
+    ...    21.ปิดแจ้งเตือน
+    ...    22. ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) และเครื่องหมายการค้า (ภาษาอังกฤษ)ให้ถูกต้อง"
+    ...
+    ...    - ปุ่ม OK
+    ...    23. ปิดแจ้งเตือน
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ENGINTHAI
+    Input Text    ${tb_nameengproduct}    ไทยอินอิ้ง
+    Input Text    ${tb_startdate}    ${EMPTY}
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    ${EMPTY}
+    Press Key    ${tb_enddate}    \\13
+    Textfield Should Contain    ${tb_namethaiproduct}    ENGINTHAI
+    Textfield Should Contain    ${tb_nameengproduct}    ไทยอินอิ้ง
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    ACCEPT    60
+    Take Screenshot    TC02_Step5_Action21.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 21 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_22 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    22. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาไทย
+    ...    - เลือก/กรอกข้อมูล วันที่เริ่มใช้ เครื่องหมายการค้า
+    ...    - กดปุ่ม บันทึก
+    ...
+    ...    Expect Result
+    ...    22. ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) และเครื่องหมายการค้า (ภาษาอังกฤษ)ให้ถูกต้อง" และ "ปุ่ม OK"
+    [Tags]    00002
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ENGINTHAI
+    Input Text    ${tb_nameengproduct}    ไทยอินอิ้ง
+    Input Text    ${tb_startdate}    30/11/2562
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    ${EMPTY}
+    Press Key    ${tb_enddate}    \\13
+    Textfield Should Contain    ${tb_namethaiproduct}    ENGINTHAI
+    Textfield Should Contain    ${tb_nameengproduct}    ไทยอินอิ้ง
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    LEAVE    60
+    Take Screenshot    TC02_Step5_Action22.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 22 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser
+
+Step_5_Action_23 แจ้งเตือนผิดตาม Test Case
+    [Documentation]    * Test Choose & Input Some Information *
+    ...    ทดสอบเลือก / กรอกเงื่อนไขบันทึกรายการบางส่วน (บันทึกรายการ)
+    ...
+    ...    Action
+    ...    23. หน้าจอ บันทึกรหัสเครื่องหมายการค้าหลัก (บันทึกรายการ)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    - กดปุ่ม ตกลง
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาไทย) : กรอกข้อมูลเป็นภาษาอังกฤษ
+    ...    - กรอกชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) : กรอกข้อมูลเป็นภาษาไทย
+    ...    - เลือก/กรอกข้อมูล วันที่เริ่มใช้ เครื่องหมายการค้า
+    ...    - กดปุ่ม บันทึก
+    ...    - ระบบแสดงแจ้งเตือน "กรุณากรอกเครื่องหมายการค้า (ภาษาไทย) และเครื่องหมายการค้า (ภาษาอังกฤษ)ให้ถูกต้อง"
+    ...    - กดปุ่ม OK
+    ...
+    ...    Expect Result
+    ...    23. ปิดแจ้งเตือน
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
+    Choose Name Of Product    0101
+    Input Text    ${tb_namethaiproduct}    ENGINTHAI
+    Input Text    ${tb_nameengproduct}    ไทยอินอิ้ง
+    Input Text    ${tb_startdate}    30/11/2562
+    Press Key    ${tb_startdate}    \\13
+    Input Text    ${tb_enddate}    ${EMPTY}
+    Press Key    ${tb_enddate}    \\13
+    Textfield Should Contain    ${tb_namethaiproduct}    ENGINTHAI
+    Textfield Should Contain    ${tb_nameengproduct}    ไทยอินอิ้ง
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า กรุณากรอกข้อมูล ชื่อเครื่องหมายการค้า (ไทย) หรือ ชื่อเครื่องหมายการค้า (ภาษาอังกฤษ) และวันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ กดปุ่ม Ok
+    ${message}=    Handle Alert    ACCEPT    60
+    Take Screenshot    TC02_Step5_Action23.jpg
+    Log    ${message}
+    Should Be Equal As Strings    ${message}    กรุณากรอกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้าให้ครบ"
+    Close Window
+    Sleep    3
+    Log To Console    Step5Action 23 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser

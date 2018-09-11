@@ -45,6 +45,7 @@ Suite Teardown    Log To Console    End Test
 Library           BuiltIn
 Library           Selenium2Library
 Library           String
+Library           Screenshot
 Resource          ../Variable/Resource_Variable.txt
 Resource          ../Keywords/ED PRC TestCase.txt
 Resource          ../Repositories/Web_Config.txt
@@ -264,9 +265,9 @@ Step_3_Action_7
     #Check ว่ามีช่องให้ใส่และเลือก ชื่อกลุ่มสินค้า
     Page Should Contain Element    ${lb_nameproductbox}
     #พิมพ์ข้อความ 0101 ใส่ฟิล ชื่อกลุ่มสินค้า
-    Input Text    ${tb_inputproduct}     0501 - รถยนต์
+    Input Text    ${tb_inputproduct}    0501 - รถยนต์
     #กดปุ่ม Enter
-    Current Frame Should Contain     0501 - รถยนต์
+    Current Frame Should Contain    0501 - รถยนต์
     Press Key    ${tb_inputproduct}    \\13
     Log To Console    Action 7 // PASS
     Capture Page Screenshot    TC02_Step3_Action7.png

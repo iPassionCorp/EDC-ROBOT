@@ -223,7 +223,7 @@ Step_4_Action_5
     Close Window
     Should Be Equal As Strings    ${message}    ต้องการลบข้อมูลหรือไม่?
     Should Be Equal As Strings    ${message2}    ลบข้อมูลไม่สำเร็จ โปรดลองใหม่อีกครั้ง
-    Log To Console    Action 5 // PASS
+    Log To Console    Step4 Action 5 // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
     Close Browser
 
@@ -253,7 +253,7 @@ Step_4_Action_6
     Take Screenshot    TC02_Step4_Action6.jpg
     Should Be Equal As Strings    ${message}    ต้องการลบข้อมูลหรือไม่?
     Should Be Equal As Strings    ${message2}    ลบข้อมูลไม่สำเร็จ โปรดลองใหม่อีกครั้ง
-    Log To Console    Action 6 // PASS
+    Log To Console    Step4 Action 6 // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
     Close Browser
 
