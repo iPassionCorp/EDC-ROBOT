@@ -39,9 +39,9 @@ Step_5_Action_1
     Open Website Trademark    ${urlmain}
     Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Save Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Sleep    5
-    Input For Search Information List    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Search Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     #เลือกข้อมูลที่ต้องการ
     Click Element    ${lb_showinformation}
     #Check ว่า ชื่อเครื่องหมายการค้าหลัก (ไทย) ในแสดงรายการ เป็นข้อความชื่อ "ไทยออย2"
@@ -58,6 +58,6 @@ Step_5_Action_1
     Sleep    5
     Delete Information List In Trademark(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Log To Console    Action 5 Step 1 // PASS
-    Capture Page Screenshot    TC01_Action5_Step1.png
+    Take Screenshot    TC03_Action5_Step1.png
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
     Close Browser

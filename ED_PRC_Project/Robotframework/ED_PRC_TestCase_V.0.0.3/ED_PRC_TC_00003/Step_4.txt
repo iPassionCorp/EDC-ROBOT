@@ -1,0 +1,64 @@
+*** Settings ***
+Documentation     *ทดสอบบันทึกรหัสเครื่องหมายการค้าหลักรอง (PRCE0003)*
+...               Action
+...               1.หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (PRCE0003)
+...               - กรอก และ เลือกข้อมูลครบถ้วน
+...               - กดปุ่ม "บันทึก"
+...               - แสดง popup ข้อความ 'บันทึกข้อมูลเรียบร้อยแล้ว'
+...               กดปุ่ม "OK"
+...
+...               Expected Result
+...               - แสดง popup ข้อความ 'บันทึกข้อมูลเรียบร้อยแล้ว และ
+...               ปุ่ม OK \ - สามารถบันทึก รหัสเครื่องหมายการค้ารองได้
+Suite Setup       Log To Console    Start Test
+Suite Teardown    Log To Console    End Test
+Library           Selenium2Library
+Library           String
+Library           BuiltIn
+Library           Screenshot
+Resource          ../Variable/Resource_Variable.txt
+Resource          ../Repositories/Web_Config.txt
+Resource          ../Keywords/ED PRC TestCase.txt
+
+*** Test Cases ***
+Step_4_Action_1
+    [Documentation]    *ทดสอบบันทึกรหัสเครื่องหมายการค้าหลักรอง (PRCE0003)*
+    ...    Action
+    ...    1.หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (PRCE0003)
+    ...    - กรอก และ เลือกข้อมูลครบถ้วน
+    ...    - กดปุ่ม "บันทึก"
+    ...    - แสดง popup ข้อความ 'บันทึกข้อมูลเรียบร้อยแล้ว'
+    ...    กดปุ่ม "OK"
+    ...
+    ...    Expected Result
+    ...    - แสดง popup ข้อความ 'บันทึกข้อมูลเรียบร้อยแล้ว และ
+    ...    ปุ่ม OK \ - สามารถบันทึก รหัสเครื่องหมายการค้ารองได้
+    [Tags]    00003
+    [Timeout]
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarksub}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[3]
+    Choose Group Of Product    0200    150
+    #ใส่ ข้อความที่ ชื่อเครื่องหมายการค้า (ไทย)
+    Input Text    ${tb_namethaiproduct}    ไทยไทยไทย
+    #ใส่ ข้อความที่ชื่อเครื่องหมายการค้า (อังกฤษ)
+    Input Text    ${tb_nameengproduct}    engengeng
+    #พิมพ์วันที่ 30/08/2561 ใส่ วันที่เริ่มใช้รหัสเครื่องหมายการค้า
+    Input Text    ${tb_startdate}    06/04/2562
+    #กดปุ่ม Enter
+    Press Key    ${tb_startdate}    \\13
+    #พิมพ์วันที่ 30/09/2561 ใส่ วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
+    Input Text    ${tb_enddate}    06/05/2562
+    #กดปุ่ม Enter
+    Press Key    ${tb_enddate}    \\13
+    #กดปุ่ม บันทึก
+    Click Element    ${bt_savebuttom}
+    #Pop up ขึ้นว่า บันทึกข้อมูลเรียบร้อยแล้วกดปุ่ม Ok
+    ${message}=    Handle Alert    ACCEPT    10
+    LOG    ${message}
+    Should Be Equal As Strings    ${message}    บันทึกข้อมูลเรียบร้อยแล้ว
+    Sleep    3
+    Take Screenshot    TC03_Step4_Action1.jpg
+    Delete Information List In Trademark(Main)    ไทยไทยไทย    engengeng    06/04/2562    06/05/2562
+    Log To Console    Step 4 Action 1 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Close Browser

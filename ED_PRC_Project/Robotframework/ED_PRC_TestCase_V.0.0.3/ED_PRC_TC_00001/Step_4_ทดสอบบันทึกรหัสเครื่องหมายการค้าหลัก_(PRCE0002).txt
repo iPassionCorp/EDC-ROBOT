@@ -34,7 +34,7 @@ Step_4_Action_1
     Open Website Trademark    ${urlmain}
     Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Save Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Capture Page Screenshot    TC01_Step4_Action1.png
     Sleep    5
     Delete Information List In Trademark(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
@@ -52,7 +52,7 @@ Step_4_Action_2
     Open Website Trademark    ${urlmain}
     Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Save Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Delete Information List In Trademark(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Log To Console    Step4 Action2 // PASS
     Capture Page Screenshot    TC01_Step4_Action2.png

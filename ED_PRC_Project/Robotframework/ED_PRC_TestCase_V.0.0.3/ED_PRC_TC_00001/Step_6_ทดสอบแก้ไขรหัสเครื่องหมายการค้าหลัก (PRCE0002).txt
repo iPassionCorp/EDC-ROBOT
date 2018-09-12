@@ -40,8 +40,8 @@ Step_6_Action_1
     Open Website Trademark    ${urlmain}
     Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
-    Input For Search Information List    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Save Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Search Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Log To Console    Click Search Buttom PASS
     #Click เพื่อดูข้อมูลนั้นๆ    #jquery:td:contains('ไทยออย2'):eq(0)
     Click Element    ${lb_showinformation}
@@ -91,11 +91,11 @@ Step_6_Action_2
     Open Website Trademark    ${urlmain}
     Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
-    Input For Search Information List    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Save Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Search Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Click Element    ${lb_showinformation}
     #Click เพื่อดูข้อมูลนั้นๆ    #jquery:td:contains('ไทยออย2'):eq(0)
-    Input For Edit Information List In Trademark    ไทยออย3    ThaiOil3    29/08/2561    29/09/2561
+    Input For Edit Information List In Trademark(Main)    ไทยออย3    ThaiOil3    29/08/2561    29/09/2561
     Log To Console    Step6 Action2 // PASS
     Capture Page Screenshot    TC01_Step6_Action2.png
     Delete Information List In Trademark(Main)    ไทยออย3    ThaiOil3    29/08/2561    29/09/2561
@@ -119,11 +119,11 @@ Step_6_Action_3
     Open Website Trademark    ${urlmain}
     Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
-    Input For Search Information List    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Save Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Search Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Click Element    ${lb_showinformation}
     #Click เพื่อดูข้อมูลนั้นๆ    #jquery:td:contains('ไทยออย2'):eq(0)
-    Input For Edit Information List In Trademark    ไทยออย3    ThaiOil3    29/08/2561    29/09/2561
+    Input For Edit Information List In Trademark(Main)    ไทยออย3    ThaiOil3    29/08/2561    29/09/2561
     Sleep    5
     Click Element    ${lb_showinformation}
     #Check ว่า ชื่อเครื่องหมายการค้าหลัก (ไทย) ในแสดงรายการ เป็นข้อความชื่อ "ไทยออย2"

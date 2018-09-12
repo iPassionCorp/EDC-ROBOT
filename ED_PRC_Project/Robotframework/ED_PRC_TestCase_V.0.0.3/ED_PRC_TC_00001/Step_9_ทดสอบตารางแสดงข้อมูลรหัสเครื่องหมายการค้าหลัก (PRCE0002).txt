@@ -41,7 +41,7 @@ Step_9_Action_1
     Open Website Trademark    ${urlmain}
     Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input For Check Table Information list    กก    aaa    08/08/2561    28/08/2561
+    Input For Check Table Information List(Sub)    กก    aaa    08/08/2561    28/08/2561
     #Click ปุ่มค้นหา
     Click Button    ${bt_searchbuttom}
     Sleep    3
@@ -73,7 +73,7 @@ Step_9_Action_2
     Open Website Trademark    ${urlmain}
     Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input For Check Table Information list    กก    aaa    08/08/2561    28/08/2561
+    Input For Check Table Information List(Sub)    กก    aaa    08/08/2561    28/08/2561
     #Click ปุ่มค้นหา
     Click Button    ${bt_searchbuttom}
     Sleep    3
@@ -120,7 +120,7 @@ Step_9_Action_3
     Open Website Trademark    ${urlmain}
     Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input For Check Table Information list    กก    aaa    08/08/2561    28/08/2561
+    Input For Check Table Information List(Sub)    กก    aaa    08/08/2561    28/08/2561
     #Click ปุ่มค้นหา
     Click Button    ${bt_searchbuttom}
     Sleep    3
@@ -166,7 +166,7 @@ Step_9_Action_4
     Open Website Trademark    ${urlmain}
     Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input For Check Table Information list    กก    aaa    08/08/2561    28/08/2561
+    Input For Check Table Information List(Sub)    กก    aaa    08/08/2561    28/08/2561
     #Click ปุ่มค้นหา
     Click Button    ${bt_searchbuttom}
     Sleep    3
@@ -196,7 +196,7 @@ Step_9_Action_4
     Open Website Trademark    ${urlmain}
     Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input For Search Information List    ${EMPTY}    ${EMPTY}    ${EMPTY}    ${EMPTY}
+    Input For Search Information List(Main)    ${EMPTY}    ${EMPTY}    ${EMPTY}    ${EMPTY}
     Log To Console    Click Buttom "Search" // PASS
     #เช็คจำนวนหน้าปัจจุบัน
     ${test2}=    Get Text    ${lb_showinfoofitemperpage}
@@ -255,7 +255,7 @@ Step_9_Action_5
     Open Website Trademark    ${urlmain}
     Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input For Check Table Information list    กก    aaa    08/08/2561    28/08/2561
+    Input For Check Table Information List(Sub)    กก    aaa    08/08/2561    28/08/2561
     #Click ปุ่มค้นหา
     Click Button    ${bt_searchbuttom}
     Sleep    3

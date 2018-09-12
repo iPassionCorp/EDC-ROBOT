@@ -37,6 +37,8 @@ Step_2_Action_1_ทดสอบเลือกกลุ่มสินค้า�
     Sleep    2.5
     # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
     Click Element    ${lb_nameproductmain}
+    Input Text    ${tb_inputproduct}    0201
+    Input Text    ${tb_inputproduct}    \\13
     Sleep    3
     Log To Console    Step 2 Action 1 // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}

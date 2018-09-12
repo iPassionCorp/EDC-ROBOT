@@ -1,0 +1,126 @@
+*** Settings ***
+Documentation     *ทดสอบเลือกกลุ่มสินค้ารอง (PRCE0003)*
+...               Action
+...               1. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (เครื่องหมายการค้ารอง)
+...               - เลือกชื่อกลุ่มสินค้า
+...               2. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (เครื่องหมายการค้ารอง)
+...               - เลือกเครื่องหมายการค้าหลัก
+...               3. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (เครื่องหมายการค้ารอง)
+...               - กดปุ่ม ตกลง
+...
+...               Expected Result
+...               1. สามารถเลือก ชื่อกลุ่มสินค้าได้
+...               2. สามารถเลือก เครื่องหมายการค้าหลักได้
+...               3. สามารถกรอก รายละเอียด Field บันทึกรายการได้
+Suite Setup       Log To Console    Start Test
+Suite Teardown    Log To Console    End Test
+Library           Selenium2Library
+Library           String
+Library           Screenshot
+Library           BuiltIn
+Resource          ../Keywords/ED PRC TestCase.txt
+Resource          ../Repositories/Web_Config.txt
+Resource          ../Variable/Resource_Variable.txt
+
+*** Test Cases ***
+Step_2_Action_1
+    [Documentation]    *ทดสอบเลือกกลุ่มสินค้ารอง (PRCE0003)*
+    ...    Action
+    ...    1. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (เครื่องหมายการค้ารอง)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...
+    ...    Expected Result
+    ...    1. สามารถเลือก ชื่อกลุ่มสินค้าได้
+    [Tags]    00003
+    [Template]
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarksub}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[3]
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    Sleep    2.5
+    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
+    Click Element    ${lb_nameproductmain}
+    Sleep    3
+    Input Text    ${tb_inputproduct}    0201
+    Press Key    ${tb_inputproduct}    \\13
+    Sleep    3
+    Log To Console    Step 2 Action 1 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Capture Page Screenshot    TC03_Step2_Action1.png
+    Close Browser
+
+Step_2_Action_2
+    [Documentation]    *ทดสอบเลือกกลุ่มสินค้ารอง (PRCE0003)*
+    ...    Action
+    ...    1. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (เครื่องหมายการค้ารอง)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    2. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (เครื่องหมายการค้ารอง)
+    ...    - เลือกเครื่องหมายการค้าหลัก
+    ...    3. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (เครื่องหมายการค้ารอง)
+    ...    - กดปุ่ม ตกลง
+    ...
+    ...    Expected Result
+    ...    1. สามารถเลือก ชื่อกลุ่มสินค้าได้
+    ...    2. สามารถเลือก เครื่องหมายการค้าหลักได้
+    ...    3. สามารถกรอก รายละเอียด Field บันทึกรายการได้
+    [Tags]    00003
+    [Template]
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarksub}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[3]
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    Sleep    2.5
+    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
+    Click Element    ${lb_nameproductmain}
+    Sleep    3
+    Input Text    ${tb_inputproduct}    0201
+    Press Key    ${tb_inputproduct}    \\13
+    Log    Can Input Name Of Product
+    Sleep    3
+    Click Element    ${lb_markmain}
+    Input Text    ${tb_markmain}    150
+    Press Key    ${tb_markmain}    \\13
+    Sleep    3
+    Log    Can Input Mark Main
+    Log To Console    Step 2 Action 2 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Take Screenshot    TC03_Step2_Action2.jpg
+    Close Browser
+
+Step_2_Action_3
+    [Documentation]    *ทดสอบเลือกกลุ่มสินค้ารอง (PRCE0003)*
+    ...    Action
+    ...    1. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (เครื่องหมายการค้ารอง)
+    ...    - เลือกชื่อกลุ่มสินค้า
+    ...    2. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (เครื่องหมายการค้ารอง)
+    ...    - เลือกเครื่องหมายการค้าหลัก
+    ...    3. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (เครื่องหมายการค้ารอง)
+    ...    - กดปุ่ม ตกลง
+    ...
+    ...    Expected Result
+    ...    1. สามารถเลือก ชื่อกลุ่มสินค้าได้
+    ...    2. สามารถเลือก เครื่องหมายการค้าหลักได้
+    ...    3. สามารถกรอก รายละเอียด Field บันทึกรายการได้
+    [Tags]    00003
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarksub}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[3]
+    Page Should Contain    เครื่องหมายการค้าหลัก
+    Page Should Contain    ชื่อกลุ่มสินค้า
+    Sleep    2.5
+    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
+    Click Element    ${lb_nameproductmain}
+    Sleep    3
+    Input Text    ${tb_inputproduct}    0200
+    Press Key    ${tb_inputproduct}    \\13
+    Log    Can Input Name Of Product
+    Sleep    3
+    Click Element    ${lb_markmain}
+    Input Text    ${tb_inputproduct}    150
+    Press Key    ${tb_inputproduct}    \\13
+    Log    Can Input Mark Main
+    Sleep    2
+    Click Element    ${bt_submitbuttom}
+    Log To Console    Step 2 Action 3 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Capture Page Screenshot    TC03_Step2_Action3.jpg
+    Close Browser

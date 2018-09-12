@@ -1,185 +1,138 @@
 *** Settings ***
 Documentation     * ทดสอบการบันทึกรหัสเครื่องหมายการค้ารองในกรณี Happy Flow *
 Suite Setup       Log To Console    Start Test
-Suite Teardown
+Suite Teardown    Log To Console    End Test
 Library           Selenium2Library
 Library           BuiltIn
 Library           String
 Resource          ../Keywords/ED PRC TestCase.txt
 Resource          ../Variable/Resource_Variable.txt
+Resource          ../Repositories/Web_Config.txt
+Library           Screenshot
 
 *** Test Cases ***
-ED_00003_Step_1 ยังไม่เสร็จ
+Step_1_Action_1
     [Documentation]    * Check Main Website Sub Trademark (PRCE0002) *
     ...    ตรวจสอบหน้าจอ บันทึกรหัส เครื่องหมายการค้ารอง (PRCE0002)
     ...    Action
     ...    1. หน้าจอ กรมสรรพสามิตร
-    ...
     ...    1.1 กดปุ่ม/Tab กำหนดมูลค่า
-    ...
     ...    1.2 กดปุ่ม/Tab บันทึกข้อมูลหลัก
     ...    1.3 กดปุ่ม/Tab บันทึกรหัสเครื่องหมายการค้ารอง
     ...
     ...    Expected Result
     ...    ระบบแสดงหน้าจอ บันทึกรหัสเครื่องหมายการค้ารอง ประกอบด้วย
     ...    1. Tab ข้อมูล
-    ...
-    ...    - ระบบงานวิชาการกำหนดมูลค่า \ v0.0.30-27AUG18
-    ...
+    ...    - ระบบงานวิชาการกำหนดมูลค่า v0.0.30-27AUG18
     ...    - บันทึกรหัสเครื่องหมายการค้ารอง (PRCE0003)
-    ...
     ...    - หน้าหลัก
-    ...
     ...    - กำหนดมูลค่า
-    ...
-    ...    - บันทึกข้อมูลหลัก \
-    ...
-    ...    - บันทึกรหัสเครื่องหมายการค้ารอง
-    ...
+    ...    - บันทึกข้อมูลหลัก \ - บันทึกรหัสเครื่องหมายการค้ารอง
     ...    - ผู้ใช้งาน :
-    ...
     ...    - หน่วยงาน :
-    ...
     ...    - ออกจากระบบ
     ...
     ...    2. เครื่องหมายการค้ารอง
-    ...
     ...    - ชื่อกลุ่มสินค้า
-    ...
     ...    - เครื่องหมายการค้าหลัก
-    ...
     ...    - ปุ่มตกลง
     ...
     ...    3. บันทึกรายการ
-    ...
     ...    - กลุ่มสินค้า :
-    ...
     ...    - รหัสเครื่องหมายการค้ารอง
-    ...
     ...    - ชื่อเครื่องหมายการค้า (ไทย)
-    ...
     ...    - ชื่อเครื่องหมายการค้า (อังกฤษ)
-    ...
     ...    - วันที่เริ่มใช้รหัสเครื่องหมายการค้า
-    ...
     ...    - วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
-    ...
     ...    - ปุ่มค้นหา
-    ...
     ...    - ปุ่มบันทึก
-    ...
     ...    - ปุ่มลบ
-    ...
     ...    - ปุ่มล้างข้อมูล
     ...
     ...    4. ตารางแสดงรายการ
-    ...
     ...    - รหัสเครื่องหมายการค้ารอง
-    ...
     ...    - ชื่อเครื่องหมายการค้ารอง (ไทย)
-    ...
     ...    - ชื่อเครื่องหมายการค้ารอง (อังกฤษ)
-    ...
     ...    - วันที่เริ่มใช้รหัสเครื่องหมายการค้า
-    ...
     ...    - วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า
-    ...
     ...    - dropdown list เลือกจำนวนหน้า
-    ...
     ...    - รายการแสดงจำนวนหน้าที่เลือก
-    ...
     ...    - ปุ่มก่อน...ถัดไป
-    ...
     ...    - ปุ่มจบการทำงาน
     [Tags]    00003
     Open Website Trademark    ${urlmain}
-    Choose Tab For Work    ${titletrademarkmain}    @{Tabsidebar1}[0]    @{Tabsidebar1}[1]    @{Tabsidebar1}[3]
-    Page Should Contain    เครื่องหมายการค้ารอง
+    Choose Tab For Work    ${txt_titletrademarksub}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[3]
+    #Check element ตรงระบบงานวิชาการกำหนดมูลค่า v0.0.30-27AUG18
+    Page Should Contain Element    ${lb_version}
+    Page Should Contain    บันทึกรหัสเครื่องหมายการค้ารอง (PRCE0003)
+    Page Should Contain    หน้าหลัก
+    Page Should Contain    กำหนดมูลค่า
+    Page Should Contain    บันทึกข้อมูลหลัก
+    Page Should Contain    บันทึกรหัสเครื่องหมายการค้ารอง
+    Page Should Contain    ผู้ใช้งาน
+    Page Should Contain    หน่วยงาน
+    Page Should Contain    ออกจากระบบ
+    Log To Console    Check Action 1.Tab Data \ // PASS
     Page Should Contain    ชื่อกลุ่มสินค้า
     Page Should Contain    เครื่องหมายการค้าหลัก
-    #Check ปุ่ม buttom " ตกลง "
-    Page Should Contain Button    ${submitbuttom}
-    Log To Console    Check Buttom "Submit" \ - \ PASS
+    Page Should Contain Button    ${bt_submitbuttom}
+    Log To Console    Check " 2.Trademark(Sub) // PASS
+    Page Should Contain    บันทึกรายการ
     Page Should Contain    กลุ่มสินค้า
     Page Should Contain    รหัสเครื่องหมายการค้ารอง
-    Page Should Contain    รหัสเครื่องหมายการค้า
     Page Should Contain    ชื่อเครื่องหมายการค้ารอง (ไทย)
     Page Should Contain    ชื่อเครื่องหมายการค้ารอง (อังกฤษ)
     Page Should Contain    วันที่เริ่มใช้รหัสเครื่องหมายการค้ารอง
     Page Should Contain    วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้ารอง
     # Check Buttom บันทึก
-    Page Should Contain Button    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[2]
+    Page Should Contain Button    ${bt_savebuttom}
     Log To Console    Check Buttom " Save " \ - \ PASS
     # Check Buttom ลบ
-    Page Should Contain Button    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[3]
+    Page Should Contain Button    ${bt_deletebuttom}
     Log To Console    Check Buttom " Delete " - PASS
     # Check Buttom ค้นหา
-    Page Should Contain Button    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[1]
+    Page Should Contain Button    ${bt_searchbuttom}
     Log To Console    Check Buttom " Search " - PASS
     # Check Buttom ล้างข้อมูล
-    Page Should Contain Button    //*[@id="content"]/app-trademark/div/div/div[2]/div[3]/div[6]/div/div/button[4]
+    Page Should Contain Button    ${bt_cleardatabuttom}
     Log To Console    Check Buttom " Clear Data " - PASS
+    Log To Console    Check 3. Save List // PASS
+    Page Should Contain    แสดงรายการ
+    #Check ปุ่ม รหัสเครื่องหมายการค้าหลัก ด้านล่าง
+    Page Should Contain Element    @{lb_maintable}[0]
+    #Check ปุ่ม รหัสเครื่องหมายการค้าหลัก (ไทย) ด้านล่าง
+    Page Should Contain Element    @{lb_maintable}[1]
+    #Check ปุ่ม รหัสเครื่องหมายการค้าหลัก (อังกฤษ) ด้านล่าง
+    Page Should Contain Element    @{lb_maintable}[2]
+    #Check ปุ่ม วันที่เริ่มใช้รหัสเรื่องหมายการค้า ด้านล่าง
+    Page Should Contain Element    @{lb_maintable}[3]
+    #Check ปุ่ม วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า ด้านล่าง
+    Page Should Contain Element    @{lb_maintable}[4]
     # - Check dropdown list เลือกจำนวนหน้า
-    Page Should Contain Element    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[1]/mat-form-field
+    Page Should Contain Element    ${lb_selectitemperpage}
     Log To Console    Check Drop Down List \ - \ PASS
     # - Check รายการแสดงจำนวนหน้าที่เลือก
-    Page Should Contain Element    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/div
+    Page Should Contain Element    ${lb_showinfoofitemperpage}
     Log To Console    Check Show Number Page - \ PASS
     #check ปุ่ม l<
-    Page Should Contain Element    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/button[1]
+    Page Should Contain Element    ${bt_firstpagebuttom}
     Log To Console    Check Buttom l< \ \ \ - \ PASS
     #check ปุ่ม <
-    Page Should Contain Element    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/button[2]
+    Page Should Contain Element    ${bt_previouspagebuttom}
     Log To Console    Check Buttom < \ \ - PASS
     #check ปุ่ม >
-    Page Should Contain Element    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/button[3]
+    Page Should Contain Element    ${bt_nextpagebuttom}
     Log To Console    Check Buttom > \ - \ PASS
     #check ปุ่ม >l
-    Page Should Contain Element    //*[@id="content"]/app-trademark/div/div/div[3]/div[2]/mat-paginator/div/div[2]/button[4]
+    Page Should Contain Element    ${bt_lastpagebuttom}
     Log To Console    Check Buttom >l \ - \ PASS
+    #Checkว่ามีปุ่ม จบการทำงาน
+    Page Should Contain Element    ${bt_finishjobbuttom}
+    Log To Console    Check 4. Information Table \\ PASS
+    Log To Console    Step 1 Action 1 \ // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Take Screenshot    TC03_Step1_Action1.png
     Close Browser
     [Teardown]
-
-ED_00003_Step_2 ยังไม่เสร็จ
-    [Documentation]    ทดสอบเลือกกลุ่มสินค้ารอง (PRCE0003)
-    ...    - เลือกชื่อกลุ่มสินค้า
-    ...    - เลือกเครื่องหมายการค้าหลัก
-    ...    - กดปุ่ม ตกลง
-    ...    - กดปุ่ม ล้าง
-    [Tags]    00003
-    [Template]
-    Open Website Trademark(Sub)
-    Page Should Contain    รหัสเครื่องหมายการค้ารอง
-    Sleep    2.5
-    # Click tab ชื่อกลุ่มสินค้าให้โชว์ช่อง Search เพื่อกรอก รายละเอียดในฟิลได้
-    Click Element    //*[@id="content"]/app-trademark/div/div/div[1]/div[2]/div[1]/div[2]/span/span[1]/span
-    Log To Console    Can Click Search Product \ - PASS
-    Sleep    3
-    #พิมพ์ข้อความ 0101 - น้ำมันและผลิตภัณท์น้ำมัน ใส่ฟิล ชื่อกลุ่มสินค้า
-    Input Text    xpath=/html/body/span/span/span[1]/input    0101 - น้ำมันและผลิตภัณฑ์น้ำมัน
-    #กดปุ่ม Enter
-    Sleep    3
-    Press Key    xpath=/html/body/span/span/span[1]/input    \\13
-    Log To Console    Can Input Text "0101 - น้ำมันและผลิตภัณฑ์น้ำมัน "
-    #พิมพ์ข้อความ 124 - เทส ใส่ช่องเครื่องหมายการค้าหลัก
-    Click Element    //*[@id="content"]/app-trademark/div/div/div[1]/div[2]/div[2]/div[2]/span/span[1]/span
-    Sleep    3
-    Input Text    xpath=/html/body/span/span/span[1]/input    124 - เทส
-    Sleep    3
-    Press Key    xpath=/html/body/span/span/span[1]/input    \\13
-    Log To Console    Can Input Text "124 - เทส"
-    #กดปุ่มตกลง
-    Click Button    //*[@id="content"]/app-trademark/div/div/div[1]/div[2]/div[2]/div[3]/button
-    Sleep    5
-    Log to Console    Can Click Submit Buttom
-    #ยังไม่มีปุ่มล้าง
-    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
-    Close Browser
-
-ED_00003_Step_3 ยังไม่เสร็จ
-    [Tags]    00003
-    Open Website Trademark(Sub)
-    Choose Name Of Product
 
 *** Keywords ***

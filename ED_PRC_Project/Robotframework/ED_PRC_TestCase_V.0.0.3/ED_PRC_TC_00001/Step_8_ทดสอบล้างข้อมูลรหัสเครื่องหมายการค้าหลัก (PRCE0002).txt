@@ -25,7 +25,7 @@ Step_8_ทดสอบล้างข้อมูลรหัสเครื่�
     Open Website Trademark    ${urlmain}
     Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Save Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     #Click ปุ่มล้างข้อมูล
     Click Element    ${bt_cleardatabuttom}
     # ช่อง รหัสเครื่องหมายการค้า ต้องไม่มีตัวอักษร (ไทย)

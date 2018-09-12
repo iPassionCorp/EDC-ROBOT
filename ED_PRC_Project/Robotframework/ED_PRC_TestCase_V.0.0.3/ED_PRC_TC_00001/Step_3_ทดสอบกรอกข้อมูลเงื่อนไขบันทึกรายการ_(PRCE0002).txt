@@ -78,7 +78,7 @@ Step_3_Action_3
     Choose Name Of Product    0101
     Input Text    ${tb_startdate}    25/10/2561
     Sleep    3
-    Log To Console    Step 3 Action 1 // PASS
+    Log To Console    Step 3 Action 3 // PASS
     Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
     Capture Page Screenshot    TC01_Step3_Action3.png
     Close Browser

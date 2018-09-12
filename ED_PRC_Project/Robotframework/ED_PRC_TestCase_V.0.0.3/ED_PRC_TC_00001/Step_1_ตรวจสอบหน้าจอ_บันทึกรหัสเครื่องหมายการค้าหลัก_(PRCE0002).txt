@@ -155,15 +155,15 @@ Step_1_Action_1_หน้าจอกรมสรรพสามิตร
     Log To Console    Check 3. Save List // PASS
     Page Should Contain    แสดงรายการ
     #Check ปุ่ม รหัสเครื่องหมายการค้าหลัก ด้านล่าง
-    Page Should Contain Element    ${lb_maintable1}
+    Page Should Contain Element    @{lb_maintable}[0]
     #Check ปุ่ม รหัสเครื่องหมายการค้าหลัก (ไทย) ด้านล่าง
-    Page Should Contain Element    ${lb_maintable2}
+    Page Should Contain Element    @{lb_maintable}[1]
     #Check ปุ่ม รหัสเครื่องหมายการค้าหลัก (อังกฤษ) ด้านล่าง
-    Page Should Contain Element    ${lb_maintable3}
+    Page Should Contain Element    @{lb_maintable}[2]
     #Check ปุ่ม วันที่เริ่มใช้รหัสเรื่องหมายการค้า ด้านล่าง
-    Page Should Contain Element    ${lb_maintable4}
+    Page Should Contain Element    @{lb_maintable}[3]
     #Check ปุ่ม วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้า ด้านล่าง
-    Page Should Contain Element    ${lb_maintable5}
+    Page Should Contain Element    @{lb_maintable}[4]
     # - Check dropdown list เลือกจำนวนหน้า
     Page Should Contain Element    ${lb_selectitemperpage}
     Log To Console    Check Drop Down List \ - \ PASS

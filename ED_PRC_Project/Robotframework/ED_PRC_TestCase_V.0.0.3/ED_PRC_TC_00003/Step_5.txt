@@ -1,0 +1,11 @@
+*** Settings ***
+Library           Selenium2Library
+Library           String
+Library           Screenshot
+Library           BuiltIn
+Resource          ../Repositories/Web_Config.txt
+Resource          ../Keywords/ED PRC TestCase.txt
+Resource          ../Variable/Resource_Variable.txt
+
+*** Test Cases ***
+Step_5

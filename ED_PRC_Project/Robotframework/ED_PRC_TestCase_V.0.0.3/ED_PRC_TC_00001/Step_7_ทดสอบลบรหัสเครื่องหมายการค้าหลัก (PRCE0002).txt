@@ -50,8 +50,8 @@ Step_7_Action_1 ทดสอบเลือกข้อมูลเพื่อ�
     Open Website Trademark    ${urlmain}
     Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
-    Input For Search Information List    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Save Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Search Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     Click Element    ${lb_showinformation}
     Table Should Contain    ${tb_namethaiproduct}    ไทยออย2
     Table Should Contain    ${tb_nameengproduct}    ThaiOil2
@@ -78,8 +78,8 @@ Step_7_Action_2_กดปุ่ม_ลบ
     Open Website Trademark    ${urlmain}
     Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
-    Input For Search Information List    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Save Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Search Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     #คลิกดูข้อมูล
     Click Element    ${lb_showinformation}
     #กดลบข้อมูล
@@ -110,8 +110,8 @@ Step_7_Action_3_กดปุ่ม_OK
     Open Website Trademark    ${urlmain}
     Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
-    Input For Search Information List    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Save Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Search Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     #คลิกดูข้อมูล
     Click Element    ${lb_showinformation}
     #กดลบข้อมูล
@@ -146,8 +146,8 @@ Step_7_Action_4_กดปุ่ม_Cancel
     Open Website Trademark    ${urlmain}
     Choose Tab For Work    ${txt_titletrademarkmain}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[2]
     Choose Name Of Product    0101
-    Input For Save Information list    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
-    Input For Search Information List    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Save Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
+    Input For Search Information List(Main)    ไทยออย2    ThaiOil2    30/08/2561    30/09/2561
     #คลิกดูข้อมูล
     Click Element    ${lb_showinformation}
     #กดลบข้อมูล

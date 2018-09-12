@@ -1,0 +1,114 @@
+*** Settings ***
+Documentation     *ทดสอบเลือกกลุ่มสินค้ารอง (PRCE0003)*
+...               Action
+...               2. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (เครื่องหมายการค้ารอง)
+...               - เลือกเครื่องหมายการค้าหลัก
+...
+...               Expected Result
+...               2. สามารถเลือก เครื่องหมายการค้าหลักได้
+Suite Setup       Log To Console    Start Test
+Suite Teardown    Log To Console    End Test
+Library           Selenium2Library
+Library           String
+Library           BuiltIn
+Library           Screenshot
+Resource          ../Keywords/ED PRC TestCase.txt
+Resource          ../Repositories/Web_Config.txt
+Resource          ../Variable/Resource_Variable.txt
+
+*** Test Cases ***
+Step_3_Action_1
+    [Documentation]    * ทดสอบเลือกกลุ่มสินค้ารอง (PRCE0003) *
+    ...    Action
+    ...    1. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (บันทึกรายการ)
+    ...    Field บันทึกรายการ
+    ...    - กรอกชื่อเครื่องหมายการค้ารอง (ไทย)
+    ...    2. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (บันทึกรายการ)
+    ...    Field บันทึกรายการ
+    ...    - กรอกชื่อเครื่องหมายการค้ารอง (อังกฤษ)
+    ...    3. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (บันทึกรายการ) \ Field บันทึกรายการ
+    ...    - กรอก/เลือก ข้อมูล วัน เดือน ปี ที่เริ่มใช้รหัสเครื่องหมายการค้ารอง
+    ...    4. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (บันทึกรายการ) \ Field บันทึกรายการ
+    ...    - กรอก/เลือก ข้อมูล วัน เดือน ปี ที่สิ้นสุดใช้รหัสเครื่องหมายการค้ารอง"
+    ...
+    ...    Expected Result
+    ...    1. สามารถกรอก ข้อมูลเป็นภาษาไทยได้
+    ...    2. สามารถกรอก ข้อมูลเป็นภาษาอังกฤษได้
+    ...    3. สามารถกรอกหรือเลือกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้ารองได้
+    ...    4. สามารถกรอกหรือเลือกข้อมูล วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้ารองได้
+    [Tags]    00003
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarksub}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[3]
+    Choose Group Of Product    0200    150
+    Element Text Should Be    ${lb_groupproduct}    0200 - เครื่องดื่มและเครื่องขายเครื่องดื่ม
+    Input Text    ${tb_namethaiproduct}    ภาษาไทย
+    Textfield Should Contain    ${tb_namethaiproduct}    ภาษาไทย
+    Sleep    3
+    Log To Console    Step 3 Action 1 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Capture Page Screenshot    TC03_Step3_Action1.jpg
+    Close Browser
+
+Step_3_Action_2
+    [Documentation]    * ทดสอบเลือกกลุ่มสินค้ารอง (PRCE0003) *
+    ...    Action
+    ...    2. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (บันทึกรายการ)
+    ...    Field บันทึกรายการ
+    ...    - กรอกชื่อเครื่องหมายการค้ารอง (อังกฤษ)
+    ...
+    ...    Expected Result
+    ...    2. สามารถกรอก ข้อมูลเป็นภาษาอังกฤษได้
+    [Tags]    00003
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarksub}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[3]
+    Choose Group Of Product    0200    150
+    Element Text Should Be    ${lb_groupproduct}    0200 - เครื่องดื่มและเครื่องขายเครื่องดื่ม
+    Input Text    ${tb_nameengproduct}    ENGJA
+    Textfield Should Contain    ${tb_nameengproduct}    ENGJA
+    Sleep    3
+    Log To Console    Step 3 Action 2 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Take Screenshot    TC03_Step3_Action2.jpg
+    Close Browser
+
+Step_3_Action_3
+    [Documentation]    * ทดสอบเลือกกลุ่มสินค้ารอง (PRCE0003) *
+    ...    Action
+    ...    3. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (บันทึกรายการ) \ Field บันทึกรายการ
+    ...    - กรอก/เลือก ข้อมูล วัน เดือน ปี ที่เริ่มใช้รหัสเครื่องหมายการค้ารอง
+    ...
+    ...    Expected Result
+    ...    3. สามารถกรอกหรือเลือกข้อมูล วันที่เริ่มใช้รหัสเครื่องหมายการค้ารองได้
+    [Tags]    00003
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarksub}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[3]
+    Choose Group Of Product    0200    150
+    Element Text Should Be    ${lb_groupproduct}    0200 - เครื่องดื่มและเครื่องขายเครื่องดื่ม
+    Input Text    ${tb_startdate}    20/11/2562
+    Textfield Should Contain    ${tb_startdate}    20/11/2562
+    Sleep    3
+    Log To Console    Step 3 Action 3 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Take Screenshot    TC03_Step3_Action3.jpg
+    Close Browser
+
+Step_3_Action_4
+    [Documentation]    * ทดสอบเลือกกลุ่มสินค้ารอง (PRCE0003) *
+    ...    Action
+    ...    4. หน้าจอ การเข้าใช้งานระบบบันทึกรหัสเครื่องหมายการค้ารอง (บันทึกรายการ) \ Field บันทึกรายการ
+    ...    - กรอก/เลือก ข้อมูล วัน เดือน ปี ที่สิ้นสุดใช้รหัสเครื่องหมายการค้ารอง"
+    ...
+    ...    Expected Result
+    ...    4. สามารถกรอกหรือเลือกข้อมูล วันที่สิ้นสุดใช้รหัสเครื่องหมายการค้ารองได้
+    [Tags]    00003
+    Open Website Trademark    ${urlmain}
+    Choose Tab For Work    ${txt_titletrademarksub}    @{lb_tabsidebar1}[0]    @{lb_tabsidebar1}[1]    @{lb_tabsidebar1}[3]
+    Choose Group Of Product    0200    150
+    Element Text Should Be    ${lb_groupproduct}    0200 - เครื่องดื่มและเครื่องขายเครื่องดื่ม
+    Input Text    ${tb_enddate}    20/11/2562
+    Textfield Should Contain    ${tb_enddate}    20/11/2562
+    Sleep    3
+    Log To Console    Step 3 Action 4 // PASS
+    Log To Console    End Test , Namchai.S user RunCheck This Test On %{os}
+    Take Screenshot    TC03_Step3_Action4.jpg
+    Close Browser
